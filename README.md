@@ -8,6 +8,7 @@ Languages used in this project:
   JavaScript
   HTML
   CSS
+    Bootstrap
   
 #Steps to creating the project
 0.1. Create a user database
