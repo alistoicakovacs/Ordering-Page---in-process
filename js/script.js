@@ -24,14 +24,15 @@ loginButton.addEventListener("click", function (element) {
 	// //testing
 	document.querySelector(".login-container").classList.add("hidden");
 	document.querySelector(".item-container").classList.remove("hidden");
-	
 	// users.forEach(function(element) {
+		
 	// 	if (username.value === element.username && password.value === element.password) {
 	// 		document.querySelector('.login-container').classList.add('hidden')
 	// 		document.querySelector(".item-container").classList.remove("hidden");
 	// 	} else {
 	// 		alert("Incorrect username or password");
 	// }});
+	showItems();
 });
 
 /////////////////////////////////////////////////
@@ -44,6 +45,45 @@ loginButton.addEventListener("click", function (element) {
 // List items - filter 
 	// Show picture on hover
 
-const jsonObject = fetch('convertcsv.json')
-.then(response => response.json())
-.then(json => document.querySelector('.items').append(json[2].value))
+// const jsonObject = fetch('convertcsv.json')
+// .then(response => response.json())
+// .then(json =>{
+// 	const parsed = JSON.parse(JSON.stringify(json));
+// 	console.log(parsed) // returns array of objects / correct
+	// document.querySelector('.items').append(parsed) // returns undefined / object object
+// 	return json;
+// })
+
+
+// console.log(jsonObject) // returns Promise {<pending>}
+
+// async function parseJSON() { 
+// 	// const response = await fetch('/convertcsv.json');
+// 	// return response;
+// 	return fetch('/convertcsv.json')
+// 	.then(response => {
+// 		console.log(response); // logs the response
+// 		return response;
+// 	})
+// }
+
+// console.log(parseJSON())
+
+function showItems() {
+	fetch('convertcsv.json')
+	//get the JSON data
+	.then(response => response.json()) 
+	// use (display) the JSON data
+	.then(data => createList(data))	
+}
+
+
+function createList(data) {
+	const itemsList = document.querySelector('.items')
+
+	for(let i=0; i < data.length; i++) {
+		const listItem = document.createElement('li');
+		listItem.innerHTML = data[i]
+		itemsList.appendChild(listItem)
+	}
+}
