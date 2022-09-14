@@ -133,6 +133,11 @@ body {
 	padding:10px;
 }
 
+.items {
+	display: flex;
+	flex-direction:column;
+}
+
 .hidden {
 	opacity: 0;
 	animation: fade-out 0.5s;
@@ -140,6 +145,10 @@ body {
 	/* transition: ease-out;
 	transition-property: all;
 	transition-duration: 1s; */
+}
+
+li {
+	list-style-type:none'
 }
 
 @keyframes fade-out {

@@ -73,17 +73,44 @@ function showItems() {
 	fetch('convertcsv.json')
 	//get the JSON data
 	.then(response => response.json()) 
+	// .then(response => JSON.stringify(response))
 	// use (display) the JSON data
-	.then(data => createList(data))	
+	.then(data => createList(data))
+	
 }
 
 
 function createList(data) {
+	// selecting the item container
 	const itemsList = document.querySelector('.items')
+	const firstTab = document.createElement('div')
+	const secondTab = document.createElement('div')
 
 	for(let i=0; i < data.length; i++) {
-		const listItem = document.createElement('li');
-		listItem.innerHTML = data[i]
-		itemsList.appendChild(listItem)
+		const articles = document.createElement('li');
+		articles.innerHTML = data[i].artnr
+		articles.style.listStyleType = 'none'
+		articles.style.padding = "10px"
+		firstTab.appendChild(articles)		
 	}
+
+	for(let i=0; i < data.length; i++) {
+		const descriptions = document.createElement('li');
+		descriptions.innerHTML = data[i].description
+		descriptions.style.listStyleType = 'none'
+		descriptions.style.padding = "10px"
+		secondTab.appendChild(descriptions)
+		
+		
+	}
+	itemsList.append(firstTab)
+	itemsList.append(secondTab)
+	// itemsList.appendChild(firstTab)
+	// itemsList.appendChild(secondTab)
+	// const stringified = JSON.stringify(data)
+	// console.log(stringified)
+
+	// itemsList.append(stringified)
 }
+
+showItems()
