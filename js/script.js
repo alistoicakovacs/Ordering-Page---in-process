@@ -24,8 +24,8 @@ loginButton.addEventListener("click", function (element) {
 	// //testing
 	document.querySelector(".login-container").classList.add("hidden");
 	document.querySelector(".item-container").classList.remove("hidden");
+	
 	// users.forEach(function(element) {
-		
 	// 	if (username.value === element.username && password.value === element.password) {
 	// 		document.querySelector('.login-container').classList.add('hidden')
 	// 		document.querySelector(".item-container").classList.remove("hidden");
