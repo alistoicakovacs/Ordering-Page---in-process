@@ -87,14 +87,13 @@ body {
 
 .item-container {
 	height: 800px;
-	width: 900px;
+	width: 60%;
 	background-color: white;
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	
-	
+	margin:0 10px
 }
 
 .dropdown-lists-container {
@@ -114,33 +113,23 @@ body {
 }
 
 .tabs {
-	display: flex;
 	list-style: none;
-	justify-content: space-between;
-	padding: 10px;
+	padding: 20px;
 	font-weight: bold;
-}
-
-.beschreibung {
-	flex-grow: 2;
-	text-align: center;
-}
-
-
-.tabs {
 	border-bottom: 1px solid rgb(110, 110, 110);
 	margin:0 10px;
-	padding:10px;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
 }
 
 .items {
 	display: flex;
-	flex-direction:column;
+	justify-content: space-between;
+	
 }
 
 .hidden {
-	opacity: 0;
-	animation: fade-out 0.5s;
+	display:none;
 	/* animation: fade-out 1s; */
 	/* transition: ease-out;
 	transition-property: all;
@@ -172,4 +161,31 @@ li {
   #lieferanten {
 	border:none;
 	outline:none;
+  }
+
+  .items li {
+	/* border:1px solid rgb(199, 199, 199);
+	margin:5px;
+	border-radius: 10px; */
+	list-style: none;
+	padding:10px;
+  }
+
+  .articles {
+	display:flex;
+	justify-content: space-between;
+  }
+
+  .div-container {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+	margin: 10px;
+	transition: ease-in;
+	border-radius: 10px;
+
+  }
+
+  .div-container:hover {
+	background-color: #74c5eb;
+	transition:0.3s;
   }

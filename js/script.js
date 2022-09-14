@@ -14,16 +14,16 @@ const user2 = new User("jcl", 1234)
 
 // login button 
 loginButton.addEventListener("click", function (element) {
-	// if (username.value ===user1.username && password.value == user1.password) {
-	// 	console.log("success");
-	// 	document.querySelector(".login-container").classList.add("hidden");
-	// 	document.querySelector(".item-container").classList.remove("hidden");
-	// } else {
-	// 	alert("Incorrect username or password");
-	// }
-	// //testing
-	document.querySelector(".login-container").classList.add("hidden");
-	document.querySelector(".item-container").classList.remove("hidden");
+	if (username.value ===user1.username && password.value == user1.password) {
+		console.log("success");
+		document.querySelector(".login-container").classList.add("hidden");
+		document.querySelector(".item-container").classList.remove("hidden");
+	} else {
+		alert("Incorrect username or password");
+	}
+	// testing
+	// document.querySelector(".login-container").classList.add("hidden");
+	// document.querySelector(".item-container").classList.remove("hidden");
 	// users.forEach(function(element) {
 		
 	// 	if (username.value === element.username && password.value === element.password) {
@@ -85,26 +85,71 @@ function createList(data) {
 	const itemsList = document.querySelector('.items')
 	const firstTab = document.createElement('div')
 	const secondTab = document.createElement('div')
+	const thirdTab = document.createElement('div')
+	const fourthTab = document.createElement('div')
+	const fifthTab = document.createElement('div')
 
 	for(let i=0; i < data.length; i++) {
+		const div = document.createElement('div')
+		div.classList.add('div-container')
 		const articles = document.createElement('li');
+		const descriptions = document.createElement('li');
+		const supplier = document.createElement('li');
+		const type = document.createElement('li');
+		const use = document.createElement('li');
+
+		articles.classList.add('articles')
 		articles.innerHTML = data[i].artnr
-		articles.style.listStyleType = 'none'
-		articles.style.padding = "10px"
-		firstTab.appendChild(articles)		
+		descriptions.innerHTML = data[i].description
+		supplier.innerHTML = data[i].supplier
+		type.innerHTML = data[i].type
+		use.innerHTML = data[i].use
+		div.appendChild(articles)
+		div.append(descriptions)
+		div.append(supplier)
+		div.append(type)
+		div.append(use)
+		firstTab.appendChild(div)		
 	}
 
-	for(let i=0; i < data.length; i++) {
-		const descriptions = document.createElement('li');
-		descriptions.innerHTML = data[i].description
-		descriptions.style.listStyleType = 'none'
-		descriptions.style.padding = "10px"
-		secondTab.appendChild(descriptions)
-		
-		
-	}
+	// for(let i=0; i < data.length; i++) {
+	// 	const descriptions = document.createElement('li');
+	// 	descriptions.innerHTML = data[i].description
+	// 	descriptions.style.listStyleType = 'none'
+	// 	descriptions.style.padding = "10px"
+	// 	secondTab.appendChild(descriptions)
+	// }
+
+	// for(let i=0; i < data.length; i++) {
+	// 	const supplier = document.createElement('li');
+	// 	supplier.innerHTML = data[i].supplier
+	// 	supplier.style.listStyleType = 'none'
+	// 	supplier.style.padding = "10px"
+	// 	thirdTab.appendChild(supplier)
+	// }
+	
+	// for(let i=0; i < data.length; i++) {
+	// 	const type = document.createElement('li');
+	// 	type.innerHTML = data[i].type
+	// 	type.style.listStyleType = 'none'
+	// 	type.style.padding = "10px"
+	// 	fourthTab.appendChild(type)
+	// }
+	
+	// for(let i=0; i < data.length; i++) {
+	// 	const use = document.createElement('li');
+	// 	use.innerHTML = data[i].use
+	// 	use.style.listStyleType = 'none'
+	// 	use.style.padding = "10px"
+	// 	fifthTab.appendChild(use)
+	// }
+	
+
 	itemsList.append(firstTab)
-	itemsList.append(secondTab)
+	// itemsList.append(secondTab)
+	// itemsList.append(thirdTab)
+	// itemsList.append(fourthTab)
+	// itemsList.append(fifthTab)
 	// itemsList.appendChild(firstTab)
 	// itemsList.appendChild(secondTab)
 	// const stringified = JSON.stringify(data)
@@ -112,5 +157,4 @@ function createList(data) {
 
 	// itemsList.append(stringified)
 }
-
-showItems()
+// showItems()
