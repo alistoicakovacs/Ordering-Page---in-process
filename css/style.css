@@ -159,3 +159,9 @@ body {
 	  opacity: 1;
 	}
   }
+
+
+  #lieferanten {
+	border:none;
+	outline:none;
+  }
