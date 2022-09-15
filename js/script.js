@@ -99,9 +99,13 @@ function createList(array) {
 		articles.style.fontWeight = 'bold'
 		articles.innerHTML = array[i].artnr
 		descriptions.innerHTML = array[i].description
+		descriptions.classList.add('descriptions')
 		supplier.innerHTML = array[i].supplier
+		supplier.classList.add('supplier')
 		type.innerHTML = array[i].type
+		type.classList.add('type')
 		use.innerHTML = array[i].use
+		use.classList.add('use')
 		div.appendChild(articles)
 		div.append(descriptions)
 		div.append(supplier)
