@@ -120,7 +120,7 @@ const dropdown = document.querySelectorAll('.dropdown')
 const itemsListContainer = document.querySelector('.item-list-container')
 
 for(let i=0; i < dropdown.length; i++) {
-	dropdown[i].addEventListener('click', function() {
+	dropdown[i].addEventListener('change', function() {
 		console.log(dropdown[i].value)
 	})
 }
