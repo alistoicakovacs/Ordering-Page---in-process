@@ -11,9 +11,9 @@ Languages used in this project:
     Bootstrap
   
 #Steps to creating the project
-0.1. Create a user database
-0.2. Create item database
-1. Create a modal to login to the page
-2. Create the page where the items are displayed; sorted by category
-3. Creating the cart and the functionability to it
-3.1. Order functionability: The page must send an email to another email, where the Items are listed - each with the order number/ item number and quantity.
+  0.1. Create a user database
+  0.2. Create item database
+  1. Create a modal to login to the page
+  2. Create the page where the items are displayed; sorted by category
+  3. Creating the cart and the functionability to it
+  3.1. Order functionability: The page must send an email to another email, where the Items are listed - each with the order number/ item number and quantity.
