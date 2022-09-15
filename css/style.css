@@ -195,12 +195,14 @@ li {
   .articles {
 	display:flex;
 	justify-content: space-between;
+	
   }
 
   .div-container {
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
 	transition: ease-in;
+	margin-top:10px;
   }
 
   .div-container:hover {

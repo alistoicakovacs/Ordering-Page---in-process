@@ -4,7 +4,7 @@ import jsonData from './convertcsv.json' assert {type:'json'}
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
 const password = document.querySelector(".user-password");
-
+const items = document.querySelector('.items')
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -226,6 +226,8 @@ newSetAnwendung.forEach(function(e) {
 // Filtering the dropdown list arrays
 // this has to be optimised
 lieferantenDropdown.addEventListener('change',function(e) {
+	e.preventDefault();
+
 	const filteredData = jsonData.filter(function(articles) { 
 		return articles.supplier === lieferantenDropdown.value;
 	})
@@ -233,24 +235,30 @@ lieferantenDropdown.addEventListener('change',function(e) {
 	
 	// WORK ON THIS FUNCTION
 // this empties the itemslistcontainer
-	// itemsListContainer.innerHTML = ""
- // script.js:111 Uncaught TypeError: Cannot read properties of null (reading 'append')
-	// createList(filteredData);
+	items.innerHTML = ""
+// this creates a list of the filtered array
+	createList(filteredData);
 })
 
 
 gewerkDropdown.addEventListener('change',function(e) {
+	e.preventDefault();
 	const filteredData = jsonData.filter(function(articles) { 
 		return articles.type === gewerkDropdown.value;
 	})
 	console.log(filteredData)
-	
+	items.innerHTML = ""
+	createList(filteredData);
 })
 
 anwendungDropdown.addEventListener('change',function(e) {
+	e.preventDefault();
+
 	const filteredData = jsonData.filter(function(articles) { 
 		return articles.use === gewerkDropdown.value;
 	})
 	console.log(filteredData)
-	
+	items.innerHTML = ""
+	createList(filteredData);
+
 })
