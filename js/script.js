@@ -96,6 +96,7 @@ function createList(array) {
 		const use = document.createElement('li');
 
 		articles.classList.add('articles')
+		articles.style.fontWeight = 'bold'
 		articles.innerHTML = array[i].artnr
 		descriptions.innerHTML = array[i].description
 		supplier.innerHTML = array[i].supplier
@@ -113,7 +114,7 @@ function createList(array) {
 	// itemsList.append(stringified)
 };
 
-// createList(jsonData)
+createList(jsonData)
 
 
 const dropdown = document.querySelectorAll('.dropdown')
@@ -256,4 +257,21 @@ anwendungDropdown.addEventListener('change',function(e) {
 	items.innerHTML = ""
 	createList(filteredData);
 
+})
+
+// Searchbox functionality
+const searchbox = document.getElementById('searchbox')
+searchbox.style.padding = "0 10px"
+searchbox.style.outline = "none"
+
+searchbox.addEventListener('input',function(e) { 
+	// creating a filtered variable in which we store the filtered values depending o the searchbox value - we also have to add them to lowercase in order to be able to search everything - case sensitive
+	const searchdata = jsonData.filter(function(articles) {
+		return articles.description.toLowerCase().includes(searchbox.value)
+	})
+	console.log(searchdata)
+	// empty items list
+	items.innerHTML = "";
+	// create a list from the searched data and display it
+	createList(searchdata)
 })
