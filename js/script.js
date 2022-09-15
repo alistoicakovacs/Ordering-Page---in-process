@@ -1,20 +1,19 @@
 // importing the json file
-import jsonData from './convertcsv.json' assert {type:'json'}
+import jsonData from "./convertcsv.json" assert { type: "json" };
 
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
 const password = document.querySelector(".user-password");
-const items = document.querySelector('.items')
+const items = document.querySelector(".items");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
-	// Username and Password should match for each individual user
-	// Only one user should be matched at a time
-	// Refreshing the page should not cancel the log in
+// Username and Password should match for each individual user
+// Only one user should be matched at a time
+// Refreshing the page should not cancel the log in
 
-// List items - filter 
-	// Show picture on hover
-
+// List items - filter
+// Show picture on hover
 
 // User object constructor
 const User = function (username, password) {
@@ -23,12 +22,11 @@ const User = function (username, password) {
 };
 
 const user1 = new User("ask", 1234);
-const user2 = new User("jcl", 1234)
+const user2 = new User("jcl", 1234);
 
-
-// login button 
+// login button
 loginButton.addEventListener("click", function (element) {
-	if (username.value ===user1.username && password.value == user1.password) {
+	if (username.value === user1.username && password.value == user1.password) {
 		console.log("success");
 		document.querySelector(".login-container").classList.add("hidden");
 		document.querySelector(".item-container").classList.remove("hidden");
@@ -46,14 +44,13 @@ loginButton.addEventListener("click", function (element) {
 // .then(json =>{
 // 	const parsed = JSON.parse(JSON.stringify(json));
 // 	console.log(parsed) // returns array of objects / correct
-	// document.querySelector('.items').append(parsed) // returns undefined / object object
+// document.querySelector('.items').append(parsed) // returns undefined / object object
 // 	return json;
 // })
 
-
 // console.log(jsonObject) // returns Promise {<pending>}
 
-// async function parseJSON() { 
+// async function parseJSON() {
 // 	// const response = await fetch('/convertcsv.json');
 // 	// return response;
 // 	return fetch('/convertcsv.json')
@@ -68,214 +65,223 @@ loginButton.addEventListener("click", function (element) {
 // function showItems() {
 // 	fetch('convertcsv.json')
 // 	//get the JSON data
-// 	.then(response => response.json()) 
+// 	.then(response => response.json())
 // 	// .then(response => JSON.stringify(response))
 // 	// use (display) the JSON data
 // 	.then(data => createList(data))
-	
-// }
 
+// }
 
 // Creating the json list and displaying it in the items list
 function createList(array) {
 	// selecting the item container
-	const itemsList = document.querySelector('.items')
-	const firstTab = document.createElement('div')
+	const itemsList = document.querySelector(".items");
+	const firstTab = document.createElement("div");
 	// const secondTab = document.createElement('div')
 	// const thirdTab = document.createElement('div')
 	// const fourthTab = document.createElement('div')
 	// const fifthTab = document.createElement('div')
 
-	for(let i=0; i < array.length; i++) {
-		const div = document.createElement('div')
-		div.classList.add('div-container')
-		const articles = document.createElement('li');
-		const descriptions = document.createElement('li');
-		const supplier = document.createElement('li');
-		const type = document.createElement('li');
-		const use = document.createElement('li');
+	for (let i = 0; i < array.length; i++) {
+		const div = document.createElement("div");
+		div.classList.add("div-container");
+		const articles = document.createElement("li");
+		const descriptions = document.createElement("li");
+		const supplier = document.createElement("li");
+		const type = document.createElement("li");
+		const use = document.createElement("li");
 
-		articles.classList.add('articles')
-		articles.style.fontWeight = 'bold'
-		articles.innerHTML = array[i].artnr
-		descriptions.innerHTML = array[i].description
-		descriptions.classList.add('descriptions')
-		supplier.innerHTML = array[i].supplier
-		supplier.classList.add('supplier')
-		type.innerHTML = array[i].type
-		type.classList.add('type')
-		use.innerHTML = array[i].use
-		use.classList.add('use')
-		div.appendChild(articles)
-		div.append(descriptions)
-		div.append(supplier)
-		div.append(type)
-		div.append(use)
-		firstTab.appendChild(div)		
+		articles.classList.add("articles");
+		articles.style.fontWeight = "bold";
+		articles.innerHTML = array[i].artnr;
+		descriptions.innerHTML = array[i].description;
+		descriptions.classList.add("descriptions");
+		supplier.innerHTML = array[i].supplier;
+		supplier.classList.add("supplier");
+		type.innerHTML = array[i].type;
+		type.classList.add("type");
+		use.innerHTML = array[i].use;
+		use.classList.add("use");
+		div.appendChild(articles);
+		div.append(descriptions);
+		div.append(supplier);
+		div.append(type);
+		div.append(use);
+		firstTab.appendChild(div);
 	}
-	itemsList.append(firstTab)
+	itemsList.append(firstTab);
 
 	// itemsList.append(stringified)
-};
+}
 
 // createList(jsonData)
 
+const dropdown = document.querySelectorAll(".dropdown");
+const itemsListContainer = document.querySelector(".item-list-container");
 
-const dropdown = document.querySelectorAll('.dropdown')
-const itemsListContainer = document.querySelector('.item-list-container')
+for (let i = 0; i < dropdown.length; i++) {
+	dropdown[i].addEventListener("change", function () {
+		console.log(dropdown[i].value);
 
-for(let i=0; i < dropdown.length; i++) {
-	dropdown[i].addEventListener('change', function() {
-		console.log(dropdown[i].value)
-		// const filteredData = jsonData.filter(function(filter) { 
-		
+		// const filteredData = jsonData.filter(function(filter) {
+
 		// })
-	})
+	});
 }
-	
-	// function createList(filteredarray) {
-	// 	// selecting the item container
-	// 	const itemsList = document.querySelector('.items')
-	// 	const firstTab = document.createElement('div')
-	// 	// const secondTab = document.createElement('div')
-	// 	// const thirdTab = document.createElement('div')
-	// 	// const fourthTab = document.createElement('div')
-	// 	// const fifthTab = document.createElement('div')
-	
-	// 	for(let i=0; i < filteredarray.length; i++) {
-	// 		const div = document.createElement('div')
-	// 		div.classList.add('div-container')
-	// 		const articles = document.createElement('li');
-	// 		const descriptions = document.createElement('li');
-	// 		const supplier = document.createElement('li');
-	// 		const type = document.createElement('li');
-	// 		const use = document.createElement('li');
-	
-	// 		articles.classList.add('articles')
-	// 		articles.innerHTML = filteredarray[i].artnr
-	// 		descriptions.innerHTML = filteredarray[i].description
-	// 		supplier.innerHTML = filteredarray[i].supplier
-	// 		type.innerHTML = filteredarray[i].type
-	// 		use.innerHTML = filteredarray[i].use
-	// 		div.appendChild(articles)
-	// 		div.append(descriptions)
-	// 		div.append(supplier)
-	// 		div.append(type)
-	// 		div.append(use)
-	// 		firstTab.appendChild(div)		
-	// 	}
-	// 	itemsList.append(firstTab)
-	
-	// 	// itemsList.append(stringified)
-	// };
 
-	// createList()
-	
-	// itemsListContainer.innerHTML = jsonData.includes('GC').innerHTML;
-	
-	
+// function createList(filteredarray) {
+// 	// selecting the item container
+// 	const itemsList = document.querySelector('.items')
+// 	const firstTab = document.createElement('div')
+// 	// const secondTab = document.createElement('div')
+// 	// const thirdTab = document.createElement('div')
+// 	// const fourthTab = document.createElement('div')
+// 	// const fifthTab = document.createElement('div')
+
+// 	for(let i=0; i < filteredarray.length; i++) {
+// 		const div = document.createElement('div')
+// 		div.classList.add('div-container')
+// 		const articles = document.createElement('li');
+// 		const descriptions = document.createElement('li');
+// 		const supplier = document.createElement('li');
+// 		const type = document.createElement('li');
+// 		const use = document.createElement('li');
+
+// 		articles.classList.add('articles')
+// 		articles.innerHTML = filteredarray[i].artnr
+// 		descriptions.innerHTML = filteredarray[i].description
+// 		supplier.innerHTML = filteredarray[i].supplier
+// 		type.innerHTML = filteredarray[i].type
+// 		use.innerHTML = filteredarray[i].use
+// 		div.appendChild(articles)
+// 		div.append(descriptions)
+// 		div.append(supplier)
+// 		div.append(type)
+// 		div.append(use)
+// 		firstTab.appendChild(div)
+// 	}
+// 	itemsList.append(firstTab)
+
+// 	// itemsList.append(stringified)
+// };
+
+// createList()
+
+// itemsListContainer.innerHTML = jsonData.includes('GC').innerHTML;
+
 // });
 
-
-const lieferantenDropdown = document.getElementById('lieferanten')
-const gewerkDropdown = document.getElementById('gewerk')
-const anwendungDropdown = document.getElementById('anwendung')
+const lieferantenDropdown = document.getElementById("lieferanten");
+const gewerkDropdown = document.getElementById("gewerk");
+const anwendungDropdown = document.getElementById("anwendung");
 
 // create an empty array
 const arraySuppliers = [];
-const arrayGewerk = []
-const arrayAnwendung = []
+const arrayGewerk = [];
+const arrayAnwendung = [];
 
 // filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier
-const filterFunction = jsonData.forEach(function(e) {
+const filterFunction = jsonData.forEach(function (e) {
 	arraySuppliers.push(e.supplier);
-	arrayGewerk.push(e.type)
-	arrayAnwendung.push(e.use)
-})
+	arrayGewerk.push(e.type);
+	arrayAnwendung.push(e.use);
+});
 
 // create a new set from arraySuppliers - the new set will return the new array without the duplicates from the given array
-const newSetSuppliers = new Set(arraySuppliers)
-const newSetGewerk = new Set(arrayGewerk)
-const newSetAnwendung = new Set(arrayAnwendung)
-
+const newSetSuppliers = new Set(arraySuppliers);
+const newSetGewerk = new Set(arrayGewerk);
+const newSetAnwendung = new Set(arrayAnwendung);
 
 // loop through the array and for each element, create a new element - option - and add the inner HTML to the element (supplier) - and then append the element to the dropdown menu
 // this has to be optimised
-newSetSuppliers.forEach(function(e) {
-	const newElement = document.createElement('option')
+newSetSuppliers.forEach(function (e) {
+	const newElement = document.createElement("option");
 	// console.log(newElement)
 	// console.log(e)
 	newElement.innerHTML = e;
 
-	lieferantenDropdown.append(newElement)
-})
+	lieferantenDropdown.append(newElement);
+});
 
-newSetGewerk.forEach(function(e) {
-	const newElement = document.createElement('option')
+newSetGewerk.forEach(function (e) {
+	const newElement = document.createElement("option");
 	// console.log(newElement)
 	// console.log(e)
 	newElement.innerHTML = e;
 
-	gewerkDropdown.append(newElement)
-})
+	gewerkDropdown.append(newElement);
+});
 
-newSetAnwendung.forEach(function(e) {
-	const newElement = document.createElement('option')
+newSetAnwendung.forEach(function (e) {
+	const newElement = document.createElement("option");
 	// console.log(newElement)
 	// console.log(e)
 	newElement.innerHTML = e;
 
-	anwendungDropdown.append(newElement)
-})
+	anwendungDropdown.append(newElement);
+});
 
 // Filtering the dropdown list arrays
 // this has to be optimised
-lieferantenDropdown.addEventListener('change',function(e) {
-	const filteredData = jsonData.filter(function(articles) { 
+lieferantenDropdown.addEventListener("change", function (e) {
+	const filteredData = jsonData.filter(function (articles) {
 		return articles.supplier === lieferantenDropdown.value;
-	})
-	console.log(filteredData)
-	
+	});
+	console.log(filteredData);
+
 	// WORK ON THIS FUNCTION
-// this empties the itemslistcontainer
-	items.innerHTML = ""
-// this creates a list of the filtered array
+	// this empties the itemslistcontainer
+	items.innerHTML = "";
+	// this creates a list of the filtered array
 	createList(filteredData);
-})
 
+	if (lieferantenDropdown.value === "all") {
+		items.innerHTML = "";
+		createList(jsonData);
+	}
+});
 
-gewerkDropdown.addEventListener('change',function(e) {
-	const filteredData = jsonData.filter(function(articles) { 
+gewerkDropdown.addEventListener("change", function (e) {
+	const filteredData = jsonData.filter(function (articles) {
 		return articles.type === gewerkDropdown.value;
-	})
-	console.log(filteredData)
-	items.innerHTML = ""
+	});
+	console.log(filteredData);
+	items.innerHTML = "";
 	createList(filteredData);
-})
 
-anwendungDropdown.addEventListener('change',function(e) {
-	const filteredData = jsonData.filter(function(articles) { 
+	if (gewerkDropdown.value === "all") {
+		items.innerHTML = "";
+		createList(jsonData);
+	}
+});
+
+anwendungDropdown.addEventListener("change", function (e) {
+	const filteredData = jsonData.filter(function (articles) {
 		return articles.use === anwendungDropdown.value;
-	})
-	console.log(filteredData)
-	items.innerHTML = ""
+	});
+	console.log(filteredData);
+	items.innerHTML = "";
 	createList(filteredData);
 
-})
+	if (anwendungDropdown.value === "all") {
+		items.innerHTML = "";
+		createList(jsonData);
+	}
+});
 
 // Searchbox functionality
-const searchbox = document.getElementById('searchbox')
-searchbox.style.padding = "0 10px"
-searchbox.style.outline = "none"
+const searchbox = document.getElementById("searchbox");
+searchbox.style.padding = "0 10px";
+searchbox.style.outline = "none";
 
-searchbox.addEventListener('input',function(e) { 
+searchbox.addEventListener("input", function (e) {
 	// creating a filtered variable in which we store the filtered values depending o the searchbox value - we also have to add them to lowercase in order to be able to search everything - case sensitive
-	const searchdata = jsonData.filter(function(articles) {
-		return articles.description.toLowerCase().includes(searchbox.value)
-	})
-	console.log(searchdata)
+	const searchdata = jsonData.filter(function (articles) {
+		return articles.description.toLowerCase().includes(searchbox.value);
+	});
+	console.log(searchdata);
 	// empty items list
 	items.innerHTML = "";
 	// create a list from the searched data and display it
-	createList(searchdata)
-})
+	createList(searchdata);
+});
