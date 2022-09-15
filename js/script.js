@@ -118,7 +118,7 @@ function createList(array) {
 	// itemsList.append(stringified)
 };
 
-createList(jsonData)
+// createList(jsonData)
 
 
 const dropdown = document.querySelectorAll('.dropdown')
