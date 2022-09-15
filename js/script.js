@@ -112,48 +112,10 @@ function createList(data) {
 		firstTab.appendChild(div)		
 	}
 
-	// for(let i=0; i < data.length; i++) {
-	// 	const descriptions = document.createElement('li');
-	// 	descriptions.innerHTML = data[i].description
-	// 	descriptions.style.listStyleType = 'none'
-	// 	descriptions.style.padding = "10px"
-	// 	secondTab.appendChild(descriptions)
-	// }
-
-	// for(let i=0; i < data.length; i++) {
-	// 	const supplier = document.createElement('li');
-	// 	supplier.innerHTML = data[i].supplier
-	// 	supplier.style.listStyleType = 'none'
-	// 	supplier.style.padding = "10px"
-	// 	thirdTab.appendChild(supplier)
-	// }
-	
-	// for(let i=0; i < data.length; i++) {
-	// 	const type = document.createElement('li');
-	// 	type.innerHTML = data[i].type
-	// 	type.style.listStyleType = 'none'
-	// 	type.style.padding = "10px"
-	// 	fourthTab.appendChild(type)
-	// }
-	
-	// for(let i=0; i < data.length; i++) {
-	// 	const use = document.createElement('li');
-	// 	use.innerHTML = data[i].use
-	// 	use.style.listStyleType = 'none'
-	// 	use.style.padding = "10px"
-	// 	fifthTab.appendChild(use)
-	// }
 	
 
 	itemsList.append(firstTab)
-	// itemsList.append(secondTab)
-	// itemsList.append(thirdTab)
-	// itemsList.append(fourthTab)
-	// itemsList.append(fifthTab)
-	// itemsList.appendChild(firstTab)
-	// itemsList.appendChild(secondTab)
-	// const stringified = JSON.stringify(data)
-	// console.log(stringified)
+	
 
 	// itemsList.append(stringified)
 }
