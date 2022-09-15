@@ -77,7 +77,7 @@ loginButton.addEventListener("click", function (element) {
 
 
 // Creating the json list and displaying it in the items list
-function createList(jsonData) {
+function createList(array) {
 	// selecting the item container
 	const itemsList = document.querySelector('.items')
 	const firstTab = document.createElement('div')
@@ -86,7 +86,7 @@ function createList(jsonData) {
 	// const fourthTab = document.createElement('div')
 	// const fifthTab = document.createElement('div')
 
-	for(let i=0; i < jsonData.length; i++) {
+	for(let i=0; i < array.length; i++) {
 		const div = document.createElement('div')
 		div.classList.add('div-container')
 		const articles = document.createElement('li');
@@ -96,11 +96,11 @@ function createList(jsonData) {
 		const use = document.createElement('li');
 
 		articles.classList.add('articles')
-		articles.innerHTML = jsonData[i].artnr
-		descriptions.innerHTML = jsonData[i].description
-		supplier.innerHTML = jsonData[i].supplier
-		type.innerHTML = jsonData[i].type
-		use.innerHTML = jsonData[i].use
+		articles.innerHTML = array[i].artnr
+		descriptions.innerHTML = array[i].description
+		supplier.innerHTML = array[i].supplier
+		type.innerHTML = array[i].type
+		use.innerHTML = array[i].use
 		div.appendChild(articles)
 		div.append(descriptions)
 		div.append(supplier)
@@ -122,6 +122,9 @@ const itemsListContainer = document.querySelector('.item-list-container')
 for(let i=0; i < dropdown.length; i++) {
 	dropdown[i].addEventListener('change', function() {
 		console.log(dropdown[i].value)
+		// const filteredData = jsonData.filter(function(filter) { 
+		
+		// })
 	})
 }
 	
@@ -218,4 +221,31 @@ newSetAnwendung.forEach(function(e) {
 	newElement.innerHTML = e;
 
 	anwendungDropdown.append(newElement)
+})
+
+// Filtering the dropdown list arrays
+// this has to be optimised
+lieferantenDropdown.addEventListener('change',function(e) {
+	const filteredData = jsonData.filter(function(articles) { 
+		return articles.supplier === lieferantenDropdown.value;
+	})
+	console.log(filteredData)
+	
+})
+
+
+gewerkDropdown.addEventListener('change',function(e) {
+	const filteredData = jsonData.filter(function(articles) { 
+		return articles.type === gewerkDropdown.value;
+	})
+	console.log(filteredData)
+	
+})
+
+anwendungDropdown.addEventListener('change',function(e) {
+	const filteredData = jsonData.filter(function(articles) { 
+		return articles.use === gewerkDropdown.value;
+	})
+	console.log(filteredData)
+	
 })
