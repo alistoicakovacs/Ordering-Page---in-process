@@ -11,8 +11,8 @@ Languages used in this project:
     Bootstrap
   
 #Steps to creating the project
-  0.1. Create a user database
-  0.2. Create item database
+  - Create a user database
+  - Create item database
   1. Create a modal to login to the page
   2. Create the page where the items are displayed; sorted by category
   3. Creating the cart and the functionability to it
