@@ -226,8 +226,6 @@ newSetAnwendung.forEach(function(e) {
 // Filtering the dropdown list arrays
 // this has to be optimised
 lieferantenDropdown.addEventListener('change',function(e) {
-	e.preventDefault();
-
 	const filteredData = jsonData.filter(function(articles) { 
 		return articles.supplier === lieferantenDropdown.value;
 	})
@@ -242,7 +240,6 @@ lieferantenDropdown.addEventListener('change',function(e) {
 
 
 gewerkDropdown.addEventListener('change',function(e) {
-	e.preventDefault();
 	const filteredData = jsonData.filter(function(articles) { 
 		return articles.type === gewerkDropdown.value;
 	})
@@ -252,10 +249,8 @@ gewerkDropdown.addEventListener('change',function(e) {
 })
 
 anwendungDropdown.addEventListener('change',function(e) {
-	e.preventDefault();
-
 	const filteredData = jsonData.filter(function(articles) { 
-		return articles.use === gewerkDropdown.value;
+		return articles.use === anwendungDropdown.value;
 	})
 	console.log(filteredData)
 	items.innerHTML = ""
