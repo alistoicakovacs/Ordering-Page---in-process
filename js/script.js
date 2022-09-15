@@ -231,6 +231,11 @@ lieferantenDropdown.addEventListener('change',function(e) {
 	})
 	console.log(filteredData)
 	
+	// WORK ON THIS FUNCTION
+// this empties the itemslistcontainer
+	// itemsListContainer.innerHTML = ""
+ // script.js:111 Uncaught TypeError: Cannot read properties of null (reading 'append')
+	// createList(filteredData);
 })
 
 
