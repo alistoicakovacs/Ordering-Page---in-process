@@ -162,11 +162,28 @@ li {
 	}
   }
 
-  #lieferanten {
+  #lieferanten,
+  #gewerk,
+  #anwendung {
 	border:none;
 	outline:none;
   }
 
+  .search-button {
+	padding:0 5px;
+	border-radius: 5px;
+	transform:ease-in;
+	background-color: transparent;
+	border:none
+}
+
+.search-button:hover{
+	transition: 0.5s;
+	background: linear-gradient(90deg, #90c9be 0%, #9face6 100%);
+	color: white;
+	font-weight: bold;
+	border: none;
+}
   .items li {
 	/* border:1px solid rgb(199, 199, 199);
 	margin:5px;
@@ -184,12 +201,12 @@ li {
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
 	transition: ease-in;
-	font-weight:500;
   }
 
   .div-container:hover {
 	background-color: #dadada;
 	transition:0.3s;
+	font-weight:600;
   }
 
 ::-webkit-scrollbar {

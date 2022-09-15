@@ -12,7 +12,7 @@ Languages used in this project:
   
 #Steps to creating the project
   - Create a user database
-  - store the items as json
+  - Create item database
   1. Create a modal to login to the page
   2. Create the page where the items are displayed; sorted by category
   3. Creating the cart and the functionability to it
