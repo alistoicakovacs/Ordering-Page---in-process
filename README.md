@@ -2,6 +2,10 @@
 
 Ordering Website for single users / companies
 
+To log in, use the following credentials:
+- username: ask
+- password: 1234
+
 This will be a SIP, where the user is going to be able to log in, choose items then add them to the cart, and by sending the order, ordering through an email at the purchasing department.
 
 Languages used in this project:
