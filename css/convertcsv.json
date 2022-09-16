@@ -281,7 +281,7 @@
   },
   {
       "artnr": "107734201601210",
-      "description": "KonstruktionsvollHolzFichte/4-seitig gehobelt, Kanten gefast L=13m B=120mm Stärke 60mm",
+      "description": "Konstruktionsvollholz-Fichte/4-seitig gehobelt, Kanten gefast L=13m B=120mm Stärke 60mm",
       "supplier": "Klöpfer ",
       "type": "Ausbau",
       "use": "Holz"
@@ -480,14 +480,14 @@
       "description": "Ablauf Duschwanne  90mm Ablauf 45 Grad BH:60mm",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "AGTEMPOFPN",
       "description": "Abdeckhaube f. DW mit 90mm Ablauf,d=115mm",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "AXPP2A10045",
@@ -907,7 +907,7 @@
       "description": "Design Brauseschlauch 1/2\"x1/2\"x125cm",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "EINWOVERXL",
@@ -928,7 +928,7 @@
       "description": "Dämmplatte EPS-035 30mm Polystyrol Hartschaum",
       "supplier": "GC",
       "type": "Ausbau",
-      "use": "Trockenbau"
+      "use": "Trockenbau "
   },
   {
       "artnr": "EV",
@@ -991,7 +991,7 @@
       "description": "Adria XL Handbrause Turbo 130 3F chrom",
       "supplier": "Reisser",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "HVR1520D",
@@ -1194,49 +1194,49 @@
       "description": "Einhand-Waschtischbatterie m.Ablaufgarnitur",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "ON50",
       "description": "Handwaschbecken one 50 x 39cm weiß",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "ON60",
       "description": "Waschtisch one 60 x 45cm weiß VIGOUR",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "ONA80EF",
       "description": "Duschwanne Acryl one 80x80x2.5cm weiss",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "ONAWT80EF",
       "description": "Wannenträger f.Duschwanne 80x 80x 2,5cm Höhe 13.0cm",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "ONB",
       "description": "Einhand-AP-Brausebatterie ",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "ONSND",
       "description": "Einhand-ND-Spültischbatterie one",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "PPM1815",
@@ -1250,7 +1250,7 @@
       "description": "Ablaufve. Push-Open 1 1/4\" verchr. kurze",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "PVCUM2015",
@@ -1439,14 +1439,14 @@
       "description": "Kristallspiegel 40x30cm rechteckig",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "SPDRUCK08",
       "description": "Spiegelbefestigung Druckknopf-Set",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "SSP50VV",
@@ -1495,28 +1495,28 @@
       "description": "Brausegarnitur indiv.1.0 m. Stange 90 cm Schlauch u.Handbr.1-fach verchr.",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "V1GE380",
       "description": "Eckhälfte Gleittür 3-tgl. 1.0 800x1900mm ",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "V2SP2MN",
       "description": "Spülkasten Comfort, 2-Mengen",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "V2TSI",
       "description": "WC-Sitz individual 2.0 Thermoplast",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "VEH507P",
@@ -1537,7 +1537,7 @@
       "description": "Waschtisch-Befestigungssatz",
       "supplier": "GC",
       "type": "Sanitär",
-      "use": "Bad"
+      "use": "Bad "
   },
   {
       "artnr": "YGE24070000",
@@ -1607,21 +1607,21 @@
       "artnr": "2251957",
       "description": "Bitumen-Schweißbahn V 60 S4 talkumiert",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2125068",
       "description": " Dämmung Trennwandplatte 80mm TP 1 Sd-Wert>100 m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2085229",
       "description": "Dampfsperrfolie 4 x 25 m Rolle ",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
@@ -1635,7 +1635,7 @@
       "artnr": "11160403",
       "description": "Vinyl-Belag Stabil - Ultra ( PVC-Belag)",
       "supplier": "Ruhe",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau",
       "Intern": "J710938"
   },
@@ -1643,7 +1643,7 @@
       "artnr": "17110004",
       "description": "PVC-Designbelagskleber Casa Nova Top 14KG",
       "supplier": "Ruhe",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Chemie",
       "Intern": "J710938"
   },
@@ -1672,301 +1672,301 @@
       "artnr": "2000194",
       "description": "Schönox Abdichtung HA Pro Feucht- und Nassräumen spachtelfähige ",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2102674",
       "description": "Gipskartonplatte imprägniert 12,5x1250x2000mm grün ",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Alujet Topjet Dampfbremse 4x25 m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2006075",
       "description": "Fermacell Gipsfaser-Platte 2000X1250X12,5mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2110460",
       "description": "Integra ZKF035 Klemmfilz 200mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2125067",
       "description": "Trennwandplatte Akustic TP 100mm 4,688m²",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2004599",
       "description": "Prima Alu Kantenprofil 9109",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2244202",
       "description": "Butler Trennwandband B2 50mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000286",
       "description": "Baufolie transluzent  100my 4x25m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2090501",
       "description": "Randstreifen blau 8/100 50m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000097",
       "description": "Mörtel Ceratec Fleissspachtel S1 25kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2131484",
       "description": "Vinyl-Beläge FZ 30x60x0,95 Anthrazit Lapida",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2135410",
       "description": "Ceratec Fliesenkleber 25kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2143190",
       "description": "Füllspachtel CE 86 25kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2073534",
       "description": "Fugenfüller CE 78 Pate 25kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Malervlies weiß 25mx0,75m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000731",
       "description": "Gewebekleber WB-fix 16kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Prima Easy Tape gelb 60mm 40m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Design-Vinyl Major Oak 24241 163x988x2,0mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000734",
       "description": "Ardex AF 140 Kleber Faserarmiert PVC-Designbeläge 12kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Sockelleiste foliert weiß 16x40x2500mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2114236",
       "description": "wedi 610 Kleb- und Dichtstoff 310ml",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000565",
       "description": "Gipsplattenschrauben 3,9x25mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000565",
       "description": "Schnellbauschrauben 3,9x30",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000565",
       "description": "Gipsplattenschrauben 3,9x35mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000731",
       "description": "Gewebeklerb WB-fix 8kg",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000565",
       "description": "Spax Schrauben 4x80mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000565",
       "description": "Unischrauben WIROX vz A9J TG 6x100mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000177",
       "description": "Montageschaum Schnellschaum 2K PU 2/402 400ml",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Zahnspachtel 200mm Trapez-zahn",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Clever Color Abdeckplane 4x12,5 m transparent",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2086452",
       "description": "Abstreif-Gitter 26x30cm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000732",
       "description": "Feinkrepp Extra 30mm 50m",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Farbwalze YellowGreen 25cm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Farbwalze GreyTop Teflon 25cm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Farbwalze YellowGreen 18cm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Flachpinsel Wand 6. Stärke 50mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Acryl Dichtstoff weiß 310ml",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2202797",
       "description": "Sanit.Silicon schwarz C04",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2159234",
       "description": "Sanit.Silicon grau C02",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000728",
       "description": "Wandfarbe Classic DIN weiß 12,5l",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000194",
       "description": "Spaxschraube S SeKo TG 6x100mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   },
   {
       "artnr": "2000319",
       "description": "Latten getrocknet S10/C24 40x60mm",
       "supplier": "Raab Karcher",
-      "type": "Trockenbau",
+      "type": "Trockenbau ",
       "use": "Ausbau"
   }
 ]
