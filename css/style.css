@@ -327,7 +327,8 @@ li {
   .cart-div {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
-	
+		border-bottom:0.7px solid #5da3af;
+		padding:5px;
 	}
 
 
