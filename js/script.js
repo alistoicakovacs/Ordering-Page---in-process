@@ -72,6 +72,7 @@ loginButton.addEventListener("click", function (element) {
 
 // }
 
+
 // Creating the json list and displaying it in the items list
 function createList(array) {
 	// selecting the item container
