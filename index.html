@@ -40,29 +40,20 @@
           <select name="lieferanten" id="lieferanten" class="dropdown">
             <option value="select">Select</option>
             <option value="all">Alle</option>
-
-            <!-- <option value="Bastian">Bastian</option>
-            <option value="Fischer">Fischer</option>
-            <option value="Obeta">Obeta</option> -->
           </select>
           <label for="option">Gewerk:</label>
           <select name="gewerk" id="gewerk" class="dropdown">
             <option value="select">Select</option>
             <option value="all">Alle</option>
-            <!-- <option value="Bastian">Lorem</option>
-            <option value="Fischer">Lorem</option>
-            <option value="Obeta">Lorem</option> -->
           </select>
           <label for="option">Anwendung:</label>
           <select name="anwendung" id="anwendung" class="dropdown">
             <option value="select">Select</option>
             <option value="all">Alle</option>
-            <!-- <option value="Bastian">Lorem</option>
-            <option value="Fischer">Lorem</option>
-            <option value="Obeta">Lorem</option> -->
           </select>
          <input type="search" name="searchbox" id="searchbox" placeholder="Search">
-         <!-- <button class="search-button">Suchen</button> -->
+         <button class="warenkorb-button">Warenkorb (<span class="item-qty">0</span>)</button>
+
     </div>
     <div class="tabs-list-container">
       <ul class="tabs"">
@@ -76,41 +67,31 @@
     <!--Container with the items-->
     <div class="item-list-container ">
       <div class="items">
-        <!-- <div class="articles">
-          <li>first</li>
-          <li>second</li>
-        </div>
-        <div class="articles">
-          <li>first</li>
-          <li>second</li>
-        </div>
-        <div class="articles">
-          <li>first</li>
-          <li>second</li>
-        </div> -->
+      
       </div>
     </div>
     
   </div>
-  <div class="checkout hidden">
+  <div class="checkout hidden" >
   <div class="cart">
     <div class="title">
-      <h2>Warenkorb</h2>
+      <h2 class = "warenkorb-title">Warenkorb(<span class="item-qty-wk">0</span>)</h2>
+      <button class = "send-button">Send</button>
     </div>
-    <div class="cart-container">
-    </div>
+     <div class="cart-container">
+     </div>
   </div>
-  <div class="total">
+  <!-- <div class="total">
     <p class ='total-artikel'>Total Artikel:</p>
     <button class="send-button">
       <i class="fa-regular fa-paper-plane"></i>
     </button>
-   </div>
+  </div> -->
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 <!-- Setting the type to "module" in order to be able to import files in script.js-->
-<script type="module" src="js/script.js"></script>
+<script type="module" src="js/script.js" defer></script>
 </body>
 </html>

@@ -15,6 +15,10 @@ const anwendungDropdown = document.getElementById("anwendung");
 const cart = document.querySelector(".cart");
 const cartContainer = document.querySelector(".cart-container");
 const divContainer = document.querySelector(".div-container");
+const total = document.querySelector('.total')
+const warenkorbTitle = document.querySelector('.warenkorb-title')
+const itemQty = document.querySelector('.item-qty')
+const itemQtyWk = document.querySelector('.item-qty-wk')
 
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
@@ -42,7 +46,7 @@ loginButton.addEventListener("click", function (element) {
 	if (username.value === user1.username && password.value == user1.password) {
 		console.log("success");
 		document.querySelector(".login-container").classList.add("hidden");
-		document.querySelector(".checkout").classList.remove("hidden");
+		// document.querySelector(".checkout").classList.remove("hidden");
 		document.querySelector(".item-container").classList.remove("hidden");
 	} else {
 		alert("Incorrect username or password");
@@ -53,48 +57,13 @@ loginButton.addEventListener("click", function (element) {
 	createList(jsonData);
 });
 
-// const jsonObject = fetch('convertcsv.json')
-// .then(response => response.json())
-// .then(json =>{
-// 	const parsed = JSON.parse(JSON.stringify(json));
-// 	console.log(parsed) // returns array of objects / correct
-// document.querySelector('.items').append(parsed) // returns undefined / object object
-// 	return json;
-// })
 
-// console.log(jsonObject) // returns Promise {<pending>}
-
-// async function parseJSON() {
-// 	// const response = await fetch('/convertcsv.json');
-// 	// return response;
-// 	return fetch('/convertcsv.json')
-// 	.then(response => {
-// 		console.log(response); // logs the response
-// 		return response;
-// 	})
-// }
-
-// console.log(parseJSON())
-
-// function showItems() {
-// 	fetch('convertcsv.json')
-// 	//get the JSON data
-// 	.then(response => response.json())
-// 	// .then(response => JSON.stringify(response))
-// 	// use (display) the JSON data
-// 	.then(data => createList(data))
-
-// }
 
 // Creating the json list and displaying it in the items list
 function createList(array) {
 	// selecting the item container
 	const itemsList = document.querySelector(".items");
 	const firstTab = document.createElement("div");
-	// const secondTab = document.createElement('div')
-	// const thirdTab = document.createElement('div')
-	// const fourthTab = document.createElement('div')
-	// const fifthTab = document.createElement('div')
 
 	for (let i = 0; i < array.length; i++) {
 		const div = document.createElement("div");
@@ -134,13 +103,13 @@ function createList(array) {
 		firstTab.appendChild(div);
 
 		// add items to the cart function
-		button.addEventListener("click", function () {
+		button.addEventListener("click", function (event) {
 			// create the elements
 			const cartDiv = document.createElement("div");
 			const cartArtnr = document.createElement("li");
 			const cartArtDescr = document.createElement("li");
 			const deleteButton = document.createElement("button");
-
+			const total = document.createElement('div')
 			cartDiv.classList.add("cart-div");
 			// create art number and append it - according to the event listener
 			cartArtnr.innerHTML = data[i].artnr;
@@ -151,73 +120,45 @@ function createList(array) {
 			// create the delete button and append it
 			deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 			deleteButton.classList.add("delete-button");
+			
+			// total.innerHTML = `<p>Total Artikel: </p>`
+			total.classList.add('total')
 
 			cartDiv.append(cartArtnr);
 			cartDiv.append(cartArtDescr);
 			cartDiv.append(deleteButton);
 			cartContainer.appendChild(cartDiv);
-
-			deleteButton.addEventListener("click", function () {
+		
+			// Delete button for the cart + incrementing and decrementing the qty number on button click
+			deleteButton.addEventListener("click", function (event) {
 				this.parentElement.remove();
+				itemQty.textContent--;
+				itemQtyWk.textContent--;
+				// if the cart is empty, remove and add class lists to get back to normal
+				if(itemQty.textContent === "0") {
+					checkout.classList.add('hidden')
+					items.classList.remove('opacity')
+				}
+
+				console.log(this)
+		
 			});
+			
+			
 			console.log(data[i].artnr);
-
-			// Generating the total
-			// const total = document.querySelector('.total')
-			// const totalArtikel = document. querySelector('.total-artikel')
-
-			// console.log(cartContainer.length)
+			itemQty.textContent++;
+			itemQtyWk.textContent++;
+	
 		});
+		
+	
 	}
 
 	itemsList.append(firstTab);
-
-	// itemsList.append(stringified)
-
-	// event listener for the add button
 }
 
-// function createList(filteredarray) {
-// 	// selecting the item container
-// 	const itemsList = document.querySelector('.items')
-// 	const firstTab = document.createElement('div')
-// 	// const secondTab = document.createElement('div')
-// 	// const thirdTab = document.createElement('div')
-// 	// const fourthTab = document.createElement('div')
-// 	// const fifthTab = document.createElement('div')
 
-// 	for(let i=0; i < filteredarray.length; i++) {
-// 		const div = document.createElement('div')
-// 		div.classList.add('div-container')
-// 		const articles = document.createElement('li');
-// 		const descriptions = document.createElement('li');
-// 		const supplier = document.createElement('li');
-// 		const type = document.createElement('li');
-// 		const use = document.createElement('li');
 
-// 		articles.classList.add('articles')
-// 		articles.innerHTML = filteredarray[i].artnr
-// 		descriptions.innerHTML = filteredarray[i].description
-// 		supplier.innerHTML = filteredarray[i].supplier
-// 		type.innerHTML = filteredarray[i].type
-// 		use.innerHTML = filteredarray[i].use
-// 		div.appendChild(articles)
-// 		div.append(descriptions)
-// 		div.append(supplier)
-// 		div.append(type)
-// 		div.append(use)
-// 		firstTab.appendChild(div)
-// 	}
-// 	itemsList.append(firstTab)
-
-// 	// itemsList.append(stringified)
-// };
-
-// createList()
-
-// itemsListContainer.innerHTML = jsonData.includes('GC').innerHTML;
-
-// });
 
 // create an empty array
 const arraySuppliers = [];
@@ -240,26 +181,18 @@ const newSetAnwendung = new Set(arrayAnwendung);
 // this has to be optimised
 newSetSuppliers.forEach(function (e) {
 	const newElement = document.createElement("option");
-	// console.log(newElement)
-	// console.log(e)
 	newElement.innerHTML = e;
-
 	lieferantenDropdown.append(newElement);
 });
 
 newSetGewerk.forEach(function (e) {
 	const newElement = document.createElement("option");
-	// console.log(newElement)
-	// console.log(e)
 	newElement.innerHTML = e;
-
 	gewerkDropdown.append(newElement);
 });
 
 newSetAnwendung.forEach(function (e) {
 	const newElement = document.createElement("option");
-	// console.log(newElement)
-	// console.log(e)
 	newElement.innerHTML = e;
 	anwendungDropdown.append(newElement);
 });
@@ -332,11 +265,11 @@ searchbox.addEventListener("input", function (e) {
 
 // Creating the send button
 
-const sendButton = document.querySelector(".send-button");
+// const sendButton = document.querySelector(".send-button");
 
-sendButton.addEventListener("click", function () {
-	console.log("click");
-});
+// sendButton.addEventListener("click", function () {
+// 	console.log("click");
+// });
 
 // Creating the cart
 
@@ -370,4 +303,38 @@ sendButton.addEventListener("click", function () {
 // cart.appendChild(cartDiv)
 // });
 
-// createList(jsonData)
+
+const checkout = document.querySelector('.checkout')
+const warenkorbButton = document.querySelector('.warenkorb-button')
+// if (checkout)checkout.style.display = 'absolute';
+
+warenkorbButton.addEventListener('click', function(e) {
+	checkout.classList.toggle('hidden')
+	items.classList.toggle('opacity')
+
+
+})
+
+
+// function showCart() { 
+// 	checkout.classList.remove('hidden')
+// }
+
+// document.addEventListener('click',function(e) {
+// 	if (checkout.classList != "hidden") {
+// 		console.log('this')
+// 	}
+// });
+
+// exit div on click function *** HAS TO BE WORKED ON!
+// window.addEventListener('mouseup',function(event){
+// 	event.preventDefault();
+// 	const deleteButton = document.querySelector('.delete-button')
+// 	const sendButton = document.querySelector('.send-button')
+
+	// if(event.target != checkout && event.target != deleteButton && event.target != sendButton){
+	// 	console.log(event.target)
+	// 	checkout.classList.add ('hidden')
+	// 	items.classList.remove('opacity')
+	// }
+// });  
