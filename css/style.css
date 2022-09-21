@@ -98,6 +98,7 @@ input::-webkit-inner-spin-button {
 
 
 .login-button {
+	cursor: pointer;
 	padding: 5px;
 	border-radius: 10px;
 	border: none;
@@ -357,6 +358,7 @@ li {
   .cart-button {
 	background-color: transparent;
 	border: none;
+	cursor: pointer;
 	
   }
 
@@ -458,7 +460,6 @@ li {
 		transform: scale(1.1);
 		background-color: #5da3af;
 		border-radius: 50%;
-
 		color:white
 
 	}
