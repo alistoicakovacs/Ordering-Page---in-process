@@ -19,7 +19,8 @@ const total = document.querySelector('.total')
 const warenkorbTitle = document.querySelector('.warenkorb-title')
 const itemQty = document.querySelector('.item-qty')
 const itemQtyWk = document.querySelector('.item-qty-wk')
-
+const projektnummerTitle = document.querySelector('.projektnummer-title')
+const projektnummerInput = document.getElementById('projektnummer')
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -33,17 +34,19 @@ const itemQtyWk = document.querySelector('.item-qty-wk')
 const data = jsonData;
 
 // User object constructor
-const User = function (username, password) {
-	this.username = username;
-	this.password = password;
-};
+class User {
+	constructor(username, password) {
+		this.username = username;
+		this.password = password;
+	}
+}
 
 const user1 = new User("ask", 1234);
 const user2 = new User("jcl", 1234);
 
 // login button
 loginButton.addEventListener("click", function (element) {
-	if (username.value === user1.username && password.value == user1.password) {
+	if (username.value === user1.username && password.value == user1.password && projektnummerInput.value.length == 7 ) {
 		console.log("success");
 		document.querySelector(".login-container").classList.add("hidden");
 		// document.querySelector(".checkout").classList.remove("hidden");
@@ -51,13 +54,12 @@ loginButton.addEventListener("click", function (element) {
 	} else {
 		alert("Incorrect username or password");
 	}
+	document.querySelector('.projektnummer-title').innerHTML = projektnummerInput.value
 	// testing
 	// document.querySelector(".login-container").classList.add("hidden");
 	// document.querySelector(".item-container").classList.remove("hidden");
-	createList(jsonData);
+	createList(data)
 });
-
-
 
 // Creating the json list and displaying it in the items list
 function createList(array) {
@@ -65,7 +67,7 @@ function createList(array) {
 	const itemsList = document.querySelector(".items");
 	const firstTab = document.createElement("div");
 
-	for (let i = 0; i < array.length; i++) {
+		for (let i = 0; i < array.length; i++) {
 		const div = document.createElement("div");
 		div.classList.add("div-container");
 		const articles = document.createElement("li");
@@ -74,6 +76,7 @@ function createList(array) {
 		const type = document.createElement("li");
 		const use = document.createElement("li");
 		const button = document.createElement("button");
+		const value = document.createElement('input')
 
 		articles.classList.add("articles");
 		articles.style.fontWeight = "bold";
@@ -91,8 +94,13 @@ function createList(array) {
 		use.innerHTML = array[i].use;
 		use.classList.add("use");
 
+		value.style.width = "40px"
+		value.style.margin = '20px'
+		value.type = Number
+		value.classList.add('.value')
+		
 		button.classList.add("cart-button");
-		button.innerHTML = `<i class="fa-regular fa-plus"></i>`;
+		button.innerHTML =`<i class="fa-regular fa-plus"></i>`;
 
 		div.appendChild(articles);
 		div.append(descriptions);
@@ -100,72 +108,96 @@ function createList(array) {
 		div.append(type);
 		div.append(use);
 		div.append(button);
+		button.prepend(value)
+
 		firstTab.appendChild(div);
 
 		// add items to the cart function
 		button.addEventListener("click", function (event) {
 			// create the elements
-			const cartDiv = document.createElement("div");
-			const cartArtnr = document.createElement("li");
-			const cartArtDescr = document.createElement("li");
-			const deleteButton = document.createElement("button");
-			const total = document.createElement('div')
-			cartDiv.classList.add("cart-div");
-			// create art number and append it - according to the event listener
-			cartArtnr.innerHTML = data[i].artnr;
-			cartArtnr.classList.add("cart-item");
-			// create description and append it - according to the event listener
-			cartArtDescr.innerHTML = data[i].description;
-			cartArtDescr.classList.add("cart-art-description");
-			// create the delete button and append it
-			deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-			deleteButton.classList.add("delete-button");
-			
-			// total.innerHTML = `<p>Total Artikel: </p>`
-			total.classList.add('total')
+			// const modal = document.createElement('div')
+			// const modalText = document.createElement('h5')
+			// const modalInput = document.createElement('input')
 
-			cartDiv.append(cartArtnr);
-			cartDiv.append(cartArtDescr);
-			cartDiv.append(deleteButton);
-			cartContainer.appendChild(cartDiv);
-		
-			// Delete button for the cart + incrementing and decrementing the qty number on button click
-			deleteButton.addEventListener("click", function (event) {
-				this.parentElement.remove();
-				itemQty.textContent--;
-				itemQtyWk.textContent--;
-				// if the cart is empty, remove and add class lists to get back to normal
-				if(itemQty.textContent === "0") {
-					checkout.classList.add('hidden')
-					items.classList.remove('opacity')
-				}
+			// modal.classList.add('modal')
+			// modalText.textContent = "Menge: "
+			// modalText.classList.add('modal-text')
+			// modalInput.placeholder = "Type here"
+			// modalInput.classList.add('modal-input')
 
-				console.log(this)
-		
-			});
-			
-			
-			console.log(data[i].artnr);
-			itemQty.textContent++;
-			itemQtyWk.textContent++;
+			// modal.append(modalText)
+			// modal.append(modalInput)
+			// items.append(modal)
+			if(value.value !== "") {
+				const cartDiv = document.createElement("div");
+				const cartArtnr = document.createElement("li");
+				const cartArtDescr = document.createElement("li");
+				const deleteButton = document.createElement("button");
+				const total = document.createElement('div')
+				const cartItemQty = document.createElement('p')
 	
+				cartDiv.classList.add("cart-div");
+				// create art number and append it - according to the event listener
+				cartArtnr.innerHTML = data[i].artnr;
+				cartArtnr.classList.add("cart-item");
+				// create description and append it - according to the event listener
+				cartArtDescr.innerHTML = data[i].description +` <strong>(${value.value})</strong>`;
+	
+				cartArtDescr.classList.add("cart-art-description");
+				// create the delete button and append it
+				deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+				deleteButton.classList.add("delete-button");
+				
+				// total.innerHTML = `<p>Total Artikel: </p>`
+				total.classList.add('total')
+	
+	
+				cartDiv.append(cartArtnr);
+				cartDiv.append(cartArtDescr);
+				cartDiv.append(deleteButton);
+				cartContainer.appendChild(cartDiv);
+	
+	
+				
+				// Delete button for the cart + incrementing and decrementing the qty number on button click
+				deleteButton.addEventListener("click", function () {
+					this.parentElement.remove();
+					itemQty.textContent--;
+					itemQtyWk.textContent--;
+					// if the cart is empty, remove and add class lists to get back to normal
+					if(itemQty.textContent === "0") {
+						checkout.classList.add('hidden')
+						items.classList.remove('opacity')
+					}
+	
+
+			
+				});
+				
+				itemQty.textContent++;
+				itemQtyWk.textContent++;
+	
+				// if(cartArtnr) {
+				// 	console.log('works')
+				// }
+			}
+			
+			value.value ="";
+
 		});
-		
-	
+
+
+
 	}
-
-	itemsList.append(firstTab);
+		itemsList.append(firstTab);
 }
-
-
-
 
 // create an empty array
 const arraySuppliers = [];
 const arrayGewerk = [];
 const arrayAnwendung = [];
 
-// filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier
+// filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier 
 const filterFunction = jsonData.forEach(function (e) {
 	arraySuppliers.push(e.supplier);
 	arrayGewerk.push(e.type);
@@ -201,7 +233,7 @@ newSetAnwendung.forEach(function (e) {
 // this has to be optimised
 lieferantenDropdown.addEventListener("change", function (e) {
 	const filteredData = jsonData.filter(function (articles) {
-		return articles.supplier === lieferantenDropdown.value;
+		return articles.supplier == lieferantenDropdown.value;
 	});
 
 	// WORK ON THIS FUNCTION
@@ -214,12 +246,13 @@ lieferantenDropdown.addEventListener("change", function (e) {
 		items.innerHTML = "";
 		createList(jsonData);
 	}
+
 });
 
 // KLIMA does not show // TROCKENBAU not showing
 gewerkDropdown.addEventListener("change", function (e) {
 	const filteredData = jsonData.filter(function (articles) {
-		return articles.type === gewerkDropdown.value;
+		return articles.type == gewerkDropdown.value;
 	});
 
 	items.innerHTML = "";
@@ -229,6 +262,8 @@ gewerkDropdown.addEventListener("change", function (e) {
 		items.innerHTML = "";
 		createList(jsonData);
 	}
+
+	// console.log(gewerkDropdown.value)
 });
 
 // error : BAD / HOLZ is not showing
@@ -236,7 +271,7 @@ anwendungDropdown.addEventListener("change", function (e) {
 	const filteredData = jsonData.filter(function (articles) {
 		return articles.use === anwendungDropdown.value;
 	});
-	console.log(filteredData);
+	// console.log(filteredData);
 
 	items.innerHTML = "";
 	createList(filteredData);
@@ -311,9 +346,20 @@ const warenkorbButton = document.querySelector('.warenkorb-button')
 warenkorbButton.addEventListener('click', function(e) {
 	checkout.classList.toggle('hidden')
 	items.classList.toggle('opacity')
-
-
+	
+	// window.addEventListener('click', function(e) {
+	// 	if (!cart.contains(e.target)) {
+	// 		console.log('out')
+	// 	}
+	// 	})
+	
+	// cart.addEventListener('click', function(e){ 
+	// 	if(e.target !== checkout) {
+	// 		console.log('it is not')
+	// 	}
+	// })
 })
+
 
 
 // function showCart() { 
@@ -322,7 +368,7 @@ warenkorbButton.addEventListener('click', function(e) {
 
 // document.addEventListener('click',function(e) {
 // 	if (checkout.classList != "hidden") {
-// 		console.log('this')
+// 		console.log('this')only return once on clickto
 // 	}
 // });
 
@@ -338,3 +384,41 @@ warenkorbButton.addEventListener('click', function(e) {
 	// 	items.classList.remove('opacity')
 	// }
 // });  
+
+	
+// if(cartContainer.contains(cartDiv)) {
+		
+// }
+
+// cart.addEventListener('click',function(event) {
+// 	if(event.target !== this.parentElement) {
+// 		checkout.classList.toggle('hidden')
+// 		items.classList.toggle('opacity')
+// 	}
+// })
+
+// const allProductsButton = document.querySelector('.all-products');
+
+// allProductsButton.addEventListener('click',function() {
+// 		 createList(data)
+// 		 allProductsButton.textContent = "Liste leer"
+// 		allProductsButton.addEventListener('click', function() {
+// 			items.innerHTML = ""
+// 		})
+		 
+// })
+
+// createList(data)
+
+
+///////////////////////////////////
+// Tasks to work on:
+// Optimising functions and code
+// If clicked outside the cart, cart should close. 
+// Fix some filter categories that are not showing
+// Add items be pressing ENTER after typing in amount
+// Next: Backend? Mailing feature
+		// Mail should send a structured email to another email address, containing the items from the cart and the given projekt number.
+	
+// Another option for the cart
+		// on each click, an item is added, but if it is added multiple times, increments and ( n ) <-- is added next to the description

@@ -52,27 +52,50 @@ body {
 }
 
 .user-input,
-.user-password {
+.user-password,
+.projektnummer {
+	width: 150px;
 	border: none;
 	border-bottom: 1px solid black;
 	padding: 10px;
 	outline: none;
 	transition: transform 200ms;
+	
 }
 
 .user-input:hover,
-.user-password:hover {
+.user-password:hover,
+.projektnummer:hover {
 	transform: translateY(2px);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .user,
-.password {
+.password,
+.projektnummer-div {
 	padding: 10px;
 }
 
-.user-password {
-	margin-bottom: 30px;
+.user h6,
+.password h6,
+.projektnummer-div h6 {
+	font-weight: 600;
 }
+
+.user-password {
+	margin-bottom: 5px;
+}
+
+.projektnummer-div {
+	margin-bottom: 40px;
+}
+
+
 
 .login-button {
 	padding: 5px;
@@ -108,6 +131,10 @@ body {
 	margin-right: auto; 
 	box-shadow: 5px 5px 20px black;
 
+}
+
+.projektnummer-title {
+	padding:10px;
 }
 
 .dropdown-lists-container {
@@ -313,7 +340,7 @@ li {
 	height:500px;
 	width: 500px;
 	background-color: white;
-	border-radius: 10px 10px 0 0 ;
+	border-radius: 10px ;
 	text-align: center;
 	list-style-type: none;
 	margin-right: 10px;	
@@ -330,6 +357,7 @@ li {
   .cart-button {
 	background-color: transparent;
 	border: none;
+	
   }
 
   .cart-button:hover{
@@ -375,7 +403,7 @@ li {
 			transform: scale(1.1);
 			background-color: #5da3af;
 			border-radius: 10px;
-			color:white
+			color:white;
 	
 		}
 	

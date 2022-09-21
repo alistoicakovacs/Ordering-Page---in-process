@@ -15,7 +15,7 @@
 <body>
   <!--Login container-->
   <!-- Add or remove 'hidden' class to see or hide the login container -->
-  <div class="login-container">
+  <div class="login-container ">
     <h1 class="login-title">Login</h1>
     <div class="sub-container">
     <div class="user">
@@ -28,6 +28,11 @@
       <i class="fa-solid fa-lock"></i>
   <input type="password" name="user-password" id="user-password" class="user-password" placeholder="password" required>
   </div>
+  <div class="projektnummer-div">  
+    <h6>Projekt Nummer</h5>
+      <i class="fa-sharp fa-solid fa-diagram-project"></i>
+  <input type="number" name="projektnummer" id="projektnummer" class="projektnummer" placeholder="projekt" required>
+  </div>
     <button class="login-button">Log in</button>
     
   </div>
@@ -35,8 +40,12 @@
   <!-- hidden class has to be set, and then shown on click -->
   <div class="item-container hidden">
     <!-- Dropdown to select filter-->
+    <div class="projektnummer-container">
+      <h3 class="projektnummer-title"></h3>
+    </div>
     <div class="dropdown-lists-container">
-        <label for="option">Lieferant:</label>
+      <!-- <button class="all-products">Alle Artikeln</button>   -->
+          <label for="option">Lieferant:</label>
           <select name="lieferanten" id="lieferanten" class="dropdown">
             <option value="select">Select</option>
             <option value="all">Alle</option>
