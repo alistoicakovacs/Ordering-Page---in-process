@@ -147,6 +147,18 @@ input::-webkit-inner-spin-button {
 	font-weight: bold;
 }
 
+.dropdown {
+	padding:5px 10px;
+	transition: 0.2s ease-in-out;
+}
+
+.dropdown:focus {
+	transition: 0.2s;
+	transform: scale(1.1);
+	font-weight: 700;
+
+}
+
 .item-list-container {
 	height: 100%;
 	width: 100%;
@@ -228,6 +240,12 @@ li {
 	font-weight: bold;
 	border: none;
 }
+
+#searchbox {
+	outline: none;
+	border: 1px solid #97a6a9;
+}
+
   .items li {
 	/* border:1px solid rgb(199, 199, 199);
 	margin:5px;
@@ -248,6 +266,7 @@ li {
 	transition: ease-in;
 	margin-top:10px;
 	border-bottom: 0.5px solid #90c9be;
+	padding:0 5px;
   }
 
   .div-container:hover {
@@ -396,15 +415,14 @@ li {
 		background-color: transparent;
 		border:none;
 		transition:0.2s ease-in;
-		border-radius: 10px;
-		
 		}
+				
+		
 	.warenkorb-button:hover {
 		
 			transition: 0.2s;
 			transform: scale(1.1);
 			background-color: #5da3af;
-			border-radius: 10px;
 			color:white;
 	
 		}
@@ -465,6 +483,7 @@ li {
 	}
 
 	.delete-button {
+		cursor: pointer;
 		background-color: transparent;
 		border:none;
 		text-align: end;

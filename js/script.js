@@ -1,5 +1,7 @@
 // importing the json file
 import jsonData from "./convertcsv.json" assert { type: "json" };
+import  { User } from './classes/User.js'
+
 
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
@@ -34,12 +36,6 @@ const projektnummerInput = document.getElementById("projektnummer");
 const data = jsonData;
 
 // User object constructor
-class User {
-	constructor(username, password) {
-		this.username = username;
-		this.password = password;
-	}
-}
 
 const user1 = new User("ask", 1234);
 const user2 = new User("jcl", 1234);
@@ -101,6 +97,7 @@ function createList(array) {
 
 		value.style.width = "40px";
 		value.style.margin = "20px";
+		value.style.textAlign ="center"
 		value.type = Number;
 		value.classList.add(".value");
 
@@ -119,78 +116,60 @@ function createList(array) {
 
 		// add items to the cart function
 		button.addEventListener("click", function (event) {
-			// create the elements
-			// const modal = document.createElement('div')
-			// const modalText = document.createElement('h5')
-			// const modalInput = document.createElement('input')
-
-			// modal.classList.add('modal')
-			// modalText.textContent = "Menge: "
-			// modalText.classList.add('modal-text')
-			// modalInput.placeholder = "Type here"
-			// modalInput.classList.add('modal-input')
-
-			// modal.append(modalText)
-			// modal.append(modalInput)
-			// items.append(modal)
-			// console.log(event.target);
-
 			if (value.value !== "") {
-				const cartDiv = document.createElement("div");
-				const cartArtnr = document.createElement("li");
-				const cartArtDescr = document.createElement("li");
-				const deleteButton = document.createElement("button");
-				const total = document.createElement("div");
-				const cartItemQty = document.createElement("p");
+			const cartDiv = document.createElement("div");
+			const cartArtnr = document.createElement("li");
+			const cartArtDescr = document.createElement("li");
+			const deleteButton = document.createElement("button");
+			const total = document.createElement("div");
+			const cartItemQty = document.createElement("p");
 
-				cartDiv.classList.add("cart-div");
-				// create art number and append it - according to the event listener
-				cartArtnr.innerHTML = data[i].artnr;
-				cartArtnr.classList.add("cart-item");
-				// create description and append it - according to the event listener
-				cartArtDescr.innerHTML =
-					data[i].description + ` <strong>(${value.value})</strong>`;
+			cartDiv.classList.add("cart-div");
+			// create art number and append it - according to the event listener
+			cartArtnr.innerHTML = data[i].artnr;
+			cartArtnr.classList.add("cart-item");
+			// create description and append it - according to the event listener
+			cartArtDescr.innerHTML =
+				data[i].description + ` <strong>(${value.value})</strong>`;
 
-				cartArtDescr.classList.add("cart-art-description");
-				// create the delete button and append it
-				deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-				deleteButton.classList.add("delete-button");
+			cartArtDescr.classList.add("cart-art-description");
+			// create the delete button and append it
+			deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+			deleteButton.classList.add("delete-button");
 
-				// total.innerHTML = `<p>Total Artikel: </p>`
-				total.classList.add("total");
+			// total.innerHTML = `<p>Total Artikel: </p>`
+			total.classList.add("total");
 
-				cartDiv.append(cartArtnr);
-				cartDiv.append(cartArtDescr);
-				cartDiv.append(deleteButton);
-				cartContainer.appendChild(cartDiv);
+			cartDiv.append(cartArtnr);
+			cartDiv.append(cartArtDescr);
+			cartDiv.append(deleteButton);
+			cartContainer.appendChild(cartDiv);
 
-				// Delete button for the cart + incrementing and decrementing the qty number on button click
-				deleteButton.addEventListener("click", function () {
-					this.parentElement.remove();
-					itemQty.textContent--;
-					itemQtyWk.textContent--;
-					// if the cart is empty, remove and add class lists to get back to normal
-					if (itemQty.textContent === "0") {
-						checkout.classList.add("hidden");
-						items.classList.remove("opacity");
-						document.querySelector(".item-container").removeChild(document.querySelector(".overlay"));
+			// Delete button for the cart + incrementing and decrementing the qty number on button click
+			deleteButton.addEventListener("click", function () {
+				this.parentElement.remove();
+				itemQty.textContent--;
+				itemQtyWk.textContent--;
+				// if the cart is empty, remove and add class lists to get back to normal
+				if (itemQty.textContent === "0") {
+					checkout.classList.add("hidden");
+					items.classList.remove("opacity");
+					document.querySelector(".item-container").removeChild(document.querySelector(".overlay"));
+				}
+			});
 
-					}
-				});
+			itemQty.textContent++;
+			itemQtyWk.textContent++;
+		}
 
-				itemQty.textContent++;
-				itemQtyWk.textContent++;
-
-				// if(cartArtnr) {
-				// 	console.log('works')
-				// }
-			}
-
-			value.value = "";
-		});
+	value.value = "";
+});
 	}
 	itemsList.append(firstTab);
 }
+
+
+createList(data);
 
 // create an empty array
 const arraySuppliers = [];
@@ -229,16 +208,22 @@ newSetAnwendung.forEach(function (e) {
 	anwendungDropdown.append(newElement);
 });
 
+
+
+
 // Filtering the dropdown list arrays
 // this has to be optimised
 lieferantenDropdown.addEventListener("change", function (e) {
 	const filteredData = jsonData.filter(function (articles) {
 		return articles.supplier == lieferantenDropdown.value;
 	});
-
 	// WORK ON THIS FUNCTION
 	// this empties the itemslistcontainer
 	items.innerHTML = "";
+	searchbox.value = "";
+	document.getElementById('gewerk').value = "select"
+	document.getElementById('anwendung').value = "select"
+	// document.getElementById('anwendung').value = "Select"
 	// this creates a list of the filtered array
 	createList(filteredData);
 
@@ -246,6 +231,8 @@ lieferantenDropdown.addEventListener("change", function (e) {
 		items.innerHTML = "";
 		createList(jsonData);
 	}
+
+	
 });
 
 // KLIMA does not show // TROCKENBAU not showing
@@ -255,6 +242,10 @@ gewerkDropdown.addEventListener("change", function (e) {
 	});
 
 	items.innerHTML = "";
+	searchbox.value = "";
+	document.getElementById('lieferanten').value = "select"
+	document.getElementById('anwendung').value = "select"
+
 	createList(filteredData);
 
 	if (gewerkDropdown.value === "all") {
@@ -273,8 +264,13 @@ anwendungDropdown.addEventListener("change", function (e) {
 	// console.log(filteredData);
 
 	items.innerHTML = "";
+	searchbox.value = "";
+	document.getElementById('lieferanten').value = "select"
+	document.getElementById('gewerk').value = "select"
 	createList(filteredData);
 
+	console.log(filteredData)
+	
 	if (anwendungDropdown.value === "all") {
 		items.innerHTML = "";
 		createList(jsonData);
@@ -283,7 +279,7 @@ anwendungDropdown.addEventListener("change", function (e) {
 
 // Searchbox functionality
 
-searchbox.style.padding = "0 10px";
+searchbox.style.padding = "5px 10px";
 searchbox.style.outline = "none";
 
 searchbox.addEventListener("input", function (e) {
@@ -292,6 +288,9 @@ searchbox.addEventListener("input", function (e) {
 		return articles.description.toLowerCase().includes(searchbox.value);
 	});
 	// empty items list
+	document.getElementById('lieferanten').value = "select"
+	document.getElementById('gewerk').value = "select"
+	document.getElementById('anwendung').value = "select"
 	items.innerHTML = "";
 	// create a list from the searched data and display it
 	createList(searchdata);
@@ -345,6 +344,8 @@ warenkorbButton.addEventListener("click", function (e) {
 	checkout.classList.toggle("hidden");
 	items.classList.toggle("opacity");
 
+	// creating the overlay that comes in when the cart is opened
+	// this comes on top of the items container, and it is removed on click
 	const overlay = document.createElement("div");
 	overlay.classList.add("overlay");
 	document.querySelector(".item-container").appendChild(overlay);
@@ -360,7 +361,6 @@ warenkorbButton.addEventListener("click", function (e) {
 	}
 
 	window.addEventListener("click", function (e) {
-		console.log(e.target);
 		if (e.target == overlay) {
 			this.document.querySelector(".item-container").removeChild(overlay);
 			checkout.classList.add("hidden");
@@ -425,12 +425,11 @@ warenkorbButton.addEventListener("click", function (e) {
 // 		})
 // })
 
-// createList(data);
 
 ///////////////////////////////////
 // Tasks to work on:
 // Optimising functions and code
-// If clicked outside the cart, cart should close.
+// If clicked outside the cart, cart should close. ✔
 // Fix some filter categories that are not showing
 // Add items be pressing ENTER after typing in amount
 // Next: Backend? Mailing feature
@@ -438,3 +437,60 @@ warenkorbButton.addEventListener("click", function (e) {
 
 // Another option for the cart
 // on each click, an item is added, but if it is added multiple times, increments and ( n ) <-- is added next to the description
+
+items.addEventListener('click', function (e) {
+	console.log(e.target)
+})
+
+
+console.log(cartButton)
+// add items to the cart function
+// cartButton.addEventListener("click", function (event) {
+// 	if (value.value !== "") {
+// 		const cartDiv = document.createElement("div");
+// 		const cartArtnr = document.createElement("li");
+// 		const cartArtDescr = document.createElement("li");
+// 		const deleteButton = document.createElement("button");
+// 		const total = document.createElement("div");
+// 		const cartItemQty = document.createElement("p");
+
+// 		cartDiv.classList.add("cart-div");
+// 		// create art number and append it - according to the event listener
+// 		cartArtnr.innerHTML = data[i].artnr;
+// 		cartArtnr.classList.add("cart-item");
+// 		// create description and append it - according to the event listener
+// 		cartArtDescr.innerHTML =
+// 			data[i].description + ` <strong>(${value.value})</strong>`;
+
+// 		cartArtDescr.classList.add("cart-art-description");
+// 		// create the delete button and append it
+// 		deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+// 		deleteButton.classList.add("delete-button");
+
+// 		// total.innerHTML = `<p>Total Artikel: </p>`
+// 		total.classList.add("total");
+
+// 		cartDiv.append(cartArtnr);
+// 		cartDiv.append(cartArtDescr);
+// 		cartDiv.append(deleteButton);
+// 		cartContainer.appendChild(cartDiv);
+
+// 		// Delete button for the cart + incrementing and decrementing the qty number on button click
+// 		deleteButton.addEventListener("click", function () {
+// 			this.parentElement.remove();
+// 			itemQty.textContent--;
+// 			itemQtyWk.textContent--;
+// 			// if the cart is empty, remove and add class lists to get back to normal
+// 			if (itemQty.textContent === "0") {
+// 				checkout.classList.add("hidden");
+// 				items.classList.remove("opacity");
+// 				document.querySelector(".item-container").removeChild(document.querySelector(".overlay"));
+// 			}
+// 		});
+
+// 		itemQty.textContent++;
+// 		itemQtyWk.textContent++;
+// 	}
+
+// 	value.value = "";
+// });
