@@ -173,6 +173,8 @@ function createList(array) {
 					if (itemQty.textContent === "0") {
 						checkout.classList.add("hidden");
 						items.classList.remove("opacity");
+						document.querySelector(".item-container").removeChild(document.querySelector(".overlay"));
+
 					}
 				});
 
