@@ -167,106 +167,6 @@ function createList(array) {
 		});
 	}
 	itemsList.append(firstTab);
-	// create an empty array
-	const arraySuppliers = [];
-	const arrayGewerk = [];
-	const arrayAnwendung = [];
-
-	// filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier
-	const filterFunction = jsonData.forEach(function (e) {
-		arraySuppliers.push(e.supplier);
-		arrayGewerk.push(e.type);
-		arrayAnwendung.push(e.use);
-	});
-
-	// create a new set from arraySuppliers - the new set will return the new array without the duplicates from the given array
-	const newSetSuppliers = new Set(arraySuppliers);
-	const newSetGewerk = new Set(arrayGewerk);
-	const newSetAnwendung = new Set(arrayAnwendung);
-
-	// loop through the array and for each element, create a new element - option - and add the inner HTML to the element (supplier) - and then append the element to the dropdown menu
-	// this has to be optimised
-	newSetSuppliers.forEach(function (e) {
-		const newElement = document.createElement("option");
-		newElement.innerHTML = e;
-		lieferantenDropdown.append(newElement);
-	});
-
-	newSetGewerk.forEach(function (e) {
-		const newElement = document.createElement("option");
-		newElement.innerHTML = e;
-		gewerkDropdown.append(newElement);
-	});
-
-	newSetAnwendung.forEach(function (e) {
-		const newElement = document.createElement("option");
-		newElement.innerHTML = e;
-		anwendungDropdown.append(newElement);
-	});
-
-	// Filtering the dropdown list arrays
-	// this has to be optimised
-	lieferantenDropdown.addEventListener("change", function (e) {
-		const filteredData = jsonData.filter(function (articles) {
-			return articles.supplier == lieferantenDropdown.value;
-		});
-		// WORK ON THIS FUNCTION
-		// this empties the itemslistcontainer
-		items.innerHTML = "";
-		searchbox.value = "";
-		document.getElementById("gewerk").value = "select";
-		document.getElementById("anwendung").value = "select";
-		// document.getElementById('anwendung').value = "Select"
-		// this creates a list of the filtered array
-		createList(filteredData);
-
-		if (lieferantenDropdown.value === "all") {
-			items.innerHTML = "";
-			createList(jsonData);
-		}
-	});
-
-	// KLIMA does not show // TROCKENBAU not showing
-	gewerkDropdown.addEventListener("change", function (e) {
-		const filteredData = jsonData.filter(function (articles) {
-			return articles.type == gewerkDropdown.value;
-		});
-
-		items.innerHTML = "";
-		searchbox.value = "";
-		document.getElementById("lieferanten").value = "select";
-		document.getElementById("anwendung").value = "select";
-
-		createList(filteredData);
-
-		if (gewerkDropdown.value === "all") {
-			items.innerHTML = "";
-			createList(jsonData);
-		}
-
-		// console.log(gewerkDropdown.value)
-	});
-
-	// error : BAD / HOLZ is not showing
-	anwendungDropdown.addEventListener("change", function (e) {
-		const filteredData = jsonData.filter(function (articles) {
-			return articles.use === anwendungDropdown.value;
-		});
-		// console.log(filteredData);
-
-		items.innerHTML = "";
-		searchbox.value = "";
-		document.getElementById("lieferanten").value = "select";
-		document.getElementById("gewerk").value = "select";
-		createList(filteredData);
-
-		console.log(filteredData);
-
-		if (anwendungDropdown.value === "all") {
-			items.innerHTML = "";
-			createList(jsonData);
-		}
-	});
 }
 
 createList(data);
@@ -290,6 +190,106 @@ searchbox.addEventListener("input", function (e) {
 	createList(searchdata);
 });
 
+// create an empty array
+const arraySuppliers = [];
+const arrayGewerk = [];
+const arrayAnwendung = [];
+
+// filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier
+const filterFunction = jsonData.forEach(function (e) {
+	arraySuppliers.push(e.supplier);
+	arrayGewerk.push(e.type);
+	arrayAnwendung.push(e.use);
+});
+
+// create a new set from arraySuppliers - the new set will return the new array without the duplicates from the given array
+const newSetSuppliers = new Set(arraySuppliers);
+const newSetGewerk = new Set(arrayGewerk);
+const newSetAnwendung = new Set(arrayAnwendung);
+
+// loop through the array and for each element, create a new element - option - and add the inner HTML to the element (supplier) - and then append the element to the dropdown menu
+// this has to be optimised
+newSetSuppliers.forEach(function (e) {
+	const newElement = document.createElement("option");
+	newElement.innerHTML = e;
+	lieferantenDropdown.append(newElement);
+});
+
+newSetGewerk.forEach(function (e) {
+	const newElement = document.createElement("option");
+	newElement.innerHTML = e;
+	gewerkDropdown.append(newElement);
+});
+
+newSetAnwendung.forEach(function (e) {
+	const newElement = document.createElement("option");
+	newElement.innerHTML = e;
+	anwendungDropdown.append(newElement);
+});
+
+// Filtering the dropdown list arrays
+// this has to be optimised
+lieferantenDropdown.addEventListener("change", function (e) {
+	const filteredData = jsonData.filter(function (articles) {
+		return articles.supplier == lieferantenDropdown.value;
+	});
+	// WORK ON THIS FUNCTION
+	// this empties the itemslistcontainer
+	items.innerHTML = "";
+	searchbox.value = "";
+	document.getElementById("gewerk").value = "select";
+	document.getElementById("anwendung").value = "select";
+	// document.getElementById('anwendung').value = "Select"
+	// this creates a list of the filtered array
+	createList(filteredData);
+
+	if (lieferantenDropdown.value === "all") {
+		items.innerHTML = "";
+		createList(jsonData);
+	}
+});
+
+// KLIMA does not show // TROCKENBAU not showing
+gewerkDropdown.addEventListener("change", function (e) {
+	const filteredData = jsonData.filter(function (articles) {
+		return articles.type == gewerkDropdown.value;
+	});
+
+	items.innerHTML = "";
+	searchbox.value = "";
+	document.getElementById("lieferanten").value = "select";
+	document.getElementById("anwendung").value = "select";
+
+	createList(filteredData);
+
+	if (gewerkDropdown.value === "all") {
+		items.innerHTML = "";
+		createList(jsonData);
+	}
+
+	// console.log(gewerkDropdown.value)
+});
+
+// error : BAD / HOLZ is not showing
+anwendungDropdown.addEventListener("change", function (e) {
+	const filteredData = jsonData.filter(function (articles) {
+		return articles.use === anwendungDropdown.value;
+	});
+	// console.log(filteredData);
+
+	items.innerHTML = "";
+	searchbox.value = "";
+	document.getElementById("lieferanten").value = "select";
+	document.getElementById("gewerk").value = "select";
+	createList(filteredData);
+
+	console.log(filteredData);
+
+	if (anwendungDropdown.value === "all") {
+		items.innerHTML = "";
+		createList(jsonData);
+	}
+});
 // Creating the send button
 
 // const sendButton = document.querySelector(".send-button");
