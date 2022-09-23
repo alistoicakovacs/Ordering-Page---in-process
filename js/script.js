@@ -1,7 +1,6 @@
 // importing the json file
 import jsonData from "./convertcsv.json" assert { type: "json" };
-import  { User } from './classes/User.js'
-
+import { User } from "./classes/User.js";
 
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
@@ -97,7 +96,7 @@ function createList(array) {
 
 		value.style.width = "40px";
 		value.style.margin = "20px";
-		value.style.textAlign ="center"
+		value.style.textAlign = "center";
 		value.type = Number;
 		value.classList.add(".value");
 
@@ -117,165 +116,160 @@ function createList(array) {
 		// add items to the cart function
 		button.addEventListener("click", function (event) {
 			if (value.value !== "") {
-			const cartDiv = document.createElement("div");
-			const cartArtnr = document.createElement("li");
-			const cartArtDescr = document.createElement("li");
-			const deleteButton = document.createElement("button");
-			const total = document.createElement("div");
-			const cartItemQty = document.createElement("p");
+				const cartDiv = document.createElement("div");
+				const cartArtnr = document.createElement("li");
+				const cartArtDescr = document.createElement("li");
+				const deleteButton = document.createElement("button");
+				const total = document.createElement("div");
+				const cartItemQty = document.createElement("p");
 
-			cartDiv.classList.add("cart-div");
-			// create art number and append it - according to the event listener
-			cartArtnr.innerHTML = data[i].artnr;
-			cartArtnr.classList.add("cart-item");
-			// create description and append it - according to the event listener
-			cartArtDescr.innerHTML =
-				data[i].description + ` <strong>(${value.value})</strong>`;
+				cartDiv.classList.add("cart-div");
+				// create art number and append it - according to the event listener
+				cartArtnr.innerHTML = array[i].artnr;
+				cartArtnr.classList.add("cart-item");
+				// create description and append it - according to the event listener
+				cartArtDescr.innerHTML =
+					array[i].description + ` <strong>(${value.value})</strong>`;
 
-			cartArtDescr.classList.add("cart-art-description");
-			// create the delete button and append it
-			deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-			deleteButton.classList.add("delete-button");
+				cartArtDescr.classList.add("cart-art-description");
+				// create the delete button and append it
+				deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+				deleteButton.classList.add("delete-button");
 
-			// total.innerHTML = `<p>Total Artikel: </p>`
-			total.classList.add("total");
+				// total.innerHTML = `<p>Total Artikel: </p>`
+				total.classList.add("total");
 
-			cartDiv.append(cartArtnr);
-			cartDiv.append(cartArtDescr);
-			cartDiv.append(deleteButton);
-			cartContainer.appendChild(cartDiv);
+				cartDiv.append(cartArtnr);
+				cartDiv.append(cartArtDescr);
+				cartDiv.append(deleteButton);
+				cartContainer.appendChild(cartDiv);
 
-			// Delete button for the cart + incrementing and decrementing the qty number on button click
-			deleteButton.addEventListener("click", function () {
-				this.parentElement.remove();
-				itemQty.textContent--;
-				itemQtyWk.textContent--;
-				// if the cart is empty, remove and add class lists to get back to normal
-				if (itemQty.textContent === "0") {
-					checkout.classList.add("hidden");
-					items.classList.remove("opacity");
-					document.querySelector(".item-container").removeChild(document.querySelector(".overlay"));
-				}
-			});
+				// Delete button for the cart + incrementing and decrementing the qty number on button click
+				deleteButton.addEventListener("click", function () {
+					this.parentElement.remove();
+					itemQty.textContent--;
+					itemQtyWk.textContent--;
+					// if the cart is empty, remove and add class lists to get back to normal
+					if (itemQty.textContent === "0") {
+						checkout.classList.add("hidden");
+						items.classList.remove("opacity");
+						document
+							.querySelector(".item-container")
+							.removeChild(document.querySelector(".overlay"));
+					}
+				});
 
-			itemQty.textContent++;
-			itemQtyWk.textContent++;
-		}
+				itemQty.textContent++;
+				itemQtyWk.textContent++;
+			}
 
-	value.value = "";
-});
+			value.value = "";
+		});
 	}
 	itemsList.append(firstTab);
+	// create an empty array
+	const arraySuppliers = [];
+	const arrayGewerk = [];
+	const arrayAnwendung = [];
+
+	// filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier
+	const filterFunction = jsonData.forEach(function (e) {
+		arraySuppliers.push(e.supplier);
+		arrayGewerk.push(e.type);
+		arrayAnwendung.push(e.use);
+	});
+
+	// create a new set from arraySuppliers - the new set will return the new array without the duplicates from the given array
+	const newSetSuppliers = new Set(arraySuppliers);
+	const newSetGewerk = new Set(arrayGewerk);
+	const newSetAnwendung = new Set(arrayAnwendung);
+
+	// loop through the array and for each element, create a new element - option - and add the inner HTML to the element (supplier) - and then append the element to the dropdown menu
+	// this has to be optimised
+	newSetSuppliers.forEach(function (e) {
+		const newElement = document.createElement("option");
+		newElement.innerHTML = e;
+		lieferantenDropdown.append(newElement);
+	});
+
+	newSetGewerk.forEach(function (e) {
+		const newElement = document.createElement("option");
+		newElement.innerHTML = e;
+		gewerkDropdown.append(newElement);
+	});
+
+	newSetAnwendung.forEach(function (e) {
+		const newElement = document.createElement("option");
+		newElement.innerHTML = e;
+		anwendungDropdown.append(newElement);
+	});
+
+	// Filtering the dropdown list arrays
+	// this has to be optimised
+	lieferantenDropdown.addEventListener("change", function (e) {
+		const filteredData = jsonData.filter(function (articles) {
+			return articles.supplier == lieferantenDropdown.value;
+		});
+		// WORK ON THIS FUNCTION
+		// this empties the itemslistcontainer
+		items.innerHTML = "";
+		searchbox.value = "";
+		document.getElementById("gewerk").value = "select";
+		document.getElementById("anwendung").value = "select";
+		// document.getElementById('anwendung').value = "Select"
+		// this creates a list of the filtered array
+		createList(filteredData);
+
+		if (lieferantenDropdown.value === "all") {
+			items.innerHTML = "";
+			createList(jsonData);
+		}
+	});
+
+	// KLIMA does not show // TROCKENBAU not showing
+	gewerkDropdown.addEventListener("change", function (e) {
+		const filteredData = jsonData.filter(function (articles) {
+			return articles.type == gewerkDropdown.value;
+		});
+
+		items.innerHTML = "";
+		searchbox.value = "";
+		document.getElementById("lieferanten").value = "select";
+		document.getElementById("anwendung").value = "select";
+
+		createList(filteredData);
+
+		if (gewerkDropdown.value === "all") {
+			items.innerHTML = "";
+			createList(jsonData);
+		}
+
+		// console.log(gewerkDropdown.value)
+	});
+
+	// error : BAD / HOLZ is not showing
+	anwendungDropdown.addEventListener("change", function (e) {
+		const filteredData = jsonData.filter(function (articles) {
+			return articles.use === anwendungDropdown.value;
+		});
+		// console.log(filteredData);
+
+		items.innerHTML = "";
+		searchbox.value = "";
+		document.getElementById("lieferanten").value = "select";
+		document.getElementById("gewerk").value = "select";
+		createList(filteredData);
+
+		console.log(filteredData);
+
+		if (anwendungDropdown.value === "all") {
+			items.innerHTML = "";
+			createList(jsonData);
+		}
+	});
 }
 
-
 createList(data);
-
-// create an empty array
-const arraySuppliers = [];
-const arrayGewerk = [];
-const arrayAnwendung = [];
-
-// filtered functon that takes suppliers from jsonData and pushes them into arraySuppliers, created earlier
-const filterFunction = jsonData.forEach(function (e) {
-	arraySuppliers.push(e.supplier);
-	arrayGewerk.push(e.type);
-	arrayAnwendung.push(e.use);
-});
-
-// create a new set from arraySuppliers - the new set will return the new array without the duplicates from the given array
-const newSetSuppliers = new Set(arraySuppliers);
-const newSetGewerk = new Set(arrayGewerk);
-const newSetAnwendung = new Set(arrayAnwendung);
-
-// loop through the array and for each element, create a new element - option - and add the inner HTML to the element (supplier) - and then append the element to the dropdown menu
-// this has to be optimised
-newSetSuppliers.forEach(function (e) {
-	const newElement = document.createElement("option");
-	newElement.innerHTML = e;
-	lieferantenDropdown.append(newElement);
-});
-
-newSetGewerk.forEach(function (e) {
-	const newElement = document.createElement("option");
-	newElement.innerHTML = e;
-	gewerkDropdown.append(newElement);
-});
-
-newSetAnwendung.forEach(function (e) {
-	const newElement = document.createElement("option");
-	newElement.innerHTML = e;
-	anwendungDropdown.append(newElement);
-});
-
-
-
-
-// Filtering the dropdown list arrays
-// this has to be optimised
-lieferantenDropdown.addEventListener("change", function (e) {
-	const filteredData = jsonData.filter(function (articles) {
-		return articles.supplier == lieferantenDropdown.value;
-	});
-	// WORK ON THIS FUNCTION
-	// this empties the itemslistcontainer
-	items.innerHTML = "";
-	searchbox.value = "";
-	document.getElementById('gewerk').value = "select"
-	document.getElementById('anwendung').value = "select"
-	// document.getElementById('anwendung').value = "Select"
-	// this creates a list of the filtered array
-	createList(filteredData);
-
-	if (lieferantenDropdown.value === "all") {
-		items.innerHTML = "";
-		createList(jsonData);
-	}
-
-	
-});
-
-// KLIMA does not show // TROCKENBAU not showing
-gewerkDropdown.addEventListener("change", function (e) {
-	const filteredData = jsonData.filter(function (articles) {
-		return articles.type == gewerkDropdown.value;
-	});
-
-	items.innerHTML = "";
-	searchbox.value = "";
-	document.getElementById('lieferanten').value = "select"
-	document.getElementById('anwendung').value = "select"
-
-	createList(filteredData);
-
-	if (gewerkDropdown.value === "all") {
-		items.innerHTML = "";
-		createList(jsonData);
-	}
-
-	// console.log(gewerkDropdown.value)
-});
-
-// error : BAD / HOLZ is not showing
-anwendungDropdown.addEventListener("change", function (e) {
-	const filteredData = jsonData.filter(function (articles) {
-		return articles.use === anwendungDropdown.value;
-	});
-	// console.log(filteredData);
-
-	items.innerHTML = "";
-	searchbox.value = "";
-	document.getElementById('lieferanten').value = "select"
-	document.getElementById('gewerk').value = "select"
-	createList(filteredData);
-
-	console.log(filteredData)
-	
-	if (anwendungDropdown.value === "all") {
-		items.innerHTML = "";
-		createList(jsonData);
-	}
-});
 
 // Searchbox functionality
 
@@ -288,9 +282,9 @@ searchbox.addEventListener("input", function (e) {
 		return articles.description.toLowerCase().includes(searchbox.value);
 	});
 	// empty items list
-	document.getElementById('lieferanten').value = "select"
-	document.getElementById('gewerk').value = "select"
-	document.getElementById('anwendung').value = "select"
+	document.getElementById("lieferanten").value = "select";
+	document.getElementById("gewerk").value = "select";
+	document.getElementById("anwendung").value = "select";
 	items.innerHTML = "";
 	// create a list from the searched data and display it
 	createList(searchdata);
@@ -369,63 +363,6 @@ warenkorbButton.addEventListener("click", function (e) {
 	});
 });
 
-// window.addEventListener('click', function(e) {
-// 	if (!cart.contains(e.target)) {
-// 		console.log('out')
-// 	}
-// 	})
-
-// cart.addEventListener('click', function(e){
-// 	if(e.target !== checkout) {
-// 		console.log('it is not')
-// 	}
-// })
-
-// function showCart() {
-// 	checkout.classList.remove('hidden')
-// }
-
-// document.addEventListener('click',function(e) {
-// 	if (checkout.classList != "hidden") {
-// 		console.log('this')only return once on clickto
-// 	}
-// });
-
-// exit div on click function *** HAS TO BE WORKED ON!
-// window.addEventListener('mouseup',function(event){
-// 	event.preventDefault();
-// 	const deleteButton = document.querySelector('.delete-button')
-// 	const sendButton = document.querySelector('.send-button')
-
-// if(event.target != checkout && event.target != deleteButton && event.target != sendButton){
-// 	console.log(event.target)
-// 	checkout.classList.add ('hidden')
-// 	items.classList.remove('opacity')
-// }
-// });
-
-// if(cartContainer.contains(cartDiv)) {
-
-// }
-
-// cart.addEventListener('click',function(event) {
-// 	if(event.target !== this.parentElement) {
-// 		checkout.classList.toggle('hidden')
-// 		items.classList.toggle('opacity')
-// 	}
-// })
-
-// const allProductsButton = document.querySelector('.all-products');
-
-// allProductsButton.addEventListener('click',function() {s
-// 		 createList(data)
-// 		 allProductsButton.textContent = "Liste leer"
-// 		allProductsButton.addEventListener('click', function() {
-// 			items.innerHTML = ""
-// 		})
-// })
-
-
 ///////////////////////////////////
 // Tasks to work on:
 // Optimising functions and code
@@ -437,60 +374,3 @@ warenkorbButton.addEventListener("click", function (e) {
 
 // Another option for the cart
 // on each click, an item is added, but if it is added multiple times, increments and ( n ) <-- is added next to the description
-
-items.addEventListener('click', function (e) {
-	console.log(e.target)
-})
-
-
-console.log(cartButton)
-// add items to the cart function
-// cartButton.addEventListener("click", function (event) {
-// 	if (value.value !== "") {
-// 		const cartDiv = document.createElement("div");
-// 		const cartArtnr = document.createElement("li");
-// 		const cartArtDescr = document.createElement("li");
-// 		const deleteButton = document.createElement("button");
-// 		const total = document.createElement("div");
-// 		const cartItemQty = document.createElement("p");
-
-// 		cartDiv.classList.add("cart-div");
-// 		// create art number and append it - according to the event listener
-// 		cartArtnr.innerHTML = data[i].artnr;
-// 		cartArtnr.classList.add("cart-item");
-// 		// create description and append it - according to the event listener
-// 		cartArtDescr.innerHTML =
-// 			data[i].description + ` <strong>(${value.value})</strong>`;
-
-// 		cartArtDescr.classList.add("cart-art-description");
-// 		// create the delete button and append it
-// 		deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-// 		deleteButton.classList.add("delete-button");
-
-// 		// total.innerHTML = `<p>Total Artikel: </p>`
-// 		total.classList.add("total");
-
-// 		cartDiv.append(cartArtnr);
-// 		cartDiv.append(cartArtDescr);
-// 		cartDiv.append(deleteButton);
-// 		cartContainer.appendChild(cartDiv);
-
-// 		// Delete button for the cart + incrementing and decrementing the qty number on button click
-// 		deleteButton.addEventListener("click", function () {
-// 			this.parentElement.remove();
-// 			itemQty.textContent--;
-// 			itemQtyWk.textContent--;
-// 			// if the cart is empty, remove and add class lists to get back to normal
-// 			if (itemQty.textContent === "0") {
-// 				checkout.classList.add("hidden");
-// 				items.classList.remove("opacity");
-// 				document.querySelector(".item-container").removeChild(document.querySelector(".overlay"));
-// 			}
-// 		});
-
-// 		itemQty.textContent++;
-// 		itemQtyWk.textContent++;
-// 	}
-
-// 	value.value = "";
-// });
