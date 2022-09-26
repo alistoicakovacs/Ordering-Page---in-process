@@ -381,7 +381,7 @@ li {
 	
   }
 
-  .cart-button:hover{
+  .cart-button i:hover{
 	color:white;
   }
 
@@ -408,6 +408,7 @@ li {
 	}
 
 	.warenkorb-button {
+		cursor:pointer;
 		padding:5px;
 		background-color:#97a6a9;
 		border: none;

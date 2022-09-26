@@ -77,6 +77,9 @@ function createList(array) {
 		const use = document.createElement("li");
 		const button = document.createElement("button");
 		const value = document.createElement("input");
+		const minusButton = document.createElement('button')
+		const addToCartButton = document.createElement('button')
+
 
 		articles.classList.add("articles");
 		articles.style.fontWeight = "bold";
@@ -97,11 +100,18 @@ function createList(array) {
 		value.style.width = "40px";
 		value.style.margin = "20px";
 		value.style.textAlign = "center";
-		value.type = Number;
-		value.classList.add(".value");
+		value.classList.add("value");
+
+		minusButton.classList.add('cart-button')
+		minusButton.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
+
 
 		button.classList.add("cart-button");
 		button.innerHTML = `<i class="fa-regular fa-plus"></i>`;
+
+		addToCartButton.classList.add('cart-button')
+		addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`
+		addToCartButton.style.marginLeft = "15px"
 
 		div.appendChild(articles);
 		div.append(descriptions);
@@ -110,62 +120,75 @@ function createList(array) {
 		div.append(use);
 		div.append(button);
 		button.prepend(value);
+		button.prepend(minusButton)
+		button.append(addToCartButton)
 
 		firstTab.appendChild(div);
 
 		// add items to the cart function
-		button.addEventListener("click", function (event) {
-			if (value.value !== "") {
-				const cartDiv = document.createElement("div");
-				const cartArtnr = document.createElement("li");
-				const cartArtDescr = document.createElement("li");
-				const deleteButton = document.createElement("button");
-				const total = document.createElement("div");
-				const cartItemQty = document.createElement("p");
 
-				cartDiv.classList.add("cart-div");
-				// create art number and append it - according to the event listener
-				cartArtnr.innerHTML = array[i].artnr;
-				cartArtnr.classList.add("cart-item");
-				// create description and append it - according to the event listener
-				cartArtDescr.innerHTML =
-					array[i].description + ` <strong>(${value.value})</strong>`;
 
-				cartArtDescr.classList.add("cart-art-description");
-				// create the delete button and append it
-				deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-				deleteButton.classList.add("delete-button");
+				button.addEventListener('click', function(event) { 
+					// conditions on which button is clicked
+					// if the plus button is clicked, then itterate
+					if (event.target.classList == 'fa-regular fa-plus') {
+						value.value++
+					// else if the minues is clicked, decrease value
+					} else if (event.target.classList == 'fa-sharp fa-solid fa-minus') {
+						value.value--
+					// if the cart button is clicked, create cart items and increase the quantity
+					} else if ( event.target.classList == 'fa-solid fa-cart-shopping') {
+									const cartDiv = document.createElement("div");
+									const cartArtnr = document.createElement("li");
+									const cartArtDescr = document.createElement("li");
+									const deleteButton = document.createElement("button");
+									const total = document.createElement("div");
+								
+									cartDiv.classList.add("cart-div");
+									// create art number and append it - according to the event listener
+									cartArtnr.innerHTML = array[i].artnr;
+									cartArtnr.classList.add("cart-item");
+									// create description and append it - according to the event listener
+									cartArtDescr.innerHTML =
+										array[i].description + ` <strong>(${value.value})</strong>`;
 
-				// total.innerHTML = `<p>Total Artikel: </p>`
-				total.classList.add("total");
+									cartArtDescr.classList.add("cart-art-description");
+									// create the delete button and append it
+									deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+									deleteButton.classList.add("delete-button");
 
-				cartDiv.append(cartArtnr);
-				cartDiv.append(cartArtDescr);
-				cartDiv.append(deleteButton);
-				cartContainer.appendChild(cartDiv);
+									// total.innerHTML = `<p>Total Artikel: </p>`
+									total.classList.add("total");
 
-				// Delete button for the cart + incrementing and decrementing the qty number on button click
-				deleteButton.addEventListener("click", function () {
-					this.parentElement.remove();
-					itemQty.textContent--;
-					itemQtyWk.textContent--;
-					// if the cart is empty, remove and add class lists to get back to normal
-					if (itemQty.textContent === "0") {
-						checkout.classList.add("hidden");
-						items.classList.remove("opacity");
-						document
-							.querySelector(".item-container")
-							.removeChild(document.querySelector(".overlay"));
-					}
-				});
+									cartDiv.append(cartArtnr);
+									cartDiv.append(cartArtDescr);
+									cartDiv.append(deleteButton);
+									cartContainer.appendChild(cartDiv);
 
-				itemQty.textContent++;
-				itemQtyWk.textContent++;
-			}
-
-			value.value = "";
-		});
-	}
+									// Delete button for the cart + incrementing and decrementing the qty number on button click
+									deleteButton.addEventListener("click", function () {
+										this.parentElement.remove();
+										itemQty.textContent--;
+										itemQtyWk.textContent--;
+										// if the cart is empty, remove and add class lists to get back to normal
+										if (itemQty.textContent === "0") {
+											checkout.classList.add("hidden");
+											items.classList.remove("opacity");
+											document
+												.querySelector(".item-container")
+												.removeChild(document.querySelector(".overlay"));
+										}
+									});
+									// update quantity and reset input value when a new item is added to the cart
+										itemQty.textContent++;
+										itemQtyWk.textContent++;
+										value.value = "";
+								}
+								
+					})
+				
+		
+	 }
 	itemsList.append(firstTab);
 }
 
@@ -283,52 +306,15 @@ anwendungDropdown.addEventListener("change", function (e) {
 	document.getElementById("gewerk").value = "select";
 	createList(filteredData);
 
-	console.log(filteredData);
+	
 
 	if (anwendungDropdown.value === "all") {
 		items.innerHTML = "";
 		createList(jsonData);
 	}
 });
-// Creating the send button
 
-// const sendButton = document.querySelector(".send-button");
 
-// sendButton.addEventListener("click", function () {
-// 	console.log("click");
-// });
-
-// Creating the cart
-
-// jsonData.forEach(function(e) {
-// 	cartButton.addEventListener('click', function() {
-// 		console.log('click')
-// 	})
-
-// })
-
-// cartButton.addEventListener('click', function addCartItems (e) {
-// 	// console.log(this.parentElement)
-// 	// let array = [];
-// 	// array =+ array.push(this.parentElement)
-// 	// console.log(array)
-
-// const cartDiv = document.createElement('div');
-// const artnr = document.createElement('li')
-// const quantity = document.createElement('li');
-
-// cartDiv.classList.add('cart-div')
-// artnr.classList.add('cart-art')
-// artnr.style.listStyleType="none"
-// quantity.classList.add('cart-qty')
-
-// if (e.target) {
-// 	console.log();
-// }
-
-// cartDiv.append(artnr)
-// cart.appendChild(cartDiv)
-// });
 
 const checkout = document.querySelector(".checkout");
 const warenkorbButton = document.querySelector(".warenkorb-button");
@@ -374,3 +360,6 @@ warenkorbButton.addEventListener("click", function (e) {
 
 // Another option for the cart
 // on each click, an item is added, but if it is added multiple times, increments and ( n ) <-- is added next to the description
+
+
+		
