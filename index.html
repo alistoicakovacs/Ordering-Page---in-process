@@ -12,7 +12,7 @@
 <body>
   <!--Login container-->
   <!-- Add or remove 'hidden' class to see or hide the login container -->
-  <div class="login-container ">
+  <div class="login-container hidden">
     <h1 class="login-title">Login</h1>
     <div class="sub-container">
     <div class="user">
@@ -34,12 +34,25 @@
     
   </div>
   </div>
+
   <!-- hidden class has to be set, and then shown on click -->
-  <div class="item-container hidden ">
+  <div class="item-container  ">
     <!-- Dropdown to select filter-->
-    <div class="projektnummer-container">
-      <h3 class="projektnummer-title"></h3>
+    <div class="topbar">
+      <ul class="navbar">
+        <li class="home">Home</li>
+        <li class="home">Artikel Liste</li>
+        <li class="home">Kontakt</li>
+      </ul>
+      
+
+
+      <div class="projektnummer-container">
+        <h3 class="projektnummer-title">5220000</h3>
+      </div>
+
     </div>
+   
     <div class="dropdown-lists-container">
       <!-- <button class="all-products">Alle Artikeln</button>   -->
           <label for="option">Lieferant:</label>
@@ -72,6 +85,7 @@
     </div>
     <!--Container with the items-->
     <div class="item-list-container ">
+  
       <div class="items">
       
       </div>

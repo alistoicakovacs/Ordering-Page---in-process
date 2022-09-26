@@ -1,6 +1,7 @@
 // importing the json file
 import jsonData from "./convertcsv.json" assert { type: "json" };
 import { User } from "./classes/User.js";
+// const nodemailer = require("nodemailer");
 
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
@@ -77,9 +78,8 @@ function createList(array) {
 		const use = document.createElement("li");
 		const button = document.createElement("button");
 		const value = document.createElement("input");
-		const minusButton = document.createElement('button')
-		const addToCartButton = document.createElement('button')
-
+		const minusButton = document.createElement("button");
+		const addToCartButton = document.createElement("button");
 
 		articles.classList.add("articles");
 		articles.style.fontWeight = "bold";
@@ -102,16 +102,15 @@ function createList(array) {
 		value.style.textAlign = "center";
 		value.classList.add("value");
 
-		minusButton.classList.add('cart-button')
+		minusButton.classList.add("cart-button");
 		minusButton.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
-
 
 		button.classList.add("cart-button");
 		button.innerHTML = `<i class="fa-regular fa-plus"></i>`;
 
-		addToCartButton.classList.add('cart-button')
-		addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`
-		addToCartButton.style.marginLeft = "15px"
+		addToCartButton.classList.add("cart-button");
+		addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
+		addToCartButton.style.marginLeft = "15px";
 
 		div.appendChild(articles);
 		div.append(descriptions);
@@ -120,79 +119,75 @@ function createList(array) {
 		div.append(use);
 		div.append(button);
 		button.prepend(value);
-		button.prepend(minusButton)
-		button.append(addToCartButton)
+		button.prepend(minusButton);
+		button.append(addToCartButton);
 
 		firstTab.appendChild(div);
 
 		// add items to the cart function
 
+		button.addEventListener("click", function (event) {
+			// conditions on which button is clicked
+			// if the plus button is clicked, then itterate
+			if (event.target.classList == "fa-regular fa-plus") {
+				value.value++;
+				// else if the minues is clicked, decrease value
+			} else if (event.target.classList == "fa-sharp fa-solid fa-minus") {
+				value.value--;
+				// if the cart button is clicked, create cart items and increase the quantity
+			} else if (event.target.classList == "fa-solid fa-cart-shopping") {
+				const cartDiv = document.createElement("div");
+				const cartArtnr = document.createElement("li");
+				const cartArtDescr = document.createElement("li");
+				const deleteButton = document.createElement("button");
+				const total = document.createElement("div");
 
-				button.addEventListener('click', function(event) { 
-					// conditions on which button is clicked
-					// if the plus button is clicked, then itterate
-					if (event.target.classList == 'fa-regular fa-plus') {
-						value.value++
-					// else if the minues is clicked, decrease value
-					} else if (event.target.classList == 'fa-sharp fa-solid fa-minus') {
-						value.value--
-					// if the cart button is clicked, create cart items and increase the quantity
-					} else if ( event.target.classList == 'fa-solid fa-cart-shopping') {
-									const cartDiv = document.createElement("div");
-									const cartArtnr = document.createElement("li");
-									const cartArtDescr = document.createElement("li");
-									const deleteButton = document.createElement("button");
-									const total = document.createElement("div");
-								
-									cartDiv.classList.add("cart-div");
-									// create art number and append it - according to the event listener
-									cartArtnr.innerHTML = array[i].artnr;
-									cartArtnr.classList.add("cart-item");
-									// create description and append it - according to the event listener
-									cartArtDescr.innerHTML =
-										array[i].description + ` <strong>(${value.value})</strong>`;
+				cartDiv.classList.add("cart-div");
+				// create art number and append it - according to the event listener
+				cartArtnr.innerHTML = array[i].artnr;
+				cartArtnr.classList.add("cart-item");
+				// create description and append it - according to the event listener
+				cartArtDescr.innerHTML =
+					array[i].description + ` <strong>(${value.value})</strong>`;
 
-									cartArtDescr.classList.add("cart-art-description");
-									// create the delete button and append it
-									deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
-									deleteButton.classList.add("delete-button");
+				cartArtDescr.classList.add("cart-art-description");
+				// create the delete button and append it
+				deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+				deleteButton.classList.add("delete-button");
 
-									// total.innerHTML = `<p>Total Artikel: </p>`
-									total.classList.add("total");
+				// total.innerHTML = `<p>Total Artikel: </p>`
+				total.classList.add("total");
 
-									cartDiv.append(cartArtnr);
-									cartDiv.append(cartArtDescr);
-									cartDiv.append(deleteButton);
-									cartContainer.appendChild(cartDiv);
+				cartDiv.append(cartArtnr);
+				cartDiv.append(cartArtDescr);
+				cartDiv.append(deleteButton);
+				cartContainer.appendChild(cartDiv);
 
-									// Delete button for the cart + incrementing and decrementing the qty number on button click
-									deleteButton.addEventListener("click", function () {
-										this.parentElement.remove();
-										itemQty.textContent--;
-										itemQtyWk.textContent--;
-										// if the cart is empty, remove and add class lists to get back to normal
-										if (itemQty.textContent === "0") {
-											checkout.classList.add("hidden");
-											items.classList.remove("opacity");
-											document
-												.querySelector(".item-container")
-												.removeChild(document.querySelector(".overlay"));
-										}
-									});
-									// update quantity and reset input value when a new item is added to the cart
-										itemQty.textContent++;
-										itemQtyWk.textContent++;
-										value.value = "";
-								}
-								
-					})
-				
-		
-	 }
+				// Delete button for the cart + incrementing and decrementing the qty number on button click
+				deleteButton.addEventListener("click", function () {
+					this.parentElement.remove();
+					itemQty.textContent--;
+					itemQtyWk.textContent--;
+					// if the cart is empty, remove and add class lists to get back to normal
+					if (itemQty.textContent === "0") {
+						checkout.classList.add("hidden");
+						items.classList.remove("opacity");
+						document
+							.querySelector(".item-container")
+							.removeChild(document.querySelector(".overlay"));
+					}
+				});
+				// update quantity and reset input value when a new item is added to the cart
+				itemQty.textContent++;
+				itemQtyWk.textContent++;
+				value.value = "";
+			}
+		});
+	}
 	itemsList.append(firstTab);
 }
 
-// createList(data);
+createList(data);
 
 // Searchbox functionality
 
@@ -306,15 +301,11 @@ anwendungDropdown.addEventListener("change", function (e) {
 	document.getElementById("gewerk").value = "select";
 	createList(filteredData);
 
-	
-
 	if (anwendungDropdown.value === "all") {
 		items.innerHTML = "";
 		createList(jsonData);
 	}
 });
-
-
 
 const checkout = document.querySelector(".checkout");
 const warenkorbButton = document.querySelector(".warenkorb-button");
@@ -361,5 +352,25 @@ warenkorbButton.addEventListener("click", function (e) {
 // Another option for the cart
 // on each click, an item is added, but if it is added multiple times, increments and ( n ) <-- is added next to the description
 
+// async function main() {
+// 	let testAccount = await nodemailer.createTestAccount();
 
-		
+// 	const transporter = nodemailer.createTransport({
+// 		host: "smtp.ethereal.email",
+// 		port: 587,
+// 		secure: false,
+// 		auth: {
+// 			user: "dylan.wunsch69@ethereal.email",
+// 			pass: "EZ357XBQ4EXHJVrbsU",
+// 		},
+// 	});
+
+// 	let info = await transporter.sendMail({
+// 		from: `"Ali" <alistoicakovacstest@gmail.com`,
+// 		to: "alistoicakovacstest@gmail.com",
+// 		subject: "test",
+// 		text: "test",
+// 	});
+// }
+
+// main().catch(console.error);

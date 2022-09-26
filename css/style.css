@@ -115,11 +115,38 @@ input::-webkit-inner-spin-button {
 	color: white;
 }
 
+.topbar {
+	display:flex;
+	width: 100%;
+	justify-content: space-between;
+
+}
+
+.navbar {
+	display:flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 15px;
+	list-style: none;
+	margin:0 20px;
+	font-weight: 600;
+}
+
+.projektnummer-container {
+	align-self: flex-end;
+}
+
+.projektnummer-title {
+	padding:10px;
+	margin: 0 20px;
+}
+
+
 .item-container {
 	z-index: 1;
 	position: absolute;
-	height: 90%;
-	width: 80%;
+	height: 100%;
+	width: 100%;
 	background-color: white;
 	border-radius: 10px;
 	display: flex;
@@ -134,9 +161,6 @@ input::-webkit-inner-spin-button {
 
 }
 
-.projektnummer-title {
-	padding:10px;
-}
 
 .dropdown-lists-container {
 	display: flex;
@@ -327,9 +351,6 @@ li {
 		height: 100%;
 	}
 
-	.item-list-container {
-
-	}
 	.items {
 		width: 390;
 	}
