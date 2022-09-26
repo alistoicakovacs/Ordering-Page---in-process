@@ -187,7 +187,7 @@ function createList(array) {
 	itemsList.append(firstTab);
 }
 
-createList(data);
+// createList(data);
 
 // Searchbox functionality
 
