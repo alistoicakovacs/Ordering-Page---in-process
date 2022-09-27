@@ -162,6 +162,7 @@ input::-webkit-inner-spin-button {
 	border-bottom: 1px solid #97a6a9;
 	padding-bottom: 5px;
 	font-size: 1.4rem;
+	user-select: none;
 }
 
 
