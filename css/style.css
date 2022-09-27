@@ -457,7 +457,7 @@ li {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
 		border-bottom:0.5px solid #97a6a9;
-	
+		padding:5px;
 	}
 
 
