@@ -194,14 +194,12 @@ input::-webkit-inner-spin-button {
 
 .dropdown {
 	padding:5px 10px;
-	transition: 0.2s ease-in-out;
+	transition: 0.2s ease-in;
 }
 
-.dropdown:focus {
-	transition: 0.2s;
+.dropdown:hover{
+	transition: 0.2s ease-out;
 	transform: scale(1.1);
-	font-weight: 700;
-
 }
 
 .item-list-container {
@@ -312,12 +310,12 @@ li {
 	margin-top:10px;
 	border-bottom: 0.5px solid #90c9be;
 	padding:0 5px;
+	transition:0.2s ease-in;
   }
 
   .div-container:hover {
 	background-color: #90c9be;
-	transition:0.3s;
-	font-weight:600;
+	transition:0.2s ease-out;
   }
 
 ::-webkit-scrollbar {
