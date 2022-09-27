@@ -326,7 +326,6 @@ li {
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr;
 	transition: ease-in;
-	margin-top:10px;
 	border-bottom: 0.5px solid #90c9be;
 	padding:0 5px;
 	transition:0.2s ease-in;
@@ -442,6 +441,7 @@ li {
 
   .cart-button i:hover{
 	color:white;
+
   }
 
   .cart-container {
@@ -457,7 +457,7 @@ li {
 		display: grid;
 		grid-template-columns: 1fr 3fr 1fr;
 		border-bottom:0.5px solid #97a6a9;
-		padding:5px;
+	
 	}
 
 
