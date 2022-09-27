@@ -538,7 +538,8 @@ li {
 		transform: scale(1.1);
 		background-color: #5da3af;
 		border-radius: 50%;
-		color:white
+		color:white;
+		cursor:pointer;
 
 	}
 
