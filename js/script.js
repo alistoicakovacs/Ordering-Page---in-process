@@ -390,6 +390,8 @@ articlesListButton.addEventListener("click", function (e) {
 			.querySelector(".dropdown-lists-container")
 			.classList.remove("hidden");
 		document.querySelector(".tabs-list-container").classList.remove("hidden");
+		itemsListContainer.classList.remove("hidden");
+
 		createList(jsonData);
 		window.hasLoadedList = true;
 	}
@@ -398,10 +400,12 @@ articlesListButton.addEventListener("click", function (e) {
 homeButton.addEventListener("click", function (e) {
 	document.querySelector(".dropdown-lists-container").classList.add("hidden");
 	document.querySelector(".tabs-list-container").classList.add("hidden");
-	itemsListContainer.innerHTML = " ";
+	itemsListContainer.classList.add("hidden");
 
+	items.innerHTML = "";
 	welcome.classList.remove("opacity-fadeout-effect");
 	window.hasLoadedList = false;
+
 	// welcome.addEventListener("click", function () {
 	// 	welcome.classList.add("opacity-fadeout-effect");
 	// });
