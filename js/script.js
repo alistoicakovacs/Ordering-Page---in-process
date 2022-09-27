@@ -1,7 +1,7 @@
 // importing the json file
 import jsonData from "./convertcsv.json" assert { type: "json" };
 import { User } from "./classes/User.js";
-// const nodemailer = require("nodemailer");
+// import nodemailer from "nodemailer";
 
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
@@ -23,6 +23,9 @@ const itemQty = document.querySelector(".item-qty");
 const itemQtyWk = document.querySelector(".item-qty-wk");
 const projektnummerTitle = document.querySelector(".projektnummer-title");
 const projektnummerInput = document.getElementById("projektnummer");
+const articlesListButton = document.querySelector(".articles-list");
+const homeButton = document.querySelector(".home");
+const welcome = document.querySelector(".welcome");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -51,6 +54,12 @@ loginButton.addEventListener("click", function (element) {
 		document.querySelector(".login-container").classList.add("hidden");
 		// document.querySelector(".checkout").classList.remove("hidden");
 		document.querySelector(".item-container").classList.remove("hidden");
+		// welcome note
+		welcome.classList.add("opacity");
+		// when loaded, should exit on click
+		welcome.addEventListener("click", function () {
+			welcome.classList.add("opacity-fadeout-effect");
+		});
 	} else {
 		alert("Incorrect username or password");
 	}
@@ -59,7 +68,6 @@ loginButton.addEventListener("click", function (element) {
 	// testing
 	// document.querySelector(".login-container").classList.add("hidden");
 	// document.querySelector(".item-container").classList.remove("hidden");
-	createList(data);
 });
 
 // Creating the json list and displaying it in the items list
@@ -374,3 +382,27 @@ warenkorbButton.addEventListener("click", function (e) {
 // }
 
 // main().catch(console.error);
+
+// load the product list on click
+articlesListButton.addEventListener("click", function (e) {
+	if (!window.hasLoadedList) {
+		document
+			.querySelector(".dropdown-lists-container")
+			.classList.remove("hidden");
+		document.querySelector(".tabs-list-container").classList.remove("hidden");
+		createList(jsonData);
+		window.hasLoadedList = true;
+	}
+});
+
+homeButton.addEventListener("click", function (e) {
+	document.querySelector(".dropdown-lists-container").classList.add("hidden");
+	document.querySelector(".tabs-list-container").classList.add("hidden");
+	itemsListContainer.innerHTML = " ";
+
+	welcome.classList.remove("opacity-fadeout-effect");
+	window.hasLoadedList = false;
+	// welcome.addEventListener("click", function () {
+	// 	welcome.classList.add("opacity-fadeout-effect");
+	// });
+});
