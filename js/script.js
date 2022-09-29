@@ -1,29 +1,25 @@
 // importing the json file
 import jsonData from "./convertcsv.json" assert { type: "json" };
-
-// fetch("./js/convertcsv.json")
-// 	.then(res => res.json()
-// 	.then(data => obj=data)
-// 	.then(() =>console.log(obj))
-
-// async function foo() {
-// 	let jsonData;
-// 	const res = await fetch("./js/convertcsv.json");
-// 	jsonData = await res.json();
-// 	console.log(jsonData);
-// }
-
-// foo();
+import { User } from "./classes/User.js";
 
 // function getData() {
-// 	return fetch("./js/convertcsv.json");
+// 	return fetch("/js/convertcsv.json");
 // }
 
 // window.onload = async (e) => {
-// 	window.jsonData = await getData();
+// 	let jsonData = await getData();
+// 	return jsonData;
 // };
 
-import { User } from "./classes/User.js";
+// async function fetchAsync() {
+// 	var response = await fetch("./js/convertcsv.json");
+// 	window.jsonData = await response.json();
+
+// 	// console.log(response);
+// 	console.log(data);
+// 	return data;
+// }
+
 // import nodemailer from "nodemailer";
 // const response = await fetch("./convertcsv.json");
 // const jsonData = await response.json();
@@ -61,8 +57,6 @@ const welcome = document.querySelector(".welcome");
 
 // List items - filter
 // Show picture on hover
-
-const data = jsonData;
 
 // User object constructor
 
@@ -375,7 +369,6 @@ warenkorbButton.addEventListener("click", function (e) {
 
 	window.addEventListener("click", function (e) {
 		if (e.target == overlay) {
-			console.log(e.target);
 			this.document.querySelector(".item-container").removeChild(overlay);
 			checkout.classList.add("hidden");
 			items.classList.remove("opacity");
