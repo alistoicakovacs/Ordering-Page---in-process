@@ -137,6 +137,9 @@ function createList(array) {
 		button.addEventListener("click", function (event) {
 			// conditions on which button is clicked
 			// if the plus button is clicked, then itterate
+			// if (value === "") {
+			// 	alert("add value");
+			// }
 			if (event.target.classList == "fa-regular fa-plus") {
 				value.value++;
 				// else if the minues is clicked, decrease value
