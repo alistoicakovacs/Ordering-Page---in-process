@@ -566,7 +566,7 @@ li {
 
 	.opacity {
 		opacity: 1;
-		z-index: 1000;
+		z-index:50;
 		transition: 1s ease-in;
 	}
 
