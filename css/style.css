@@ -410,7 +410,7 @@ li {
   }
 
   .cart {
-	z-index: 2;
+	z-index: 100;
 	left:40%;
 	top: 20%;
 	position: absolute;
@@ -580,3 +580,8 @@ li {
 	transform: scale(1.1);
 	transition:1s ease-in;
 } */
+
+
+
+/* Iphone 11 viewport size: 414 x 896 
+

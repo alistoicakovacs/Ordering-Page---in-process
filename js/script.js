@@ -1,7 +1,33 @@
 // importing the json file
 import jsonData from "./convertcsv.json" assert { type: "json" };
+
+// fetch("./js/convertcsv.json")
+// 	.then(res => res.json()
+// 	.then(data => obj=data)
+// 	.then(() =>console.log(obj))
+
+// async function foo() {
+// 	let jsonData;
+// 	const res = await fetch("./js/convertcsv.json");
+// 	jsonData = await res.json();
+// 	console.log(jsonData);
+// }
+
+// foo();
+
+// function getData() {
+// 	return fetch("./js/convertcsv.json");
+// }
+
+// window.onload = async (e) => {
+// 	window.jsonData = await getData();
+// };
+
 import { User } from "./classes/User.js";
 // import nodemailer from "nodemailer";
+// const response = await fetch("./convertcsv.json");
+// const jsonData = await response.json();
+// console.log(response);
 
 const loginButton = document.querySelector(".login-button");
 const username = document.querySelector(".user-input");
@@ -330,13 +356,14 @@ warenkorbButton.addEventListener("click", function (e) {
 	// this comes on top of the items container, and it is removed on click
 	const overlay = document.createElement("div");
 	overlay.classList.add("overlay");
-	document.querySelector(".item-container").appendChild(overlay);
+	document.querySelector(".item-container").append(overlay);
 	overlay.style.height = "100%";
 	overlay.style.width = "100%";
 	overlay.style.backgroundColor = "black";
 	overlay.style.opacity = "0.3";
 	overlay.style.position = "absolute";
 	overlay.style.borderRadius = "10px";
+	overlay.style.zIndex = "99";
 
 	if (checkout.classList !== "hidden") {
 		document.querySelector(".item-container").appendChild(overlay);
@@ -344,6 +371,7 @@ warenkorbButton.addEventListener("click", function (e) {
 
 	window.addEventListener("click", function (e) {
 		if (e.target == overlay) {
+			console.log(e.target);
 			this.document.querySelector(".item-container").removeChild(overlay);
 			checkout.classList.add("hidden");
 			items.classList.remove("opacity");
