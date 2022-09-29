@@ -171,8 +171,12 @@ function createList(array) {
 				// else if the minues is clicked, decrease value
 			} else if (event.target.classList == "fa-sharp fa-solid fa-minus") {
 				value.value--;
-				// if the cart button is clicked, create cart items and increase the quantity
-			} else if (event.target.classList == "fa-solid fa-cart-shopping") {
+			}
+			// if the cart button is clicked, create cart items and increase the quantity
+			else if (
+				event.target.classList == "fa-solid fa-cart-shopping" &&
+				value.value !== ""
+			) {
 				const cartDiv = document.createElement("div");
 				const cartArtnr = document.createElement("li");
 				const cartArtDescr = document.createElement("li");
