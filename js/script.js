@@ -1,7 +1,111 @@
-// importing the json file
+// Importing users
 // import jsonData from "./convertcsv.json" assert { type: "json" };
 import { User } from "./classes/User.js";
 
+// all these functions underneath are not working - sketches
+
+// async function getJson() {
+// 	const response = await fetch("./convertcsv.json");
+// 	const data = await response.json();
+// 	return data;
+// }
+
+// getJson().then((data) => console.log(data));
+
+// function getData() {
+// 	fetch("/js/convertcsv.json");
+// }
+
+// window.onload = async (e) => {
+// 	window.jsonData = await getData();
+// 	console.log(jsonData.textContent);
+// };
+
+// function getData() {
+// 	return fetch("/js/convertcsv.json");
+// }
+
+// window.onload = async (e) => {
+// 	let jsonData = await getData();
+// 	return jsonData;
+// };
+
+// async function fetchAsync() {
+// 	var response = await fetch("./js/convertcsv.json");
+// 	window.jsonData = await response.json();
+
+// 	// console.log(response);
+// 	console.log(data);
+// 	return data;
+// }
+
+// import nodemailer from "nodemailer";
+// const response = await fetch("./convertcsv.json");
+// const jsonData = await response.json();
+// console.log(response);
+////////////////////////////////////
+// selecting items from the html
+const loginButton = document.querySelector(".login-button");
+const username = document.querySelector(".user-input");
+const password = document.querySelector(".user-password");
+const items = document.querySelector(".items");
+const cartButton = document.querySelector(".cart-button");
+const dropdown = document.querySelectorAll(".dropdown");
+const itemsListContainer = document.querySelector(".item-list-container");
+const searchbox = document.getElementById("searchbox");
+const lieferantenDropdown = document.getElementById("lieferanten");
+const gewerkDropdown = document.getElementById("gewerk");
+const anwendungDropdown = document.getElementById("anwendung");
+const cart = document.querySelector(".cart");
+const cartContainer = document.querySelector(".cart-container");
+const divContainer = document.querySelector(".div-container");
+const total = document.querySelector(".total");
+const warenkorbTitle = document.querySelector(".warenkorb-title");
+const itemQty = document.querySelector(".item-qty");
+const itemQtyWk = document.querySelector(".item-qty-wk");
+const projektnummerTitle = document.querySelector(".projektnummer-title");
+const projektnummerInput = document.getElementById("projektnummer");
+const articlesListButton = document.querySelector(".articles-list");
+const homeButton = document.querySelector(".home");
+const welcome = document.querySelector(".welcome");
+
+/////////////////////////////////////////////////
+// The list should contain the products from the JSON file that has to be converted from the xls list.
+// Login functionality has yet to be fixed and be set dynamic
+// Username and Password should match for each individual user
+// Only one user should be matched at a time
+// Refreshing the page should not cancel the log in
+
+///////////////////////////////////
+// Tasks to work on:
+// Optimising functions and code
+// If clicked outside the cart, cart should close. ✔
+// Fix some filter categories that are not showing
+// Add items be pressing ENTER after typing in amount
+// Next: Backend? Mailing feature
+// Mail should send a structured email to another email address, containing the items from the cart and the given projekt number.
+
+// sketches
+// List items - filter
+// Show picture on hover
+
+// User object constructor
+
+// async function getData(url) {
+// 	const response = await fetch("./js/convertcsv.json");
+
+// 	return response.json();
+// }
+
+// const jsonData = await getData("./js/convertcsv.json");
+
+// console.log({ jsonData });
+///////////////////////
+// assigning users
+const user1 = new User("ask", 1234);
+const user2 = new User("jcl", 1234);
+
+// fetching json list and then calling the functions on it.
 fetch("./js/convertcsv.json")
 	.then((response) => {
 		return response.json();
@@ -9,6 +113,7 @@ fetch("./js/convertcsv.json")
 	.then((data) => {
 		var jsonData = data;
 
+		// Login
 		loginButton.addEventListener("click", function (element) {
 			if (
 				username.value === user1.username &&
@@ -321,17 +426,10 @@ fetch("./js/convertcsv.json")
 			});
 		});
 
-		///////////////////////////////////
-		// Tasks to work on:
-		// Optimising functions and code
-		// If clicked outside the cart, cart should close. ✔
-		// Fix some filter categories that are not showing
-		// Add items be pressing ENTER after typing in amount
-		// Next: Backend? Mailing feature
-		// Mail should send a structured email to another email address, containing the items from the cart and the given projekt number.
-
 		// Another option for the cart
 		// on each click, an item is added, but if it is added multiple times, increments and ( n ) <-- is added next to the description
+
+		// sketches
 
 		// async function main() {
 		// 	let testAccount = await nodemailer.createTestAccount();
@@ -388,93 +486,3 @@ fetch("./js/convertcsv.json")
 			// });
 		});
 	});
-
-// async function getJson() {
-// 	const response = await fetch("./convertcsv.json");
-// 	const data = await response.json();
-// 	return data;
-// }
-
-// getJson().then((data) => console.log(data));
-
-// function getData() {
-// 	fetch("/js/convertcsv.json");
-// }
-
-// window.onload = async (e) => {
-// 	window.jsonData = await getData();
-// 	console.log(jsonData.textContent);
-// };
-
-// function getData() {
-// 	return fetch("/js/convertcsv.json");
-// }
-
-// window.onload = async (e) => {
-// 	let jsonData = await getData();
-// 	return jsonData;
-// };
-
-// async function fetchAsync() {
-// 	var response = await fetch("./js/convertcsv.json");
-// 	window.jsonData = await response.json();
-
-// 	// console.log(response);
-// 	console.log(data);
-// 	return data;
-// }
-
-// import nodemailer from "nodemailer";
-// const response = await fetch("./convertcsv.json");
-// const jsonData = await response.json();
-// console.log(response);
-
-const loginButton = document.querySelector(".login-button");
-const username = document.querySelector(".user-input");
-const password = document.querySelector(".user-password");
-const items = document.querySelector(".items");
-const cartButton = document.querySelector(".cart-button");
-const dropdown = document.querySelectorAll(".dropdown");
-const itemsListContainer = document.querySelector(".item-list-container");
-const searchbox = document.getElementById("searchbox");
-const lieferantenDropdown = document.getElementById("lieferanten");
-const gewerkDropdown = document.getElementById("gewerk");
-const anwendungDropdown = document.getElementById("anwendung");
-const cart = document.querySelector(".cart");
-const cartContainer = document.querySelector(".cart-container");
-const divContainer = document.querySelector(".div-container");
-const total = document.querySelector(".total");
-const warenkorbTitle = document.querySelector(".warenkorb-title");
-const itemQty = document.querySelector(".item-qty");
-const itemQtyWk = document.querySelector(".item-qty-wk");
-const projektnummerTitle = document.querySelector(".projektnummer-title");
-const projektnummerInput = document.getElementById("projektnummer");
-const articlesListButton = document.querySelector(".articles-list");
-const homeButton = document.querySelector(".home");
-const welcome = document.querySelector(".welcome");
-/////////////////////////////////////////////////
-// The list should contain the products from the JSON file that has to be converted from the xls list.
-// Login functionality has yet to be fixed and be set dynamic
-// Username and Password should match for each individual user
-// Only one user should be matched at a time
-// Refreshing the page should not cancel the log in
-
-// List items - filter
-// Show picture on hover
-
-// User object constructor
-
-// async function getData(url) {
-// 	const response = await fetch("./js/convertcsv.json");
-
-// 	return response.json();
-// }
-
-// const jsonData = await getData("./js/convertcsv.json");
-
-// console.log({ jsonData });
-
-const user1 = new User("ask", 1234);
-const user2 = new User("jcl", 1234);
-
-// login button
