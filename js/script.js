@@ -219,7 +219,7 @@ fetch("./js/convertcsv.json")
           }
           // if the cart button is clicked, create cart items and increase the quantity
           else if (
-            event.target.classList == "fa-solid fa-cart-shopping" &&
+            event.target.classList == "fa-solid fa-cart-shopping fa-lg" &&
             value.value !== ""
           ) {
             const cartDiv = document.createElement("div");
