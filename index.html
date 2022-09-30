@@ -17,17 +17,17 @@
     <div class="sub-container">
     <div class="user">
     <h6>Username</h3>
-      <i class="fa-regular fa-user"></i>
+      <i class="fa-regular fa-user fa-lg"></i>
     <input type="text" class="user-input" placeholder="username">
   </div>
   <div class="password">  
     <h6>Password</h5>
-      <i class="fa-solid fa-lock"></i>
+      <i class="fa-solid fa-lock fa-lg"></i>
   <input type="password" name="user-password" id="user-password" class="user-password" placeholder="password" required>
   </div>
   <div class="projektnummer-div">  
     <h6>Projekt Nummer</h5>
-      <i class="fa-sharp fa-solid fa-diagram-project"></i>
+      <i class="fa-sharp fa-solid fa-diagram-project fa-lg"></i>
   <input type="number" name="projektnummer" id="projektnummer" class="projektnummer" placeholder="projekt" required>
   </div>
     <button class="login-button">Log in</button>
@@ -97,7 +97,12 @@
   <div class="cart">
     <div class="title">
       <h2 class = "warenkorb-title">Warenkorb(<span class="item-qty-wk">0</span>)</h2>
-      <button class = "send-button">Send</button>
+      <button class = "send-button">
+        <i class="send-cart-button fa-sharp fa-solid fa-paper-plane"></i>
+      </button>
+      <button class = "close-button">
+        <i class="close-cart-button fa-solid fa-xmark"></i>
+      </button>
     </div>
      <div class="cart-container">
      </div>

@@ -68,7 +68,7 @@ const projektnummerInput = document.getElementById("projektnummer");
 const articlesListButton = document.querySelector(".articles-list");
 const homeButton = document.querySelector(".home");
 const welcome = document.querySelector(".welcome");
-
+const cartCloseButton = document.querySelector('.close-cart-button')
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -175,8 +175,8 @@ fetch("./js/convertcsv.json")
 				use.innerHTML = array[i].use;
 				use.classList.add("use");
 
-				value.style.width = "40px";
-				value.style.margin = "20px";
+				// value.style.width = "40px";
+				// value.style.margin = "20px";
 				value.style.textAlign = "center";
 				value.classList.add("value");
 
@@ -262,6 +262,8 @@ fetch("./js/convertcsv.json")
 									.removeChild(document.querySelector(".overlay"));
 							}
 						});
+						
+
 						// update quantity and reset input value when a new item is added to the cart
 						itemQty.textContent++;
 						itemQtyWk.textContent++;
@@ -423,7 +425,22 @@ fetch("./js/convertcsv.json")
 					checkout.classList.add("hidden");
 					items.classList.remove("opacity");
 				}
+
+				if (e.target == cartCloseButton) {
+					console.log('clicked')
+					checkout.classList.add('hidden')
+					this.document.querySelector(".item-container").removeChild(overlay);
+				}
 			});
+
+				// if (e.target === cartCloseButton) {
+				// 	console.log(e.target)
+					// this.document.querySelector(".item-container").removeChild(overlay);
+					// checkout.classList.add("hidden");
+					// items.classList.remove("opacity");
+				// }
+
+				
 		});
 
 		// Another option for the cart
@@ -468,6 +485,9 @@ fetch("./js/convertcsv.json")
 				createList(jsonData);
 				window.hasLoadedList = true;
 			}
+			
+			
+		
 		});
 
 		homeButton.addEventListener("click", function (e) {

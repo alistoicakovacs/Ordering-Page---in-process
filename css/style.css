@@ -60,8 +60,10 @@ body {
 	padding: 10px;
 	outline: none;
 	transition: transform 400ms;
+	font-weight: 700;
 	
 }
+
 
 /* .user-input :hover ,
 .user-password:hover,
@@ -69,17 +71,19 @@ body {
 	color:#567baa
 } */
 
-.user-input:hover,
-.user-password:hover,
-.projektnummer:hover {
+.user-input:focus,
+.user-password:focus,
+.projektnummer:focus {
 	transform: translateY(2px);
 	border-bottom: 1px solid coral;
+	color:coral	
+
 	
 }
 
-.user-input:hover::-webkit-input-placeholder,
-.user-password:hover::-webkit-input-placeholder,
-.projektnummer:hover::-webkit-input-placeholder {
+.user-input:focus::-webkit-input-placeholder,
+.user-password:focus::-webkit-input-placeholder,
+.projektnummer:focus::-webkit-input-placeholder {
 	color: coral;
 	font-weight: 600;
 }
@@ -94,14 +98,16 @@ input::-webkit-inner-spin-button {
 .password,
 .projektnummer-div {
 	padding: 10px;
+	
 }
 
 .user h6,
 .password h6,
 .projektnummer-div h6 {
 	font-weight: 600;
-}
+	user-select:none;	
 
+}
 
 
 .user-password {
@@ -117,7 +123,7 @@ input::-webkit-inner-spin-button {
 .login-button {
 	cursor: pointer;
 	padding: 10px;
-	border-radius:5px;
+	border-radius:25px;
 	border: none;
 	width: 100px;
 	transition: transform 250ms;
@@ -446,7 +452,7 @@ li {
 
   .cart h2 {
 	font-weight: 300;
-	border-bottom: 1px solid #5da3af;
+	border-bottom: inset;
 	margin: 5px 20px 0 20px;
   }
 
@@ -487,7 +493,6 @@ li {
 
 	.warenkorb-button {
 		cursor:pointer;
-		padding:5px;
 		background-color:#97a6a9;
 		border: none;
 		font-weight: 500;
@@ -495,6 +500,7 @@ li {
 		border:none;
 		transition:0.2s ease-in;
 		padding:10px;
+		border-radius:25px;
 		}
 				
 		
@@ -543,7 +549,8 @@ li {
 		font-weight: bold;
 	}
 
-	.send-button {
+	.send-button,
+	.close-button {
 		width: 60px;
 		height: 60px;
 		background-color: transparent;
@@ -554,7 +561,8 @@ li {
 		font-weight: bold;
 	}
 
-	.send-button:hover  {
+	.send-button:hover,
+	.close-button:hover  {
 		transition: 0.2s;
 		transform: scale(1.1);
 		background-color: #5da3af;
@@ -595,6 +603,10 @@ li {
 		transition: 1s ease-out;
 		z-index: 0;
 	}
+
+	.value {
+		width: 40px;
+		margin: 0 20px;}
 /* 
 .add-animation-effect {
 	transform: scale(1.1);
@@ -609,9 +621,11 @@ li {
 
 	body {
 		background:none;
-		width: 390px;
-		height: 844px;
+		width: auto;
+		
+		height: 100vh;
 	}
+
 	.login-container{
 		border:none;
 		box-shadow: none;
@@ -632,14 +646,75 @@ li {
 
 	.div-container {
 		grid-template-columns: 1fr 2fr 2fr;
+		font-size: 10px;
+		display: flex;
+		justify-content: space-between;
 }
 
-.cart {
-	width: 390px;
-	height: 844px;
-	top:0;
-	left:0;
-}
+	.cart-container {
+		font-size: 12px;
+		
+	}
+
+	.cart-div {
+		border-bottom: inset;
+		padding-bottom: 12px;
+	}
+
+	.cart {
+		width: 390px;
+		height: 844px;
+		top:0;
+		left:0;
+	}
+
+	.cart-button{ 
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.welcome {
+		height: 844px;
+		width: 390px;
+		font-size: 4rem;
+	}
+
+	.cart-close-button:focus {
+		color: coral;
+	}
 
 
+	.send-button,
+	.close-button {
+		border:2px solid #d4dadb  ;
+	}
+
+
+	.send-button:hover,
+	.send-button:focus,
+	.close-button:hover,
+	.close-button:focus{
+		background-color: transparent;
+		border: 2px solid coral;
+		color:coral;
+
+	}
+
+	/* .close-cart-button::before {
+		border: 1px solid gray;
+		padding:10px;
+		border-radius: 50%;
+		width: 38px;
+		height: 38px;
+	} */
+
+	/* .send-cart-button {
+		border: 1px solid black;
+	} */
+
+	.value {
+		width: 20px;
+		margin: 10px;
+	}
 }
