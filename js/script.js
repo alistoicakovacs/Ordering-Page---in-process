@@ -427,8 +427,7 @@ fetch("./js/convertcsv.json")
 					items.classList.remove("opacity");
 				}
 
-				if (e.target == closeButton) {
-					console.log('clicked')
+				if (e.target == closeButton || e.target == cartCloseButton) {
 					checkout.classList.add('hidden')
 					this.document.querySelector(".item-container").removeChild(overlay);
 				}

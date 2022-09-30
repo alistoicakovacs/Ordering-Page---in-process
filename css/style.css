@@ -670,7 +670,7 @@ li {
 
 	.topbar,
 	.navbar {
-		width: 390px;
+		text-align: center;
 		font-size: 10px;
 	}
 
@@ -697,6 +697,11 @@ li {
 		height: 844px;
 		top:0;
 		left:0;
+	}
+
+	.checkout {
+		border:none;
+		width: 100%;
 	}
 
 	.cart-button{ 
