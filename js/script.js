@@ -285,7 +285,7 @@ fetch("./js/convertcsv.json")
 		searchbox.addEventListener("input", function (e) {
 			// creating a filtered variable in which we store the filtered values depending o the searchbox value - we also have to add them to lowercase in order to be able to search everything - case sensitive
 			const searchdata = jsonData.filter(function (articles) {
-				return articles.description.toLowerCase().includes(searchbox.value);
+				return articles.description.toLowerCase().includes(searchbox.value.toLowerCase());
 			});
 			// empty items list
 			document.getElementById("lieferanten").value = "select";
