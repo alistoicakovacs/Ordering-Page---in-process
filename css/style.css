@@ -180,6 +180,8 @@ input::-webkit-inner-spin-button {
 
 .projektnummer-container {
 	align-self: flex-end;
+	display:flex;
+	align-items: center;
 }
 
 .projektnummer-title {
@@ -190,6 +192,7 @@ input::-webkit-inner-spin-button {
 	padding-bottom: 5px;
 	font-size: 1.4rem;
 	user-select: none;
+	color:#E23D2C ;
 }
 
 .welcome {
@@ -637,16 +640,19 @@ li {
 		background:none;
 		width: auto;
 		height: 100vh;
+		position:relative
 	}
 
 	.login-container{
 		border:none;
 		box-shadow: none;
 		max-height: 100vh;
-		height: 100vh;
 		width: 414px;
 		justify-content: space-evenly;
+		overscroll-behavior: contain;
+
 	}
+	
 
 	.login-title {
 		font-size: 3rem;
