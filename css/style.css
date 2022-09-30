@@ -632,6 +632,36 @@ li {
 		width: 100%;
 	}
 
+		.user-input,
+		.user-password,
+		.projektnummer {
+			width: 150px;
+			border: 1px solid #d4dadb;
+			border-radius: 40px;
+			padding: 10px;
+			outline: none;
+			transition: transform 400ms;
+			font-weight: 700;
+			
+		}
+
+		.user-input:focus,
+		.user-password:focus,
+		.projektnummer:focus {
+			transform: translateY(2px);
+			border: 1px solid coral;
+			color:coral	
+
+	
+		}
+
+		.user-input:focus::-webkit-input-placeholder,
+		.user-password:focus::-webkit-input-placeholder,
+		.projektnummer:focus::-webkit-input-placeholder {
+			color: coral;
+			font-weight: 600;
+		}
+
 	.item-container {
 		width: 390px;
 		box-shadow: none;
