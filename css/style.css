@@ -603,5 +603,18 @@ li {
 
 
 
-/* Iphone 11 viewport size: 414 x 896 
+/* Iphone 11 viewport size: 414 x 896 */
 
+@media only screen and (max-width: 414px) {
+
+	body {
+		background:none;
+		width: 390px;
+		height: 844px;
+	}
+	.login-container{
+		border:none;
+		box-shadow: none;
+		width: 100%;
+	}
+} 
