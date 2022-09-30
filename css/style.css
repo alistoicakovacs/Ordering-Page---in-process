@@ -159,13 +159,14 @@ input::-webkit-inner-spin-button {
 	margin:0 20px;
 	font-weight: 600;
 	user-select: none;
+	border-bottom:inset;
 
 }
 
 .navbar li {
 	cursor: pointer;
 	transition: 0.3s ease;
-	border-bottom: inset;
+/* 	border-bottom: inset; */
 	padding-bottom: 5px;
 }
 
