@@ -59,7 +59,7 @@ body {
 	border-bottom: 1px solid black;
 	padding: 10px;
 	outline: none;
-	transition: transform 200ms;
+	transition: transform 400ms;
 	
 }
 
@@ -124,16 +124,16 @@ input::-webkit-inner-spin-button {
 	font-weight: bold;
 	background-color: transparent;
 	color: black;
-	transition: 0.1s ease-in;
+	transition: 0.3s ease-in;
 }
 
 .login-button:hover {
-	transform: translateY(5px);
+	transition: 0.5s ease-out;
 	background: coral;
 	color: white;
 	border: 1px solid coral;
-	transition: 0.1s ease-out;
-
+	transition: 0.3s ease-out;
+	padding: 10px;
 }
 
 .topbar {
