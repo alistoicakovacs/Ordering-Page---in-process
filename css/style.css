@@ -641,6 +641,16 @@ li {
 		border:none;
 		box-shadow: none;
 		max-height: 100vh;
+		height: 896px;
+		width: 414px;
+		justify-content: center;
+	}
+
+	.login-title {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 30px;
+		padding-bottom: 10px;
 	}
 
 		.user-input,
