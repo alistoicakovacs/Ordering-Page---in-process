@@ -693,7 +693,9 @@ li {
 		.projektnummer:focus {
 			transform: translateY(2px);
 			border: 1px solid coral;
-			color:coral	
+			color:coral;
+			overscroll-behavior: contain;
+
 
 	
 		}
@@ -703,6 +705,8 @@ li {
 		.projektnummer:focus::-webkit-input-placeholder {
 			color: coral;
 			font-weight: 600;
+			overscroll-behavior: contain;
+
 		}
 
 	.item-container {
