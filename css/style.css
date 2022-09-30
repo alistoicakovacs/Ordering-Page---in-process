@@ -650,6 +650,8 @@ li {
 		width: 414px;
 		justify-content: space-evenly;
 		overscroll-behavior: contain;
+		position: absolute;
+		bottom:0;
 
 	}
 	
