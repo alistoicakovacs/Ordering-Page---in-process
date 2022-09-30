@@ -188,7 +188,7 @@ fetch("./js/convertcsv.json")
         button.innerHTML = `<i class="fa-regular fa-plus"></i>`;
 
         addToCartButton.classList.add("cart-button");
-        addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
+        addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-lg"></i>`;
         addToCartButton.style.marginLeft = "15px";
 
         div.appendChild(articles);
