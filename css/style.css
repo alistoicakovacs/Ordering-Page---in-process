@@ -627,7 +627,7 @@ li {
 
 @media only screen and (max-width: 414px) {
 
-	body {
+	html,body {
 		background:none;
 		width: auto;
 		height: 100vh;
