@@ -633,8 +633,8 @@ li {
 /* Iphone 11 viewport size: 414 x 896 */
 
 @media only screen 
-    and (device-width: 390px) 
-    and (device-height: 844px)  {
+    and (device-width: 414px) 
+    and (device-height: 896px)  {
 
 	html,body {
 		background:none;
