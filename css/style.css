@@ -11,8 +11,8 @@ body {
 	height: 100vh;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-	background-color: #9dd8f3;
-	background-image: linear-gradient(90deg, #a5c7ce 0%, #9face6 100%);
+	/* background-color: #9dd8f3; */
+	background-image: linear-gradient(90deg, #f7f7f7 0%, #818181 100%);
 }
 
 .items div {
@@ -46,7 +46,7 @@ body {
 	font-size: 3rem;
 	font-weight: 700;
 	margin-bottom: 20px;
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid coral;
 	border-bottom: inset;
 	padding-bottom: 5px;
 }
@@ -63,10 +63,25 @@ body {
 	
 }
 
+/* .user-input :hover ,
+.user-password:hover,
+.projektnummer:hover {
+	color:#567baa
+} */
+
 .user-input:hover,
 .user-password:hover,
 .projektnummer:hover {
 	transform: translateY(2px);
+	border-bottom: 1px solid coral;
+	
+}
+
+.user-input:hover::-webkit-input-placeholder,
+.user-password:hover::-webkit-input-placeholder,
+.projektnummer:hover::-webkit-input-placeholder {
+	color: coral;
+	font-weight: 600;
 }
 
 input::-webkit-outer-spin-button,
@@ -87,6 +102,8 @@ input::-webkit-inner-spin-button {
 	font-weight: 600;
 }
 
+
+
 .user-password {
 	margin-bottom: 5px;
 }
@@ -99,23 +116,23 @@ input::-webkit-inner-spin-button {
 
 .login-button {
 	cursor: pointer;
-	padding: 5px;
-	border-radius: 10px;
+	padding: 10px;
+	border-radius:5px;
 	border: none;
 	width: 100px;
 	transition: transform 250ms;
 	font-weight: bold;
 	background-color: transparent;
 	color: black;
-	transition: 0.3s ease-in;
+	transition: 0.1s ease-in;
 }
 
 .login-button:hover {
 	transform: translateY(5px);
-	background: linear-gradient(90deg, #74ebd5 0%, #9face6 100%);
+	background: coral;
 	color: white;
-	border: 1px solid #97a6a9;
-	transition: 0.3s ease-out;
+	border: 1px solid coral;
+	transition: 0.1s ease-out;
 
 }
 
@@ -142,7 +159,7 @@ input::-webkit-inner-spin-button {
 .navbar li {
 	cursor: pointer;
 	transition: 0.3s ease;
-	border-bottom: 1px solid #97a6a9;
+	border-bottom: inset;
 	padding-bottom: 5px;
 }
 
@@ -160,6 +177,7 @@ input::-webkit-inner-spin-button {
 	padding:10px;
 	margin: 0 20px;
 	border-bottom: 1px solid #97a6a9;
+	border-bottom: inset;
 	padding-bottom: 5px;
 	font-size: 1.4rem;
 	user-select: none;
@@ -476,15 +494,17 @@ li {
 		background-color: transparent;
 		border:none;
 		transition:0.2s ease-in;
+		padding:10px;
 		}
 				
 		
 	.warenkorb-button:hover {
 		
 			transition: 0.2s;
-			transform: scale(1.1);
+			transform: scale(1.05);
 			background-color: #5da3af;
 			color:white;
+			font-weight: 700;
 	
 		}
 	
