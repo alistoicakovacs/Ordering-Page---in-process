@@ -185,7 +185,7 @@ input::-webkit-inner-spin-button {
 .projektnummer-title {
 	padding:10px;
 	margin: 0 20px;
-	border-bottom: 1px solid #97a6a9;
+	/* border-bottom: 1px solid #97a6a9; */
 	border-bottom: inset;
 	padding-bottom: 5px;
 	font-size: 1.4rem;
@@ -683,6 +683,12 @@ li {
 	.navbar {
 		text-align: center;
 		font-size: 10px;
+	}
+
+	.projektnummer-title {
+		
+		border-bottom: none;
+
 	}
 
 	.div-container {
