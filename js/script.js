@@ -69,6 +69,7 @@ const articlesListButton = document.querySelector(".articles-list");
 const homeButton = document.querySelector(".home");
 const welcome = document.querySelector(".welcome");
 const cartCloseButton = document.querySelector('.close-cart-button')
+const closeButton = document.querySelector('.close-button')
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -426,7 +427,7 @@ fetch("./js/convertcsv.json")
 					items.classList.remove("opacity");
 				}
 
-				if (e.target == cartCloseButton) {
+				if (e.target == closeButton) {
 					console.log('clicked')
 					checkout.classList.add('hidden')
 					this.document.querySelector(".item-container").removeChild(overlay);
