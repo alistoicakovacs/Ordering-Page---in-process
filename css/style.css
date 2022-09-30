@@ -633,8 +633,8 @@ li {
 /* Iphone 11 viewport size: 414 x 896 */
 
 @media only screen 
-    and (device-width: 414px) 
-    and (device-height: 896px)  {
+    and (device-width: 390px) 
+    and (device-height: 844px)  {
 
 	html,body {
 		background:none;
@@ -646,10 +646,11 @@ li {
 	.login-container{
 		border:none;
 		box-shadow: none;
-		max-height: 100vh;
+		height: 100vh;
 		width: 414px;
 		justify-content: space-evenly;
 		overscroll-behavior: contain;
+		overflow: hidden;
 		position: absolute;
 		bottom:0;
 
