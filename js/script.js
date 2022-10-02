@@ -71,7 +71,7 @@ const welcome = document.querySelector(".welcome");
 const cartCloseButton = document.querySelector(".close-cart-button");
 const closeButton = document.querySelector(".close-button");
 const dropdownListContainer = document.querySelector(
-	".dropdown-list-container"
+	".dropdown-lists-container"
 );
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
@@ -497,6 +497,8 @@ fetch("./js/convertcsv.json")
 			document
 				.querySelector(".dropdown-lists-container")
 				.classList.add("hidden");
+			document.querySelector(".dropdown-lists-container").style.display =
+				"none";
 			document.querySelector(".tabs-list-container").classList.add("hidden");
 			itemsListContainer.classList.add("hidden");
 
