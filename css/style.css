@@ -801,9 +801,10 @@ li {
 	}
 
 	.welcome {
-		height: 100vh;
+		height: 90vh;
 		width: 100%;
 		font-size: 4rem;
+		top:-10%;
 	}
 
 	.cart-close-button:focus {
