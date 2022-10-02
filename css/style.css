@@ -204,7 +204,7 @@ input::-webkit-inner-spin-button {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	z-index: 0;
 	opacity: 0;
 	font-weight: 800;
