@@ -73,6 +73,7 @@ const closeButton = document.querySelector(".close-button");
 const dropdownListContainer = document.querySelector(
 	".dropdown-lists-container"
 );
+const contact = document.querySelector(".contact");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -225,7 +226,7 @@ fetch("./js/convertcsv.json")
 					}
 					// if the cart button is clicked, create cart items and increase the quantity
 					else if (
-						event.target.classList == "fa-solid fa-cart-shopping fa-lg" &&
+						event.target.classList == "fa-solid fa-cart-shopping fa-xl" &&
 						value.value !== ""
 					) {
 						const cartDiv = document.createElement("div");
@@ -476,6 +477,32 @@ fetch("./js/convertcsv.json")
 
 		// main().catch(console.error);
 
+		// Create card
+		// function createCard() {
+		// 	const card = document.createElement("div");
+		// 	const cardtitle = document.createElement("h3");
+		// 	const cardtext = document.createElement("p");
+
+		// 	card.classList.add("card");
+		// 	cardtitle.classList.add("cardtitle");
+		// 	cardtext.classList.add("cardtext");
+
+		// 	// card.style.border = "1px solid black";
+		// 	// card.style.width = "200px";
+		// 	// card.style.height = "150px";
+		// 	// card.style.index = "1000";
+		// 	// card.style.position = "absolute";
+		// 	card.style.display = "none";
+		// 	cardtitle.textContent =
+		// 		"Für weitere Fragen oder Bestellungen, bitte Email an die folgende Email Adresse senden:";
+		// 	cardtext.textContent = `bestellung@kkt-cool.de`;
+
+		// 	card.appendChild(cardtitle);
+		// 	card.appendChild(cardtext);
+		// 	document.body.append(card);
+		// }
+		// createCard();
+
 		// load the product list on click
 		articlesListButton.addEventListener("click", function (e) {
 			if (!window.hasLoadedList) {
@@ -493,6 +520,7 @@ fetch("./js/convertcsv.json")
 			}
 		});
 
+		// hide elements and add the overlay
 		homeButton.addEventListener("click", function (e) {
 			document
 				.querySelector(".dropdown-lists-container")
@@ -511,3 +539,18 @@ fetch("./js/convertcsv.json")
 			// });
 		});
 	});
+
+// contact.addEventListener("click", function () {
+// 	createCard();
+
+// 	if (!window.hasLoadedList) {
+// 		// hide elements
+// 		document.querySelector(".dropdown-lists-container").style.display = "none";
+// 		document.querySelector(".tabs-list-container").classList.add("hidden");
+// 		itemsListContainer.classList.add("hidden");
+// 		items.innerHTML = "";
+
+// 		window.hasLoadedList = true;
+// 	}
+// 	window.hasLoadedList = false;
+// });
