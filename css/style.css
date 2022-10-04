@@ -782,6 +782,32 @@ li {
 		box-shadow: none;
 	}
 
+	/* .cart-button:first-child,
+	.cart-button:nth-child(2) {
+		border:1px solid #939393
+	} */
+
+	button:nth-child(4) i {
+		border:1px solid #939393;
+		border-radius: 50px;
+		padding:14px;
+		color:rgb(255, 255, 255);
+		background-color: coral;
+	}
+
+	button:nth-child(1) {
+		display:none;
+	}
+
+	.plus-button {
+		display:none;
+	}
+
+	button input {
+		width: 20px;
+	}
+	
+
 	.warenkorb-button {
 		border: 1px solid coral;
 		background: coral;
