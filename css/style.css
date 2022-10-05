@@ -732,6 +732,7 @@ li {
 	}	
 
 	.item-container {
+		height:auto;
 		width: 100%;
 		box-shadow: none;
 		border:none;
@@ -834,7 +835,7 @@ li {
 	}
 
 	.welcome {
-		height: 90vh;
+		position: fixed;
 		width: 100%;
 		font-size: 4rem;
 		top:-10%;
