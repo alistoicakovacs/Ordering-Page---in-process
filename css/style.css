@@ -893,5 +893,10 @@ li {
 		padding:10px;
 		box-shadow: 10px 10px 25px  rgb(128, 128, 128);
 	}
+
+	.value {
+		border-radius: 0;
+		border: 1px solid #939393;
+	}
 }
 
