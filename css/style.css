@@ -367,6 +367,7 @@ li {
 	padding:0 5px;
 	transition:0.2s ease-in;
 	font-size: 14px;
+	height:50px
   }
 
   .div-container:hover {
