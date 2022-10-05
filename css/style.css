@@ -481,6 +481,10 @@ li {
 	
   }
 
+	.plus-button {
+		background:none;
+		border:none;
+	}
   .cart-button i:hover{
 	color:coral;
 
