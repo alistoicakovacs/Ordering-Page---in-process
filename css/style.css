@@ -655,6 +655,7 @@ li {
 		background:none;
 		width: auto;
 		height: 100vh;
+		max-height: 100vh;
 	}
 
 	.login-container{
@@ -733,7 +734,7 @@ li {
 	}	
 
 	.item-container {
-		height:auto;
+    max-height: 100vh;
 		width: 100%;
 		box-shadow: none;
 		border:none;
@@ -741,8 +742,9 @@ li {
 	}
 
 	.items {
-		overflow: auto;
+		overflow: scroll;
 		height: 100vh;
+		max-height: 100vh;
 	}
 
 	.topbar,
