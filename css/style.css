@@ -521,7 +521,7 @@ li {
 		border:none;
 		transition:0.2s ease-in;
 		padding:10px;
-		border-radius:25px;
+		/* border-radius:5px; */
 		}
 				
 		
@@ -654,7 +654,6 @@ li {
 		background:none;
 		width: auto;
 		height: 100vh;
-		position:relative
 	}
 
 	.login-container{
@@ -777,7 +776,7 @@ li {
 	}
 
 	.cart {
-		width: auto;
+		width: 100%;
 		height: 100vh;
 		top:0;
 		left:0;
@@ -794,7 +793,6 @@ li {
 
 	button:nth-child(4) i {
 		border:1px solid #939393;
-		border-radius: 50px;
 		padding:14px;
 		color:rgb(255, 255, 255);
 		background-color: coral;
@@ -840,7 +838,6 @@ li {
 		font-size: 4rem;
 		height: 100vh;
 		background: rgba(178, 178, 178, 0.593);
-		color: white;
 	}
 
 

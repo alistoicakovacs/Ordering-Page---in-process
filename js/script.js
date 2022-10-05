@@ -165,7 +165,7 @@ fetch("./js/convertcsv.json")
 				const button = document.createElement("button");
 				const value = document.createElement("input");
 				const minusButton = document.createElement("button");
-				const plusButton = document.createElement('button')
+				const plusButton = document.createElement("button");
 				const addToCartButton = document.createElement("button");
 
 				articles.classList.add("articles");
@@ -187,18 +187,17 @@ fetch("./js/convertcsv.json")
 				// value.style.width = "40px";
 				// value.style.margin = "20px";
 				value.style.textAlign = "center";
-				value.style.width = "30px"
+				value.style.width = "30px";
 				value.classList.add("value");
+				// value.type.add(Number);
 
 				minusButton.classList.add("cart-button");
 				minusButton.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
-				
 
 				button.classList.add("cart-button");
 
-
 				plusButton.innerHTML = `<i class="fa-regular fa-plus"></i>`;
-				plusButton.classList.add('plus-button')
+				plusButton.classList.add("plus-button");
 
 				addToCartButton.classList.add("cart-button");
 				addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-xl"></i>`;
@@ -212,7 +211,7 @@ fetch("./js/convertcsv.json")
 				div.append(button);
 				button.prepend(value);
 				button.prepend(minusButton);
-				button.append(plusButton)
+				button.append(plusButton);
 				button.append(addToCartButton);
 
 				firstTab.appendChild(div);
