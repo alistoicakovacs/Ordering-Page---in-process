@@ -319,8 +319,9 @@ li {
   #lieferanten,
   #gewerk,
   #anwendung {
-	border:none;
+	border:1px solid #939393;
 	outline:none;
+	width: 200px;
   }
 
   .search-button {
@@ -728,6 +729,7 @@ li {
 	.dropdown-lists-container {
 		width: 390px;
 		flex-direction: column;
+		
 	}	
 
 	.item-container {
@@ -736,6 +738,11 @@ li {
 		box-shadow: none;
 		border:none;
 		
+	}
+
+	.items {
+		overflow: auto;
+		height: 100vh;
 	}
 
 	.topbar,
