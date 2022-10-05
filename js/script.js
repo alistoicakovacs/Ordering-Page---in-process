@@ -189,7 +189,7 @@ fetch("./js/convertcsv.json")
 				value.style.textAlign = "center";
 				value.style.width = "30px";
 				value.classList.add("value");
-				value.type.add("number");
+				value.type = "number";
 
 				minusButton.classList.add("cart-button");
 				minusButton.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
