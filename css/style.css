@@ -196,7 +196,7 @@ input::-webkit-inner-spin-button {
 	padding-bottom: 5px;
 	font-size: 1.4rem;
 	user-select: none;
-	color:#E23D2C ;
+	pointer-events: none;
 }
 
 .welcome {
@@ -211,6 +211,7 @@ input::-webkit-inner-spin-button {
 	font-weight: 800;
 	font-size: 6rem;
 	color:black;
+	background: rgba(178, 178, 178, 0.593);
 }
 
 
