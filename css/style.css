@@ -214,6 +214,10 @@ input::-webkit-inner-spin-button {
 	background: rgba(178, 178, 178, 0.593);
 }
 
+.welcome-title {
+	text-shadow: 5px 4px 11px gray;
+
+}
 
 .item-container {
 	z-index: 1;
