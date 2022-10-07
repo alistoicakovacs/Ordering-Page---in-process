@@ -408,8 +408,13 @@ li {
 		display: none;
 	} */
 
+	.cart-button {
+		display: flex;
+		align-items: center;
+	}
+	
 	.div-container {
-		grid-template-columns: 1fr 2fr 1fr;
+		/* grid-template-columns: 1fr 2fr 1fr; */
 	}
 
 	.items {
@@ -437,6 +442,8 @@ li {
 
 	.div-container {
 		grid-template-columns: 1fr 2fr 1fr;
+		
+		
 	}
 /* 
 	.type  {

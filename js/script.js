@@ -74,6 +74,7 @@ const dropdownListContainer = document.querySelector(
 	".dropdown-lists-container"
 );
 const contact = document.querySelector(".contact");
+const sendCartButton = document.querySelector(".send-cart-button");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -276,7 +277,9 @@ fetch("./js/convertcsv.json")
 									.removeChild(document.querySelector(".overlay"));
 							}
 						});
-
+						let arrayOfProducts = [];
+						arrayOfProducts += arrayOfProducts + array[i];
+						console.log(arrayOfProducts);
 						// update quantity and reset input value when a new item is added to the cart
 						itemQty.textContent++;
 						itemQtyWk.textContent++;
@@ -559,4 +562,32 @@ fetch("./js/convertcsv.json")
 // 		window.hasLoadedList = true;
 // 	}
 // 	window.hasLoadedList = false;
+// });
+
+(function () {
+	emailjs.init("60M2eE2c9YAljspev");
+});
+
+window.onload = function () {
+	document
+		.querySelector(".send-cart-button")
+		.addEventListener("click", function (event) {
+			event.preventDefault();
+			console.log("click");
+			// generate a five digit number for the contact_number variable
+			// this.contact_number.value = (Math.random() * 100000) | 0;
+			// these IDs from the previous steps
+			emailjs.sendForm("contact_service", "contact_form", this).then(
+				function () {
+					console.log("SUCCESS!");
+				},
+				function (error) {
+					console.log("FAILED...", error);
+				}
+			);
+		});
+};
+
+// sendCartButton.addEventListener("click", function () {
+// 	console.log("click");
 // });
