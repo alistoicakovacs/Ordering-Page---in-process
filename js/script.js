@@ -534,8 +534,8 @@ fetch("./js/convertcsv.json")
 			document
 				.querySelector(".dropdown-lists-container")
 				.classList.add("hidden");
-			document.querySelector(".dropdown-lists-container").style.display =
-				"none";
+			// document.querySelector(".dropdown-lists-container").style.display =
+			// 	"none";
 			document.querySelector(".tabs-list-container").classList.add("hidden");
 			itemsListContainer.classList.add("hidden");
 
