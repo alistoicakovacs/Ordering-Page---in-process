@@ -228,19 +228,20 @@ fetch("./js/convertcsv.json")
 					if (event.target.classList == "fa-regular fa-plus") {
 						value.value++;
 						// else if the minues is clicked, decrease value
-					} else if (event.target.classList == "fa-sharp fa-solid fa-minus") {
+					} else if (event.target.classList == "fa-sharp fa-solid fa-minus" && value.value > 0) {
 						value.value--;
 					}
 					// if the cart button is clicked, create cart items and increase the quantity
 					else if (
 						event.target.classList == "fa-solid fa-cart-shopping fa-xl" &&
-						value.value !== ""
+						value.value !== "" && !cartContainer.textContent.includes(array[i].description)
 					) {
 						const cartDiv = document.createElement("div");
 						const cartArtnr = document.createElement("li");
 						const cartArtDescr = document.createElement("li");
 						const deleteButton = document.createElement("button");
 						const total = document.createElement("div");
+		
 
 						cartDiv.classList.add("cart-div");
 						// create art number and append it - according to the event listener
@@ -248,7 +249,7 @@ fetch("./js/convertcsv.json")
 						cartArtnr.classList.add("cart-item");
 						// create description and append it - according to the event listener
 						cartArtDescr.innerHTML =
-							array[i].description + ` <strong>(${value.value})</strong>`;
+							array[i].description +  `<i class="fa-sharp fa-solid fa-minus"></i>`  + ` <strong>(${value.value})</strong>` + `  <i class="fa-regular fa-plus"></i>`;
 
 						cartArtDescr.classList.add("cart-art-description");
 						// create the delete button and append it
@@ -257,6 +258,13 @@ fetch("./js/convertcsv.json")
 
 						// total.innerHTML = `<p>Total Artikel: </p>`
 						total.classList.add("total");
+
+
+						// if (cartContainer.textContent.includes(array[i].description)) {
+						// 	console.log('duplicate')
+						// 	cartArtDescr.innerHTML =
+						// 	array[i].description + ` <strong>(${value.value++})</strong>`;
+						// }
 
 						cartDiv.append(cartArtnr);
 						cartDiv.append(cartArtDescr);
@@ -277,15 +285,27 @@ fetch("./js/convertcsv.json")
 									.removeChild(document.querySelector(".overlay"));
 							}
 						});
-						let arrayOfProducts = [];
-						arrayOfProducts += arrayOfProducts + array[i];
-						console.log(arrayOfProducts);
+						// let arrayOfProducts = [];
+						// arrayOfProducts += arrayOfProducts + array[i];
+						// console.log(arrayOfProducts);
 						// update quantity and reset input value when a new item is added to the cart
 						itemQty.textContent++;
 						itemQtyWk.textContent++;
 						value.value = "";
 					}
+					// changing the value on keypress
+				
 				});
+				value.addEventListener('keydown', function(e) { 
+					if(e.key =="ArrowUp") {
+						value.value++
+					}
+					if(e.key =="ArrowDown" && value.value > 0) {
+						value.value--;
+					}
+					console.log(value.value)
+
+				})
 			}
 			itemsList.append(firstTab);
 		}
@@ -564,30 +584,41 @@ fetch("./js/convertcsv.json")
 // 	window.hasLoadedList = false;
 // });
 
-(function () {
-	emailjs.init("60M2eE2c9YAljspev");
-});
+// (function () {
+// 	emailjs.init("60M2eE2c9YAljspev");
+// });
 
-window.onload = function () {
-	document
-		.querySelector(".send-cart-button")
-		.addEventListener("click", function (event) {
-			event.preventDefault();
-			console.log("click");
-			// generate a five digit number for the contact_number variable
-			// this.contact_number.value = (Math.random() * 100000) | 0;
-			// these IDs from the previous steps
-			emailjs.sendForm("contact_service", "contact_form", this).then(
-				function () {
-					console.log("SUCCESS!");
-				},
-				function (error) {
-					console.log("FAILED...", error);
-				}
-			);
-		});
-};
+// window.onload = function () {
+// 	document
+// 		.querySelector(".send-cart-button")
+// 		.addEventListener("click", function (event) {
+// 			event.preventDefault();
+// 			console.log("click");
+// 			// generate a five digit number for the contact_number variable
+// 			// this.contact_number.value = (Math.random() * 100000) | 0;
+// 			// these IDs from the previous steps
+// 			emailjs.sendForm("contact_service", "contact_form", this).then(
+// 				function () {
+// 					console.log("SUCCESS!");
+// 				},
+// 				function (error) {
+// 					console.log("FAILED...", error);
+// 				}
+// 			);
+// 		});
+// };
 
 // sendCartButton.addEventListener("click", function () {
 // 	console.log("click");
 // });
+// Email.send({
+//     Host : "smtp.yourisp.com",
+//     Username : "username",
+//     Password : "password",
+//     To : 'them@website.com',
+//     From : "you@isp.com",
+//     Subject : "This is the subject",
+//     Body : "And this is the body"
+// }).then(
+//   message => alert(message)
+// );
