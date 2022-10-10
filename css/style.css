@@ -417,7 +417,7 @@ li {
 		display: flex;
 		align-items: center;
 	}
-	
+
 	.div-container {
 		/* grid-template-columns: 1fr 2fr 1fr; */
 	}
@@ -440,7 +440,16 @@ li {
 	.supplier {
 		display:none
 	} */
+	.dropdown-lists-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 
+
+	.cart {
+		left:20%;
+	}
+	
   }
   
   @media only screen and (max-width: 800px) {
