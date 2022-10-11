@@ -800,13 +800,18 @@ li {
 
 	.div-container {
 		/* grid-template-columns: 1fr 2fr 2fr; */
-		height:60px;
+		height:70px;
 		font-size: 11px;
 		/* display: flex; */
 		justify-content: space-between;
 		align-items: center;
 		margin-right: 10px;
+		grid-template-columns: 2fr 1fr;
 }
+
+	.articles {
+		display: none;
+	}
 
 	.cart-container {
 		font-size: 12px;
