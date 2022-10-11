@@ -133,11 +133,13 @@ fetch("./js/convertcsv.json")
 				// welcome note
 				document
 					.querySelector(".dropdown-lists-container")
-					.classList.add("hidden");
+					.classList.add('hidden')
+				document.querySelector('.topbar').classList.add('hidden')
 				welcome.classList.add("opacity");
 				// when loaded, should exit on click
 				welcome.addEventListener("click", function () {
 					welcome.classList.add("opacity-fadeout-effect");
+					document.querySelector('.topbar').classList.remove('hidden')
 				});
 			} else {
 				alert("Incorrect username or password");
@@ -249,7 +251,7 @@ fetch("./js/convertcsv.json")
 						cartArtnr.classList.add("cart-item");
 						// create description and append it - according to the event listener
 						cartArtDescr.innerHTML =
-							array[i].description +  `<i class="fa-sharp fa-solid fa-minus"></i>`  + ` <strong>(${value.value})</strong>` + `  <i class="fa-regular fa-plus"></i>`;
+							array[i].description + ` <strong>(${value.value})</strong>`;
 
 						cartArtDescr.classList.add("cart-art-description");
 						// create the delete button and append it
@@ -553,7 +555,7 @@ fetch("./js/convertcsv.json")
 		homeButton.addEventListener("click", function (e) {
 			document
 				.querySelector(".dropdown-lists-container")
-				.classList.add("hidden");
+				.classList.add('hidden')
 			// document.querySelector(".dropdown-lists-container").style.display =
 			// 	"none";
 			document.querySelector(".tabs-list-container").classList.add("hidden");
