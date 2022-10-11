@@ -425,10 +425,6 @@ li {
 		align-items: center;
 	}
 
-	.div-container {
-		/* grid-template-columns: 1fr 2fr 1fr; */
-	}
-
 	.items {
 		font-size: 14px;
 	}
@@ -455,6 +451,10 @@ li {
 
 	.cart {
 		left:20%;
+	}
+
+	.nr {
+		color:orangered;
 	}
 	
   }
@@ -623,7 +623,8 @@ li {
 
 	}
 
-	.delete-button {
+	.delete-button,
+	.edit-button {
 		cursor: pointer;
 		background-color: transparent;
 		border:none;
@@ -822,8 +823,14 @@ li {
 	.cart-div {
 		border-bottom: inset;
 		padding-bottom: 12px;
+		/* display:flex; */
+		/* justify-content: center; */
+		align-items: baseline;
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr 1fr;
 	}
 
+	
 	.cart {
 		width: 100%;
 		height: 100vh;

@@ -133,13 +133,13 @@ fetch("./js/convertcsv.json")
 				// welcome note
 				document
 					.querySelector(".dropdown-lists-container")
-					.classList.add('hidden')
-				document.querySelector('.topbar').classList.add('hidden')
+					.classList.add("hidden");
+				document.querySelector(".topbar").classList.add("hidden");
 				welcome.classList.add("opacity");
 				// when loaded, should exit on click
 				welcome.addEventListener("click", function () {
 					welcome.classList.add("opacity-fadeout-effect");
-					document.querySelector('.topbar').classList.remove('hidden')
+					document.querySelector(".topbar").classList.remove("hidden");
 				});
 			} else {
 				alert("Incorrect username or password");
@@ -230,20 +230,24 @@ fetch("./js/convertcsv.json")
 					if (event.target.classList == "fa-regular fa-plus") {
 						value.value++;
 						// else if the minues is clicked, decrease value
-					} else if (event.target.classList == "fa-sharp fa-solid fa-minus" && value.value > 0) {
+					} else if (
+						event.target.classList == "fa-sharp fa-solid fa-minus" &&
+						value.value > 0
+					) {
 						value.value--;
 					}
 					// if the cart button is clicked, create cart items and increase the quantity
 					else if (
 						event.target.classList == "fa-solid fa-cart-shopping fa-xl" &&
-						value.value !== "" && !cartContainer.textContent.includes(array[i].description)
+						value.value !== "" &&
+						!cartContainer.textContent.includes(array[i].description)
 					) {
 						const cartDiv = document.createElement("div");
 						const cartArtnr = document.createElement("li");
 						const cartArtDescr = document.createElement("li");
 						const deleteButton = document.createElement("button");
 						const total = document.createElement("div");
-		
+						const editButton = document.createElement("button");
 
 						cartDiv.classList.add("cart-div");
 						// create art number and append it - according to the event listener
@@ -251,7 +255,11 @@ fetch("./js/convertcsv.json")
 						cartArtnr.classList.add("cart-item");
 						// create description and append it - according to the event listener
 						cartArtDescr.innerHTML =
-							array[i].description + ` <strong>(${value.value})</strong>`;
+							array[i].description +
+							` <strong class="nr">(${value.value})</strong>`;
+
+						editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+						editButton.classList.add("edit-button");
 
 						cartArtDescr.classList.add("cart-art-description");
 						// create the delete button and append it
@@ -260,7 +268,6 @@ fetch("./js/convertcsv.json")
 
 						// total.innerHTML = `<p>Total Artikel: </p>`
 						total.classList.add("total");
-
 
 						// if (cartContainer.textContent.includes(array[i].description)) {
 						// 	console.log('duplicate')
@@ -271,6 +278,7 @@ fetch("./js/convertcsv.json")
 						cartDiv.append(cartArtnr);
 						cartDiv.append(cartArtDescr);
 						cartDiv.append(deleteButton);
+						cartDiv.append(editButton);
 						cartContainer.appendChild(cartDiv);
 
 						// Delete button for the cart + incrementing and decrementing the qty number on button click
@@ -287,6 +295,13 @@ fetch("./js/convertcsv.json")
 									.removeChild(document.querySelector(".overlay"));
 							}
 						});
+
+						editButton.addEventListener("click", function (e) {
+							const inputQuantity = window.prompt("Bestellmenge ändern");
+							this.parentElement.querySelector(".nr").textContent =
+								"(" + inputQuantity + ")";
+							console.log(inputQuantity);
+						});
 						// let arrayOfProducts = [];
 						// arrayOfProducts += arrayOfProducts + array[i];
 						// console.log(arrayOfProducts);
@@ -296,18 +311,16 @@ fetch("./js/convertcsv.json")
 						value.value = "";
 					}
 					// changing the value on keypress
-				
 				});
-				value.addEventListener('keydown', function(e) { 
-					if(e.key =="ArrowUp") {
-						value.value++
+				value.addEventListener("keydown", function (e) {
+					if (e.key == "ArrowUp") {
+						value.value++;
 					}
-					if(e.key =="ArrowDown" && value.value > 0) {
+					if (e.key == "ArrowDown" && value.value > 0) {
 						value.value--;
 					}
-					console.log(value.value)
-
-				})
+					console.log(value.value);
+				});
 			}
 			itemsList.append(firstTab);
 		}
@@ -555,7 +568,7 @@ fetch("./js/convertcsv.json")
 		homeButton.addEventListener("click", function (e) {
 			document
 				.querySelector(".dropdown-lists-container")
-				.classList.add('hidden')
+				.classList.add("hidden");
 			// document.querySelector(".dropdown-lists-container").style.display =
 			// 	"none";
 			document.querySelector(".tabs-list-container").classList.add("hidden");
