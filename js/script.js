@@ -647,6 +647,7 @@ contact.addEventListener('click',function(e) {
 		document.querySelector('.dropdown-lists-container').classList.add('hidden')
 		document.querySelector('.tabs-list-container').classList.add('hidden')
 		document.querySelector('.items').innerHTML = "";
+		document.querySelector('.item-list-container').classList.remove('hidden')	
 
 		// document.getElementById("lieferanten").value = "select";
 		// document.getElementById("gewerk").value = "select";
@@ -680,6 +681,8 @@ contact.addEventListener('click',function(e) {
 			
 			itemsListContainer.append(contactDiv)
 		}
+
+		// contactDiv.classList.remove('hidden')
 
 		window.hasLoadedList = false;
 

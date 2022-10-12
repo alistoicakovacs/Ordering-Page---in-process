@@ -789,6 +789,11 @@ li {
 		
 	}	
 
+	.dropdown {
+		font-size: 12px;
+
+	}
+
 	.item-container {
     	max-height: 100vh;
 		max-width: 100%;
