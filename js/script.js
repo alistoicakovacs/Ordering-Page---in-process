@@ -108,8 +108,11 @@ const sendCartButton = document.querySelector(".send-cart-button");
 // console.log({ jsonData });
 ///////////////////////
 // assigning users
-const user1 = new User("ask", 1234);
-const user2 = new User("jcl", 1234);
+const user1 = new User("ask", 1234,"Ali Stoica Kovacs", "test@email.com");
+const user2 = new User("jcl", 1234, "Bestellung KKT", "test@email.de");
+
+const users = [user1,user2]
+
 
 // fetching json list and then calling the functions on it.
 fetch("./js/convertcsv.json")
@@ -204,7 +207,7 @@ fetch("./js/convertcsv.json")
 
 				addToCartButton.classList.add("cart-button");
 				addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-xl"></i>`;
-				addToCartButton.style.marginLeft = "15px";
+				// addToCartButton.style.marginLeft = "15px";
 
 				div.appendChild(articles);
 				div.append(descriptions);
@@ -290,9 +293,9 @@ fetch("./js/convertcsv.json")
 							if (itemQty.textContent === "0") {
 								checkout.classList.add("hidden");
 								items.classList.remove("opacity");
-								document
-									.querySelector(".item-container")
-									.removeChild(document.querySelector(".overlay"));
+								// document
+								// 	.querySelector(".item-container")
+								// 	.removeChild(document.querySelector(".overlay"));
 							}
 						});
 
@@ -557,6 +560,7 @@ fetch("./js/convertcsv.json")
 					.querySelector(".tabs-list-container")
 					.classList.remove("hidden");
 				itemsListContainer.classList.remove("hidden");
+
 				// document.querySelector(".dropdown-lists-container").style.display =
 				// 	"grid";
 				createList(jsonData);
@@ -637,3 +641,46 @@ fetch("./js/convertcsv.json")
 // }).then(
 //   message => alert(message)
 // );
+
+contact.addEventListener('click',function(e) {
+	console.log('click')
+		document.querySelector('.dropdown-lists-container').classList.add('hidden')
+		document.querySelector('.tabs-list-container').classList.add('hidden')
+		document.querySelector('.items').innerHTML = "";
+
+		// document.getElementById("lieferanten").value = "select";
+		// document.getElementById("gewerk").value = "select";
+		// createList(filteredData);
+		// document.getElementById("anwendung").value = "select";
+		// createList(filteredData);	
+		
+		const contactDiv = document.createElement('div')
+		contactDiv.classList.add('contact-div')
+
+		// if the container does not contain something from the div that is created underneath, then it should create them - meaning, if there are divs already, they won't be recreated.
+		if(!itemsListContainer.innerHTML.includes("h4")) {
+			users.forEach(function(e) { 
+				const contactCard = document.createElement('div');
+				const contactCardTitle = document.createElement('h4');
+				const contactCardContent = document.createElement('p');
+
+				contactCard.classList.add('contact-card')
+				contactCardTitle.classList.add('contact-card-title')
+				contactCardContent.classList.add('contact-card-content')
+				
+
+				contactCardTitle.textContent = e.fullname;
+				contactCardContent.textContent = e.email;
+			
+				contactCard.appendChild(contactCardTitle)
+				contactCard.appendChild(contactCardContent)
+				contactDiv.append(contactCard)	
+
+			})
+			
+			itemsListContainer.append(contactDiv)
+		}
+
+		window.hasLoadedList = false;
+
+})
