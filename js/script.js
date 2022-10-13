@@ -293,7 +293,7 @@ fetch("./js/convertcsv.json")
 							// if the cart is empty, remove and add class lists to get back to normal
 							if (itemQtyWk.textContent === "0") {
 								checkout.classList.add("hidden");
-								this.document.querySelector(".item-container").removeChild(document.querySelector('.overlay'));
+								document.querySelector(".item-container").removeChild(document.querySelector('.overlay'));
 							
 								
 								
