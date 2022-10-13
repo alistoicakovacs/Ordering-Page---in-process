@@ -180,6 +180,7 @@ input::-webkit-inner-spin-button {
 	font-weight: 600;
 	user-select: none;
 	border-bottom:inset;
+	padding:10px;
 
 }
 

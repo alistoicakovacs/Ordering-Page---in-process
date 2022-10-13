@@ -126,8 +126,9 @@ fetch("./js/convertcsv.json")
 		loginButton.addEventListener("click", function (element) {
 			if (
 				username.value === user1.username &&
-				password.value == user1.password &&
-				projektnummerInput.value.length == 7
+				password.value == user1.password 
+
+				// && projektnummerInput.value.length == 7
 			) {
 				console.log("success");
 				document.querySelector(".login-container").classList.add("hidden");
@@ -426,7 +427,6 @@ fetch("./js/convertcsv.json")
 			document.getElementById("anwendung").value = "select";
 
 			createList(filteredData);
-
 			if (gewerkDropdown.value === "all") {
 				items.innerHTML = "";
 				createList(jsonData);
@@ -565,8 +565,9 @@ fetch("./js/convertcsv.json")
 				document
 					.querySelector(".tabs-list-container")
 					.classList.remove("hidden");
-				itemsListContainer.classList.remove("hidden");
-
+				itemsListContainer.classList.remove("hidden");		
+				contactDiv.classList.add('hidden')
+				
 				// document.querySelector(".dropdown-lists-container").style.display =
 				// 	"grid";
 				createList(jsonData);
@@ -647,9 +648,11 @@ fetch("./js/convertcsv.json")
 // }).then(
 //   message => alert(message)
 // );
+const contactDiv = document.createElement('div')
+		contactDiv.classList.add('contact-div')
 
 contact.addEventListener('click',function(e) {
-	console.log('click')
+
 		document.querySelector('.dropdown-lists-container').classList.add('hidden')
 		document.querySelector('.tabs-list-container').classList.add('hidden')
 		document.querySelector('.items').innerHTML = "";
@@ -661,12 +664,10 @@ contact.addEventListener('click',function(e) {
 		// document.getElementById("anwendung").value = "select";
 		// createList(filteredData);	
 		
-		const contactDiv = document.createElement('div')
-		contactDiv.classList.add('contact-div')
 
 		// if the container does not contain something from the div that is created underneath, then it should create them - meaning, if there are divs already, they won't be recreated.
 		if(!itemsListContainer.innerHTML.includes("h4")) {
-			users.forEach(function(e) { 
+			users.map(function(e) { 
 				const contactCard = document.createElement('div');
 				const contactCardTitle = document.createElement('h4');
 				const contactCardContent = document.createElement('p');
@@ -685,9 +686,12 @@ contact.addEventListener('click',function(e) {
 
 			})
 			
+			console.log(users)
 			itemsListContainer.append(contactDiv)
 		}
+			
 
+		contactDiv.classList.remove('hidden')
 		// contactDiv.classList.remove('hidden')
 
 		window.hasLoadedList = false;
