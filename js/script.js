@@ -290,9 +290,13 @@ fetch("./js/convertcsv.json")
 							itemQty.textContent--;
 							itemQtyWk.textContent--;
 							// if the cart is empty, remove and add class lists to get back to normal
-							if (itemQty.textContent === "0") {
+							if (itemQtyWk.textContent === "0") {
 								checkout.classList.add("hidden");
-								items.classList.remove("opacity");
+								this.document.querySelector(".item-container").removeChild(document.querySelector('.overlay'));
+							
+								
+								
+									console.log('empty')
 								// document
 								// 	.querySelector(".item-container")
 								// 	.removeChild(document.querySelector(".overlay"));
@@ -471,9 +475,11 @@ fetch("./js/convertcsv.json")
 			overlay.style.borderRadius = "10px";
 			overlay.style.zIndex = "99";
 
+	
+
 			if (checkout.classList !== "hidden") {
 				document.querySelector(".item-container").appendChild(overlay);
-			}
+			} 
 
 			window.addEventListener("click", function (e) {
 				if (e.target == overlay) {
