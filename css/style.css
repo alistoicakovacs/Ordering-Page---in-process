@@ -598,14 +598,15 @@ li {
 	.warenkorb-button {
 		cursor:pointer;
 		border: 1px solid coral;
-		font-weight: 500;
-		background-color: transparent;
+		font-weight: 600;
+		background-color: coral;
 		/* border:none; */
 		transition:0.2s ease-in;
-		padding:5px;
-		border-radius:5px;
+		padding:10px;
+		border-radius:25px;
 		width: max-content;
 		justify-self: center;
+		box-shadow: 1px 0.5px 3px black;
 		}
 				
 		
