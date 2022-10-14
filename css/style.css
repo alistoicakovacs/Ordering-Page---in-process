@@ -746,6 +746,352 @@ li {
 		border:none;
 		box-shadow: none;
 		height: 70vh;
+		width: 390px;
+		justify-content: space-evenly;
+		overscroll-behavior: contain;
+		overflow: hidden;
+		position: absolute;
+		bottom:0;
+
+	}
+	
+	/* .tabs {
+		display: block;
+	}
+
+	.tabs li {
+		display: block
+	} */
+
+	.type,
+	.use,
+	.supplier {
+		display:none;
+	}
+	
+
+	.login-title {
+		font-size: 3rem;
+		font-weight: 700;
+		margin-bottom: 30px;
+		padding-bottom: 10px;
+	}
+
+		.user-input,
+		.user-password,
+		.projektnummer {
+			width: 150px;
+			border: 1px solid #d4dadb;
+			border-radius: 40px;
+			padding: 10px;
+			outline: none;
+			transition: transform 400ms;
+			font-weight: 700; 
+			
+		}
+
+		.user h6,
+		.password h6,
+		.projektnummer-div h6 {
+			margin-bottom: 10px;
+			font-size: 0.7em;
+
+		}
+
+		.user-input:focus,
+		.user-password:focus,
+		.projektnummer:focus {
+			transform: translateY(2px);
+			border: 1px solid coral;
+			color:coral;
+			overscroll-behavior: contain;
+
+
+	
+		}
+
+		.user-input:focus::-webkit-input-placeholder,
+		.user-password:focus::-webkit-input-placeholder,
+		.projektnummer:focus::-webkit-input-placeholder {
+			color: coral;
+			font-weight: 600;
+			overscroll-behavior: contain;
+
+		}
+
+	.dropdown-lists-container {
+		/* width:100%; */
+		justify-items: center;
+		grid-template-areas:
+		". filter-menu ."
+		". filter1 ."
+		". filter2 ."
+		". filter3 ."
+		". search ."
+		". cart .";
+		display: grid;
+		
+	}	
+	
+	.filter-menu {
+		grid-area: filter-menu;
+	}
+	
+	#lieferanten {
+		grid-area: filter1;
+	  }
+	
+	  #gewerk {
+		grid-area: filter2;
+	  }
+	
+	  #anwendung{
+		grid-area: filter3;
+	  }
+	
+	  #searchbox {
+		grid-area: search;
+	  }
+	  
+	  .warenkorb-button {
+		grid-area: cart;
+	  }
+
+	.dropdown {
+		font-size: 12px;
+
+	}
+
+	.item-container {
+    	max-height: 100vh;
+		max-width: 100%;
+		box-shadow: none;
+		border:none;
+		
+	}
+
+	.items {
+		overflow: scroll;
+		/* height: 100vh;
+		max-height: 100vh; */
+	}
+
+	.item-list-container {
+		max-height: 100vh;
+		width: 100%;
+
+	}
+
+	.topbar,
+	.navbar {
+		text-align: center;
+		font-size: 14px;
+		width:100%;
+		margin:0;
+	}
+
+	.tabs {
+		display:none;
+	}
+
+	.projektnummer-title {
+		
+		border-bottom: none;
+
+	}
+
+	.div-container {
+		/* grid-template-columns: 1fr 2fr 2fr; */
+		height:70px;
+		font-size: 12px;
+		/* display: flex; */
+		justify-content: space-between;
+		align-items: center;
+		/* margin-right: 10px; */
+		grid-template-columns: 3fr 1fr;
+	}
+
+	.list-div-container {
+		max-height: 100vh;
+	}
+
+	.articles {
+		display: none;
+	}
+
+	.cart-container {
+		font-size: 12px;
+		width: 100%;
+		
+	}
+
+	.cart-div {
+		border-bottom: inset;
+		padding-bottom: 12px;
+		/* display:flex; */
+		/* justify-content: center; */
+		align-items: baseline;
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr 1fr;
+	}
+
+	
+	.cart {
+		width: 100%;
+		height: 100vh;
+		top:0;
+		left:0;
+		right: 0;
+		bottom:0;
+		border: none;
+		box-shadow: none;
+	}
+
+	.contact-div {
+		display:grid;
+		grid-template-columns: auto;
+		justify-items: center;
+		height: 50px;
+		width: 100;
+	}
+
+	/* .cart-button:first-child,
+	.cart-button:nth-child(2) {
+		border:1px solid #939393
+	} */
+
+	button:nth-child(4) i {
+		/* border:1px solid #939393; */
+		padding:14px;
+		/* color:rgb(255, 255, 255);
+		background-color: coral; */
+	}
+
+	.cart-button:nth-child(1) {
+		 display:none; 
+	}
+
+	.plus-button {
+		display:none;
+	}
+
+	button input {
+		width: 20px;
+	}
+	
+
+	.warenkorb-button {
+		border: 1px solid coral;
+		background: coral;
+		color:white;
+		width: 150px;
+		justify-self: center;
+
+	}
+
+	.checkout {
+		border:none;
+		height: 100vh;
+		width: auto;
+	}
+
+	.cart-button{ 
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.welcome {
+		position: fixed;
+		width: 100%;
+		font-size: 4rem;
+		height: 100vh;
+		background: rgba(178, 178, 178, 0.593);
+	}
+
+
+	.cart-close-button:focus {
+		color: coral;
+	}
+
+
+	.send-button,
+	.close-button {
+		border:2px solid #d4dadb  ;
+	}
+
+
+	.send-button:hover,
+	.send-button:focus,
+	.close-button:hover,
+	.close-button:focus{
+		background-color: transparent;
+		border: 2px solid coral;
+		color:coral;
+
+	}
+
+	/* .close-cart-button::before {
+		border: 1px solid gray;
+		padding:10px;
+		border-radius: 50%;
+		width: 38px;
+		height: 38px;
+	} */
+
+	/* .send-cart-button {
+		border: 1px solid black;
+	} */
+
+	.value {
+		width: 20px;
+		margin: 10px;
+	}
+
+	.card { 
+		width: 250px;
+		height: 200px;
+		display: block;
+		z-index: 200;
+		position: inherit;
+		top:20%;
+		left:20%;
+		margin:1px solid black;
+		background-color: #d6d5d5f5;
+		border-radius: 10px;
+		padding:10px;
+		box-shadow: 10px 10px 25px  rgb(128, 128, 128);
+	}
+
+	.value {
+		border-radius: 0;
+		border: 1px solid #939393;
+	}
+}
+
+.hidden {
+	display:none;
+	/* transition: 1s ease-in-out; */
+	/* animation: fade-out 1s; */
+	/* transition: ease-out;
+	transition-property: all;
+	transition-duration: 1s; */
+}
+
+@media only screen 
+    and (device-width: 414px) 
+    and (device-height: 896px)  {
+
+	html,body {
+		background:none;
+		max-width: 100%;
+		max-height: 100vh;
+	}
+
+	.login-container{
+		border:none;
+		box-shadow: none;
+		height: 70vh;
 		width: 414px;
 		justify-content: space-evenly;
 		overscroll-behavior: contain;
@@ -1059,13 +1405,4 @@ li {
 		border-radius: 0;
 		border: 1px solid #939393;
 	}
-}
-
-.hidden {
-	display:none;
-	/* transition: 1s ease-in-out; */
-	/* animation: fade-out 1s; */
-	/* transition: ease-out;
-	transition-property: all;
-	transition-duration: 1s; */
 }
