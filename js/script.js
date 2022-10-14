@@ -175,6 +175,7 @@ fetch("./js/convertcsv.json")
 				const plusButton = document.createElement("button");
 				const addToCartButton = document.createElement("button");
 
+				div.classList.add("list-div-container")
 				articles.classList.add("articles");
 				articles.style.fontWeight = "bold";
 				articles.innerHTML = array[i].artnr;

@@ -877,7 +877,7 @@ li {
 	.topbar,
 	.navbar {
 		text-align: center;
-		font-size: 10px;
+		font-size: 14px;
 	}
 
 	.tabs {
@@ -899,6 +899,10 @@ li {
 		align-items: center;
 		margin-right: 10px;
 		grid-template-columns: 3fr 1fr;
+	}
+
+	.list-div-container {
+		max-height: 100vh;
 	}
 
 	.articles {
