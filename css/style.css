@@ -899,7 +899,7 @@ li {
 		align-items: center;
 		margin-right: 10px;
 		grid-template-columns: 3fr 1fr;
-}
+	}
 
 	.articles {
 		display: none;
@@ -953,8 +953,8 @@ li {
 		background-color: coral; */
 	}
 
-	button:nth-child(1) {
-		/* display:none; */
+	.cart-button:nth-child(1) {
+		 display:none; 
 	}
 
 	.plus-button {
