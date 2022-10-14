@@ -6,35 +6,21 @@
 }
 
 body {
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
 	height: 100vh;
 	font-family: 'Roboto', sans-serif;
-
-	/* background-color: #9dd8f3;
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	background-size: cover; */
+	background-size: cover; 
 	height: 100vh;
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+.dark-mode {
+	float:right;
+	margin:20px;
 }
 
 .items div {
 	width: 100%;
 }
+
 
 .login-container {
 	height: 700px;
@@ -144,12 +130,12 @@ input::-webkit-inner-spin-button {
 	cursor: pointer;
 	padding: 10px;
 	border-radius:25px;
-	border: none;
+	border: 1px solid coral;
 	width: 100px;
 	transition: transform 250ms;
 	font-weight: bold;
-	background-color: transparent;
-	color: black;
+	background-color: coral;
+	color: white;
 	transition: 0.3s ease-in;
 }
 
@@ -244,7 +230,6 @@ input::-webkit-inner-spin-button {
 	height: 100%;
 	width: 100%;
 	background-color: white;
-	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -285,7 +270,6 @@ input::-webkit-inner-spin-button {
 .item-list-container {
 	height: 100%;
 	width: 100%;
-	border-radius: 10px;
 	overflow-y: auto;
 	z-index: 2;
 	
@@ -452,6 +436,10 @@ li {
 
 .item-qty-wk {
 	color: tomato;
+}
+
+.contact-div {
+
 }
 
 
@@ -829,8 +817,6 @@ li {
 		". filter3 ."
 		". search ."
 		". cart .";
-		display: grid;
-		
 	}	
 	
 	.filter-menu {
@@ -877,7 +863,7 @@ li {
 	}
 
 	.item-list-container {
-		max-height: 100vh;
+		height:500px;
 		width: 100%;
 
 	}
@@ -1166,9 +1152,7 @@ li {
 		". filter2 ."
 		". filter3 ."
 		". search ."
-		". cart .";
-		display: grid;
-		
+		". cart .";		
 	}	
 	
 	.filter-menu {
@@ -1191,9 +1175,9 @@ li {
 		grid-area: search;
 	  }
 	  
-	  .warenkorb-button {
+	.warenkorb-button {
 		grid-area: cart;
-	  }
+	}
 
 	.dropdown {
 		font-size: 12px;
@@ -1215,7 +1199,7 @@ li {
 	}
 
 	.item-list-container {
-		max-height: 100vh;
+		height: 510px;
 		width: 100%;
 
 	}

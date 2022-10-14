@@ -75,6 +75,7 @@ const dropdownListContainer = document.querySelector(
 );
 const contact = document.querySelector(".contact");
 const sendCartButton = document.querySelector(".send-cart-button");
+const darkButton = document.querySelector(".dark-mode");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -688,4 +689,8 @@ contact.addEventListener("click", function (e) {
 	// contactDiv.classList.remove('hidden')
 
 	window.hasLoadedList = false;
+});
+
+darkButton.addEventListener("click", function (e) {
+	console.log("click");
 });
