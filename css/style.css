@@ -261,8 +261,12 @@ input::-webkit-inner-spin-button {
 
 
 .dropdown-lists-container {
-	display: flex;
-	align-items: center;
+	display: grid;
+	grid-template-areas: 
+	"filter1 filter2 filter3"
+	"search search search"
+	". cart . "
+	;
 	gap: 20px;
 	padding: 10px;
 	margin:20px 0 20px;
@@ -339,6 +343,26 @@ li {
 	border:1px solid #939393;
 	outline:none;
 	width: 200px;
+  }
+
+  #lieferanten {
+	grid-area: filter1;
+  }
+
+  #gewerk {
+	grid-area: filter2;
+  }
+
+  #anwendung{
+	grid-area: filter3;
+  }
+
+  #searchbox {
+	grid-area: search;
+  }
+
+  .warenkorb-button {
+	grid-area: cart;
   }
 
   .search-button {
@@ -427,9 +451,9 @@ li {
 	
 }
 
-.contact-div {
+.item-qty-wk {
+	color: tomato;
 }
-
 
 
 
@@ -573,13 +597,15 @@ li {
 
 	.warenkorb-button {
 		cursor:pointer;
-		border: none;
+		border: 1px solid coral;
 		font-weight: 500;
 		background-color: transparent;
-		border:none;
+		/* border:none; */
 		transition:0.2s ease-in;
 		padding:5px;
 		border-radius:5px;
+		width: max-content;
+		justify-self: center;
 		}
 				
 		
