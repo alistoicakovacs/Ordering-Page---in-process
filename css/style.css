@@ -812,11 +812,42 @@ li {
 		}
 
 	.dropdown-lists-container {
-		width:100%;
-		grid-template-columns: auto;
+		/* width:100%; */
 		justify-items: center;
+		grid-template-areas:
+		". filter-menu ."
+		". filter1 ."
+		". filter2 ."
+		". filter3 ."
+		". search ."
+		". cart .";
+		display: grid;
 		
 	}	
+	
+	.filter-menu {
+		grid-area: filter-menu;
+	}
+	
+	#lieferanten {
+		grid-area: filter1;
+	  }
+	
+	  #gewerk {
+		grid-area: filter2;
+	  }
+	
+	  #anwendung{
+		grid-area: filter3;
+	  }
+	
+	  #searchbox {
+		grid-area: search;
+	  }
+	  
+	  .warenkorb-button {
+		grid-area: cart;
+	  }
 
 	.dropdown {
 		font-size: 12px;
@@ -923,7 +954,7 @@ li {
 	}
 
 	button:nth-child(1) {
-		display:none;
+		/* display:none; */
 	}
 
 	.plus-button {
