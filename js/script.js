@@ -515,6 +515,8 @@ fetch("./js/convertcsv.json")
 				itemsListContainer.classList.remove("hidden");
 				document.querySelector(".dropdown-lists-container").style.display =
 					"grid";
+				document.querySelector(".dropdown-lists-container").style.display =
+					"flex";
 				createList(jsonData);
 				window.hasLoadedList = true;
 			}
