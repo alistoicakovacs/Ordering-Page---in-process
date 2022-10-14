@@ -878,6 +878,7 @@ li {
 	.navbar {
 		text-align: center;
 		font-size: 14px;
+		position: sticky;
 	}
 
 	.tabs {
@@ -893,11 +894,11 @@ li {
 	.div-container {
 		/* grid-template-columns: 1fr 2fr 2fr; */
 		height:70px;
-		font-size: 11px;
+		font-size: 12px;
 		/* display: flex; */
 		justify-content: space-between;
 		align-items: center;
-		margin-right: 10px;
+		/* margin-right: 10px; */
 		grid-template-columns: 3fr 1fr;
 	}
 
