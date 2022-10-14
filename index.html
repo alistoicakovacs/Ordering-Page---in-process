@@ -4,15 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
- 
+  <!-- Font Awesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <title>Website</title>
 </head>
 <body>
   <!--Login container-->
   <!-- Add or remove 'hidden' class to see or hide the login container -->
-  <div class="login-container ">
+  <div class="login-container">
     <h1 class="login-title">Login</h1>
     <div class="sub-container">
     <div class="user">
@@ -23,12 +27,12 @@
   <div class="password">  
     <h6>Password</h5>
       <i class="fa-solid fa-lock fa-lg"></i>
-  <input type="password" name="user-password" id="user-password" class="user-password" placeholder="password" required>
+  <input pattern="[0-9]*" type="password" name="user-password" id="user-password" class="user-password" placeholder="password" required>
   </div>
   <div class="projektnummer-div">  
     <h6>Projekt Nummer</h5>
       <i class="fa-sharp fa-solid fa-diagram-project fa-lg"></i>
-  <input type="number" name="projektnummer" id="projektnummer" class="projektnummer" placeholder="projekt" required>
+  <input type="number" pattern="[0-9]*" name="projektnummer" id="projektnummer" class="projektnummer" placeholder="projekt" required>
   </div>
     <button class="login-button">Log in</button>
     
@@ -58,6 +62,7 @@
    
     <div class="dropdown-lists-container hidden">
       <!-- <button class="all-products">Alle Artikeln</button>   -->
+         <!-- <i class="fa-solid fa-filters filter-menu">Filter</i>  -->
           <label for="option" >Lieferant:</label>
           <select name="lieferanten" id="lieferanten" class="dropdown">
             <option value="select">Lieferant Auswählen</option>
@@ -74,7 +79,8 @@
             <option value="all">Alle</option>
           </select>
          <input type="search" name="searchbox" id="searchbox" placeholder="Search">
-         <button class="warenkorb-button">Warenkorb (<span class="item-qty">0</span>)</button>
+         <button class="warenkorb-button">Warenkorb (<span class="item-qty" >0</span>)
+         </button>
 
     </div>
     <div class="tabs-list-container hidden">
@@ -97,12 +103,14 @@
   <div class="cart">
     <div class="title">
       <h2 class = "warenkorb-title">Warenkorb(<span class="item-qty-wk">0</span>)</h2>
+      <div class="buttons-header">
       <button class = "send-button">
         <i class="send-cart-button fa-sharp fa-solid fa-paper-plane"></i>
       </button>
       <button class = "close-button">
         <i class="close-cart-button fa-solid fa-xmark"></i>
       </button>
+    </div>
     </div>
      <div class="cart-container">
      </div>
@@ -117,8 +125,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 <!-- Setting the type to "module" in order to be able to import files in script.js-->
 <script type="module" src="js/script.js" defer></script>
 <script typ="json" src='/js/convertcsv.json'></script>
+<!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
 </body>
 </html>

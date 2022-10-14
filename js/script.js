@@ -74,6 +74,7 @@ const dropdownListContainer = document.querySelector(
 	".dropdown-lists-container"
 );
 const contact = document.querySelector(".contact");
+const sendCartButton = document.querySelector(".send-cart-button");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
 // Login functionality has yet to be fixed and be set dynamic
@@ -107,8 +108,10 @@ const contact = document.querySelector(".contact");
 // console.log({ jsonData });
 ///////////////////////
 // assigning users
-const user1 = new User("ask", 1234);
-const user2 = new User("jcl", 1234);
+const user1 = new User("ask", 1234, "Ali Stoica Kovacs", "test@email.com");
+const user2 = new User("jcl", 1234, "Bestellung KKT", "test@email.de");
+
+const users = [user1, user2];
 
 // fetching json list and then calling the functions on it.
 fetch("./js/convertcsv.json")
@@ -122,8 +125,9 @@ fetch("./js/convertcsv.json")
 		loginButton.addEventListener("click", function (element) {
 			if (
 				username.value === user1.username &&
-				password.value == user1.password &&
-				projektnummerInput.value.length == 7
+				password.value == user1.password
+
+				// && projektnummerInput.value.length == 7
 			) {
 				console.log("success");
 				document.querySelector(".login-container").classList.add("hidden");
@@ -133,10 +137,12 @@ fetch("./js/convertcsv.json")
 				document
 					.querySelector(".dropdown-lists-container")
 					.classList.add("hidden");
+				document.querySelector(".topbar").classList.add("hidden");
 				welcome.classList.add("opacity");
 				// when loaded, should exit on click
 				welcome.addEventListener("click", function () {
 					welcome.classList.add("opacity-fadeout-effect");
+					document.querySelector(".topbar").classList.remove("hidden");
 				});
 			} else {
 				alert("Incorrect username or password");
@@ -165,8 +171,10 @@ fetch("./js/convertcsv.json")
 				const button = document.createElement("button");
 				const value = document.createElement("input");
 				const minusButton = document.createElement("button");
+				const plusButton = document.createElement("button");
 				const addToCartButton = document.createElement("button");
 
+				div.classList.add("list-div-container");
 				articles.classList.add("articles");
 				articles.style.fontWeight = "bold";
 				articles.innerHTML = array[i].artnr;
@@ -186,17 +194,21 @@ fetch("./js/convertcsv.json")
 				// value.style.width = "40px";
 				// value.style.margin = "20px";
 				value.style.textAlign = "center";
+				value.style.width = "30px";
 				value.classList.add("value");
+				value.pattern = "[0-9]*";
 
 				minusButton.classList.add("cart-button");
 				minusButton.innerHTML = `<i class="fa-sharp fa-solid fa-minus"></i>`;
 
 				button.classList.add("cart-button");
-				button.innerHTML = `<i class="fa-regular fa-plus"></i>`;
+
+				plusButton.innerHTML = `<i class="fa-regular fa-plus"></i>`;
+				plusButton.classList.add("plus-button");
 
 				addToCartButton.classList.add("cart-button");
 				addToCartButton.innerHTML = `<i class="fa-solid fa-cart-shopping fa-xl"></i>`;
-				addToCartButton.style.marginLeft = "15px";
+				// addToCartButton.style.marginLeft = "15px";
 
 				div.appendChild(articles);
 				div.append(descriptions);
@@ -206,6 +218,7 @@ fetch("./js/convertcsv.json")
 				div.append(button);
 				button.prepend(value);
 				button.prepend(minusButton);
+				button.append(plusButton);
 				button.append(addToCartButton);
 
 				firstTab.appendChild(div);
@@ -221,19 +234,24 @@ fetch("./js/convertcsv.json")
 					if (event.target.classList == "fa-regular fa-plus") {
 						value.value++;
 						// else if the minues is clicked, decrease value
-					} else if (event.target.classList == "fa-sharp fa-solid fa-minus") {
+					} else if (
+						event.target.classList == "fa-sharp fa-solid fa-minus" &&
+						value.value > 0
+					) {
 						value.value--;
 					}
 					// if the cart button is clicked, create cart items and increase the quantity
 					else if (
 						event.target.classList == "fa-solid fa-cart-shopping fa-xl" &&
-						value.value !== ""
+						value.value !== "" &&
+						!cartContainer.textContent.includes(array[i].description)
 					) {
 						const cartDiv = document.createElement("div");
 						const cartArtnr = document.createElement("li");
 						const cartArtDescr = document.createElement("li");
 						const deleteButton = document.createElement("button");
 						const total = document.createElement("div");
+						const editButton = document.createElement("button");
 
 						cartDiv.classList.add("cart-div");
 						// create art number and append it - according to the event listener
@@ -241,7 +259,11 @@ fetch("./js/convertcsv.json")
 						cartArtnr.classList.add("cart-item");
 						// create description and append it - according to the event listener
 						cartArtDescr.innerHTML =
-							array[i].description + ` <strong>(${value.value})</strong>`;
+							array[i].description +
+							` <strong class="nr">(${value.value})</strong>`;
+
+						editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+						editButton.classList.add("edit-button");
 
 						cartArtDescr.classList.add("cart-art-description");
 						// create the delete button and append it
@@ -251,9 +273,16 @@ fetch("./js/convertcsv.json")
 						// total.innerHTML = `<p>Total Artikel: </p>`
 						total.classList.add("total");
 
+						// if (cartContainer.textContent.includes(array[i].description)) {
+						// 	console.log('duplicate')
+						// 	cartArtDescr.innerHTML =
+						// 	array[i].description + ` <strong>(${value.value++})</strong>`;
+						// }
+
 						cartDiv.append(cartArtnr);
 						cartDiv.append(cartArtDescr);
 						cartDiv.append(deleteButton);
+						cartDiv.append(editButton);
 						cartContainer.appendChild(cartDiv);
 
 						// Delete button for the cart + incrementing and decrementing the qty number on button click
@@ -262,20 +291,43 @@ fetch("./js/convertcsv.json")
 							itemQty.textContent--;
 							itemQtyWk.textContent--;
 							// if the cart is empty, remove and add class lists to get back to normal
-							if (itemQty.textContent === "0") {
+							if (itemQtyWk.textContent === "0") {
 								checkout.classList.add("hidden");
-								items.classList.remove("opacity");
 								document
 									.querySelector(".item-container")
 									.removeChild(document.querySelector(".overlay"));
+
+								console.log("empty");
+								// document
+								// 	.querySelector(".item-container")
+								// 	.removeChild(document.querySelector(".overlay"));
 							}
 						});
 
+						editButton.addEventListener("click", function (e) {
+							const inputQuantity = window.prompt("Bestellmenge ändern");
+							this.parentElement.querySelector(".nr").textContent =
+								"(" + inputQuantity + ")";
+							console.log(inputQuantity);
+						});
+						// let arrayOfProducts = [];
+						// arrayOfProducts += arrayOfProducts + array[i];
+						// console.log(arrayOfProducts);
 						// update quantity and reset input value when a new item is added to the cart
 						itemQty.textContent++;
 						itemQtyWk.textContent++;
 						value.value = "";
 					}
+					// changing the value on keypress
+				});
+				value.addEventListener("keydown", function (e) {
+					if (e.key == "ArrowUp") {
+						value.value++;
+					}
+					if (e.key == "ArrowDown" && value.value > 0) {
+						value.value--;
+					}
+					console.log(value.value);
 				});
 			}
 			itemsList.append(firstTab);
@@ -375,7 +427,6 @@ fetch("./js/convertcsv.json")
 			document.getElementById("anwendung").value = "select";
 
 			createList(filteredData);
-
 			if (gewerkDropdown.value === "all") {
 				items.innerHTML = "";
 				createList(jsonData);
@@ -513,10 +564,10 @@ fetch("./js/convertcsv.json")
 					.querySelector(".tabs-list-container")
 					.classList.remove("hidden");
 				itemsListContainer.classList.remove("hidden");
-				document.querySelector(".dropdown-lists-container").style.display =
-					"grid";
-				document.querySelector(".dropdown-lists-container").style.display =
-					"flex";
+				contactDiv.classList.add("hidden");
+
+				// document.querySelector(".dropdown-lists-container").style.display =
+				// 	"grid";
 				createList(jsonData);
 				window.hasLoadedList = true;
 			}
@@ -527,8 +578,8 @@ fetch("./js/convertcsv.json")
 			document
 				.querySelector(".dropdown-lists-container")
 				.classList.add("hidden");
-			document.querySelector(".dropdown-lists-container").style.display =
-				"none";
+			// document.querySelector(".dropdown-lists-container").style.display =
+			// 	"none";
 			document.querySelector(".tabs-list-container").classList.add("hidden");
 			itemsListContainer.classList.add("hidden");
 
@@ -556,3 +607,85 @@ fetch("./js/convertcsv.json")
 // 	}
 // 	window.hasLoadedList = false;
 // });
+
+// (function () {
+// 	emailjs.init("60M2eE2c9YAljspev");
+// });
+
+// window.onload = function () {
+// 	document
+// 		.querySelector(".send-cart-button")
+// 		.addEventListener("click", function (event) {
+// 			event.preventDefault();
+// 			console.log("click");
+// 			// generate a five digit number for the contact_number variable
+// 			// this.contact_number.value = (Math.random() * 100000) | 0;
+// 			// these IDs from the previous steps
+// 			emailjs.sendForm("contact_service", "contact_form", this).then(
+// 				function () {
+// 					console.log("SUCCESS!");
+// 				},
+// 				function (error) {
+// 					console.log("FAILED...", error);
+// 				}
+// 			);
+// 		});
+// };
+
+// sendCartButton.addEventListener("click", function () {
+// 	console.log("click");
+// });
+// Email.send({
+//     Host : "smtp.yourisp.com",
+//     Username : "username",
+//     Password : "password",
+//     To : 'them@website.com',
+//     From : "you@isp.com",
+//     Subject : "This is the subject",
+//     Body : "And this is the body"
+// }).then(
+//   message => alert(message)
+// );
+const contactDiv = document.createElement("div");
+contactDiv.classList.add("contact-div");
+
+contact.addEventListener("click", function (e) {
+	document.querySelector(".dropdown-lists-container").classList.add("hidden");
+	document.querySelector(".tabs-list-container").classList.add("hidden");
+	document.querySelector(".items").innerHTML = "";
+	document.querySelector(".item-list-container").classList.remove("hidden");
+
+	// document.getElementById("lieferanten").value = "select";
+	// document.getElementById("gewerk").value = "select";
+	// createList(filteredData);
+	// document.getElementById("anwendung").value = "select";
+	// createList(filteredData);
+
+	// if the container does not contain something from the div that is created underneath, then it should create them - meaning, if there are divs already, they won't be recreated.
+	if (!itemsListContainer.innerHTML.includes("h4")) {
+		users.map(function (e) {
+			const contactCard = document.createElement("div");
+			const contactCardTitle = document.createElement("h4");
+			const contactCardContent = document.createElement("p");
+
+			contactCard.classList.add("contact-card");
+			contactCardTitle.classList.add("contact-card-title");
+			contactCardContent.classList.add("contact-card-content");
+
+			contactCardTitle.textContent = e.fullname;
+			contactCardContent.textContent = e.email;
+
+			contactCard.appendChild(contactCardTitle);
+			contactCard.appendChild(contactCardContent);
+			contactDiv.append(contactCard);
+		});
+
+		console.log(users);
+		itemsListContainer.append(contactDiv);
+	}
+
+	contactDiv.classList.remove("hidden");
+	// contactDiv.classList.remove('hidden')
+
+	window.hasLoadedList = false;
+});
