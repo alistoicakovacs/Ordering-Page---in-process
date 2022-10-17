@@ -250,7 +250,7 @@ fetch("./js/convertcsv.json")
 						const cartDiv = document.createElement("div");
 						const cartArtnr = document.createElement("li");
 						const cartArtDescr = document.createElement("li");
-						const cartSupplier = document.createElement('li')
+						const cartSupplier = document.createElement("li");
 						const deleteButton = document.createElement("button");
 						const total = document.createElement("div");
 						const editButton = document.createElement("button");
@@ -265,7 +265,7 @@ fetch("./js/convertcsv.json")
 							` <strong class="nr">(${value.value})</strong>`;
 
 						cartSupplier.innerHTML = array[i].supplier;
-						cartSupplier.classList.add("cart-supplier")
+						cartSupplier.classList.add("cart-supplier");
 
 						editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 						editButton.classList.add("edit-button");
@@ -286,7 +286,7 @@ fetch("./js/convertcsv.json")
 
 						cartDiv.append(cartArtnr);
 						cartDiv.append(cartArtDescr);
-						cartDiv.append(cartSupplier)
+						cartDiv.append(cartSupplier);
 						cartDiv.append(deleteButton);
 						cartDiv.append(editButton);
 						cartContainer.appendChild(cartDiv);
@@ -314,7 +314,6 @@ fetch("./js/convertcsv.json")
 							const inputQuantity = window.prompt("Bestellmenge ändern");
 							this.parentElement.querySelector(".nr").textContent =
 								"(" + inputQuantity + ")";
-							
 						});
 						// let arrayOfProducts = [];
 						// arrayOfProducts += arrayOfProducts + array[i];
@@ -333,7 +332,6 @@ fetch("./js/convertcsv.json")
 					if (e.key == "ArrowDown" && value.value > 0) {
 						value.value--;
 					}
-					
 				});
 			}
 			itemsList.append(firstTab);
@@ -699,28 +697,29 @@ darkButton.addEventListener("click", function (e) {
 	console.log("click");
 });
 
-
 //functionality of the send button
-sendButton.addEventListener('click', function(element) { 
+sendButton.addEventListener("click", function (element) {
 	// created a new empty array
 	const emailData = [];
 	// loop through the divs that are being added to the cart and pushing the data from them into the array created above
-	document.querySelectorAll('.cart-div').forEach(function(element) {
-				emailData.push(
-				element.firstChild.textContent + " " + element.children[1].textContent + " " + ` - ${element.children[2].textContent}`
-			)
-		})
-	
+	document.querySelectorAll(".cart-div").forEach(function (element) {
+		emailData.push(
+			element.firstChild.textContent +
+				" " +
+				element.children[1].textContent +
+				" " +
+				` - ${element.children[2].textContent}`
+		);
+	});
+
 	// we create another array, where we join the data from the previous array with a line break
-	const structuredData = emailData.join('\r\n')
-	console.log(structuredData)
+	const structuredData = emailData.join("\n");
+	console.log(structuredData);
 
 	// if the cart is not empty, then open mail app and send a structured email to the give email address.
-		if (emailData.length > 0) { 
-			window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${structuredData}`)
-		}
-
-	
-
+	if (emailData.length > 0) {
+		window.open(
+			`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${structuredData}`
+		);
+	}
 });
-
