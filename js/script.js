@@ -250,6 +250,7 @@ fetch("./js/convertcsv.json")
 						const cartDiv = document.createElement("div");
 						const cartArtnr = document.createElement("li");
 						const cartArtDescr = document.createElement("li");
+						const cartSupplier = document.createElement('li')
 						const deleteButton = document.createElement("button");
 						const total = document.createElement("div");
 						const editButton = document.createElement("button");
@@ -262,6 +263,9 @@ fetch("./js/convertcsv.json")
 						cartArtDescr.innerHTML =
 							array[i].description +
 							` <strong class="nr">(${value.value})</strong>`;
+
+						cartSupplier.innerHTML = array[i].supplier;
+						cartSupplier.classList.add("cart-supplier")
 
 						editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 						editButton.classList.add("edit-button");
@@ -282,6 +286,7 @@ fetch("./js/convertcsv.json")
 
 						cartDiv.append(cartArtnr);
 						cartDiv.append(cartArtDescr);
+						cartDiv.append(cartSupplier)
 						cartDiv.append(deleteButton);
 						cartDiv.append(editButton);
 						cartContainer.appendChild(cartDiv);
@@ -707,8 +712,8 @@ sendButton.addEventListener('click', function(element) {
 	const emailData = [];
 	document.querySelectorAll('.cart-div').forEach(function(element) {
 				emailData.push(
-				element.firstChild.textContent + " " + element.children[1].textContent 
-			)
+				element.firstChild.textContent + " " + element.children[1].textContent + " " + ` - ${element.children[2].textContent}`
+			).
 		})
 	
 	

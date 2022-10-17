@@ -570,10 +570,12 @@ li {
 
   .cart-div {
 		display: grid;
-		grid-template-columns: 1fr 3fr 1fr 0.5fr;
+		grid-template-columns: 1fr 3fr 1fr 0.5fr 0.5fr;
 		border-bottom:0.5px solid #97a6a9;
 		padding:5px;
-		font-size: 14px;
+		font-size: 14px;	
+		align-items: baseline;
+
 	}
 
 
@@ -757,6 +759,10 @@ li {
 		display:none;
 	}
 	
+	.cart-supplier {
+		display: none;
+	}
+	
 
 	.login-title {
 		font-size: 3rem;
@@ -918,7 +924,7 @@ li {
 		/* justify-content: center; */
 		align-items: baseline;
 		display: grid;
-		grid-template-columns: 1fr 3fr 1fr 1fr;
+		grid-template-columns: 1fr 3fr 1fr 0.5fr;
 	}
 
 	
@@ -1101,6 +1107,9 @@ li {
 		display:none;
 	}
 	
+	.cart-supplier {
+		display: none;
+	}
 
 	.login-title {
 		font-size: 3rem;
@@ -1254,7 +1263,7 @@ li {
 		/* justify-content: center; */
 		align-items: baseline;
 		display: grid;
-		grid-template-columns: 1fr 3fr 1fr 1fr;
+		grid-template-columns: 1fr 3fr 1fr 0.5fr;
 	}
 
 	
