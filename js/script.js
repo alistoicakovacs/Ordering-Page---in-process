@@ -713,13 +713,15 @@ sendButton.addEventListener("click", function (element) {
 	});
 
 	// we create another array, where we join the data from the previous array with a line break
-	const structuredData = emailData.join("\n");
+	const structuredData = emailData.join("\r");
 	console.log(structuredData);
 
 	// if the cart is not empty, then open mail app and send a structured email to the give email address.
 	if (emailData.length > 0) {
 		window.open(
-			`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${structuredData}`
+			`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${
+				projektnummerInput.value
+			}&body=${encodeURIComponent(structuredData)}`
 		);
 	}
 });
