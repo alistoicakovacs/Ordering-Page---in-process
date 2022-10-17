@@ -700,29 +700,27 @@ darkButton.addEventListener("click", function (e) {
 });
 
 
-// sending the email data
-
-// const emailData = [];
-
-const cartItem = document.querySelector('.cart-div')
-const cartDescription = document.querySelector('.cart-art-description')
-
-
+//functionality of the send button
 sendButton.addEventListener('click', function(element) { 
+	// created a new empty array
 	const emailData = [];
+	// loop through the divs that are being added to the cart and pushing the data from them into the array created above
 	document.querySelectorAll('.cart-div').forEach(function(element) {
 				emailData.push(
 				element.firstChild.textContent + " " + element.children[1].textContent + " " + ` - ${element.children[2].textContent}`
 			)
 		})
 	
-	
-	emailData.join('\n')
-	console.log(emailData)
-	
+	// we create another array, where we join the data from the previous array with a line break
+	const structuredData = emailData.join('\r\n')
+	console.log(structuredData)
+
+	// if the cart is not empty, then open mail app and send a structured email to the give email address.
 		if (emailData.length > 0) { 
-			window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
+			window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${structuredData}`)
 		}
+
 	
+
 });
 
