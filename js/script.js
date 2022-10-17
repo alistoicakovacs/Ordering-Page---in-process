@@ -713,6 +713,8 @@ sendButton.addEventListener('click', function(element) {
 		})
 	console.log(emailData)
 
+	emailData.join('\n')
+
 	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
 });
 
