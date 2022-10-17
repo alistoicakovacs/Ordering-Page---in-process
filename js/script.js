@@ -709,12 +709,13 @@ sendButton.addEventListener('click', function(element) {
 				emailData.push(
 				element.firstChild.textContent + " " + element.children[1].textContent
 			)
-			
+				
+			return emailData.join('\r\n')
+
 		})
+	
+
 	console.log(emailData)
-
-	emailData.join('\n')
-
 	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
 });
 
