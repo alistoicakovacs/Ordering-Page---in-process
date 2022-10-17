@@ -697,23 +697,24 @@ darkButton.addEventListener("click", function (e) {
 
 // sending the email data
 
-const emailData = [];
+// const emailData = [];
 
 const cartItem = document.querySelector('.cart-div')
 const cartDescription = document.querySelector('.cart-art-description')
 
+
 sendButton.addEventListener('click', function(element) { 
-		document.querySelectorAll('.cart-div').forEach(function(element) {
+	const emailData = [];
+	document.querySelectorAll('.cart-div').forEach(function(element) {
 				emailData.push(
 				element.firstChild.textContent + " " + element.children[1].textContent 
 			)
 		})
 	
-		
+	
+	emailData.join('\n')
 	console.log(emailData)
-	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData.join('\n')}`)
+
+	// window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
 });
 
-const structuredData = emailData.join('\n')
-
-console.log(structuredData)
