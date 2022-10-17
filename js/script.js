@@ -74,7 +74,7 @@ const dropdownListContainer = document.querySelector(
 	".dropdown-lists-container"
 );
 const contact = document.querySelector(".contact");
-const sendCartButton = document.querySelector(".send-cart-button");
+const sendButton = document.querySelector(".send-button");
 const darkButton = document.querySelector(".dark-mode");
 /////////////////////////////////////////////////
 // The list should contain the products from the JSON file that has to be converted from the xls list.
@@ -309,7 +309,7 @@ fetch("./js/convertcsv.json")
 							const inputQuantity = window.prompt("Bestellmenge ändern");
 							this.parentElement.querySelector(".nr").textContent =
 								"(" + inputQuantity + ")";
-							console.log(inputQuantity);
+							
 						});
 						// let arrayOfProducts = [];
 						// arrayOfProducts += arrayOfProducts + array[i];
@@ -328,7 +328,7 @@ fetch("./js/convertcsv.json")
 					if (e.key == "ArrowDown" && value.value > 0) {
 						value.value--;
 					}
-					console.log(value.value);
+					
 				});
 			}
 			itemsList.append(firstTab);
@@ -681,7 +681,6 @@ contact.addEventListener("click", function (e) {
 			contactDiv.append(contactCard);
 		});
 
-		console.log(users);
 		itemsListContainer.append(contactDiv);
 	}
 
@@ -694,3 +693,26 @@ contact.addEventListener("click", function (e) {
 darkButton.addEventListener("click", function (e) {
 	console.log("click");
 });
+
+
+// sending the email data
+
+const emailData = [];
+
+const cartItem = document.querySelector('.cart-div')
+const cartDescription = document.querySelector('.cart-art-description')
+
+sendButton.addEventListener('click', function(element) { 
+	
+	
+		document.querySelectorAll('.cart-div').forEach(function(element) {
+				emailData.push(
+				element.firstChild.textContent + " " + element.children[1].textContent
+			)
+			
+		})
+	console.log(emailData)
+
+	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
+});
+
