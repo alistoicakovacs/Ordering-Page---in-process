@@ -713,7 +713,7 @@ sendButton.addEventListener('click', function(element) {
 	document.querySelectorAll('.cart-div').forEach(function(element) {
 				emailData.push(
 				element.firstChild.textContent + " " + element.children[1].textContent + " " + ` - ${element.children[2].textContent}`
-			).
+			)
 		})
 	
 	
