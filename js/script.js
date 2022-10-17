@@ -703,19 +703,17 @@ const cartItem = document.querySelector('.cart-div')
 const cartDescription = document.querySelector('.cart-art-description')
 
 sendButton.addEventListener('click', function(element) { 
-	
-	
 		document.querySelectorAll('.cart-div').forEach(function(element) {
 				emailData.push(
-				element.firstChild.textContent + " " + element.children[1].textContent
+				element.firstChild.textContent + " " + element.children[1].textContent 
 			)
-				
-			return emailData.join('\r\n')
-
 		})
 	
-
+		
 	console.log(emailData)
-	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
+	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData.join('\r\n')}`)
 });
 
+const structuredData = emailData.join('\n')
+
+console.log(structuredData)
