@@ -720,6 +720,6 @@ sendButton.addEventListener('click', function(element) {
 	emailData.join('\n')
 	console.log(emailData)
 
-	// window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
+	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
 });
 
