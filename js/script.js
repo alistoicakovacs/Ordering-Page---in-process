@@ -719,7 +719,10 @@ sendButton.addEventListener('click', function(element) {
 	
 	emailData.join('\n')
 	console.log(emailData)
-
-	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
+	
+		if (emailData.length > 0) { 
+			window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData}`)
+		}
+	
 });
 
