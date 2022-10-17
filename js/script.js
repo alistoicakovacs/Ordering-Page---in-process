@@ -711,7 +711,7 @@ sendButton.addEventListener('click', function(element) {
 	
 		
 	console.log(emailData)
-	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData.join('\r\n')}`)
+	window.open(`mailto:bestellung@kkt-cool.de?subject=Bestellung: ${projektnummerInput.value}&body=${emailData.join('\n')}`)
 });
 
 const structuredData = emailData.join('\n')
