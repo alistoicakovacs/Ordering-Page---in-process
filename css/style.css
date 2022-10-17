@@ -1194,8 +1194,9 @@ li {
 	}
 
 	.item-container {
-    	max-height: 100vh;
-		max-width: 100%;
+    	/* max-height: 100vh;
+		max-width: 100%; */
+		inset:0;
 		box-shadow: none;
 		border:none;
 		
