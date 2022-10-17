@@ -471,7 +471,7 @@ fetch("./js/convertcsv.json")
 			const overlay = document.createElement("div");
 			overlay.classList.add("overlay");
 			document.querySelector(".item-container").append(overlay);
-			overlay.style.height = "100%";
+			overlay.style.height = "100vh";
 			overlay.style.width = "100%";
 			overlay.style.backgroundColor = "black";
 			overlay.style.opacity = "0.3";
