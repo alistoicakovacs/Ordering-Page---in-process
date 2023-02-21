@@ -705,8 +705,9 @@ sendButton.addEventListener("click", function (element) {
 	// loop through the divs that are being added to the cart and pushing the data from them into the array created above
 	document.querySelectorAll(".cart-div").forEach(function (element) {
 		emailData.push(
-			element.firstChild.textContent +
-				" " +
+			"Art.NR.: " +
+				element.firstChild.textContent +
+				" - " +
 				element.children[1].textContent +
 				" " +
 				` - ${element.children[2].textContent}`
