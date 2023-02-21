@@ -208,7 +208,7 @@ input::-webkit-inner-spin-button {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: 100vh;
+	height: 100svh;
 	z-index: 0;
 	opacity: 0;
 	font-weight: 800;
@@ -995,7 +995,7 @@ li {
 		position: fixed;
 		width: 100%;
 		font-size: 4rem;
-		height: 100vh;
+		height: 100svh;
 		background: rgba(178, 178, 178, 0.593);
 	}
 
@@ -1336,7 +1336,7 @@ li {
 		position: fixed;
 		width: 100%;
 		font-size: 4rem;
-		height: 100vh;
+		height: 100svh;
 		background: rgba(178, 178, 178, 0.593);
 	}
 
